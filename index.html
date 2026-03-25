@@ -1,0 +1,2586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vepuri Agro Products – From Coconut to Value</title>
+  <meta name="description"
+    content="Vepuri Agro Products – Premium coconut-based food processing company. Quality, trust, and innovation since 2011.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400;1,700&family=Outfit:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Preload hero image for instant display -->
+  <link rel="preload" as="image"
+    href="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=1400&q=70&auto=format&fit=crop">
+
+  <style>
+    :root {
+      --green: #7a9a3a;
+      --green2: #617a45;
+      --green3: #3d5228;
+      --brown: #3d1a0e;
+      --brown2: #5c2c1a;
+      --cream: #fdf5dc;
+      --white: #ffffff;
+      --black: #0a0604;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden
+    }
+
+    /* ── LOADER ── */
+    #loader {
+      position: fixed;
+      inset: 0;
+      background: var(--black);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.6s, visibility 0.6s
+    }
+
+    #loader.gone {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none
+    }
+
+    .ld-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 68px;
+      font-weight: 700;
+      letter-spacing: -2px;
+      color: #fff;
+      opacity: 0;
+      animation: fadeUp .7s .2s forwards
+    }
+
+    .ld-sub {
+      font-size: 10px;
+      letter-spacing: .45em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-top: 6px;
+      opacity: 0;
+      animation: fadeUp .7s .5s forwards
+    }
+
+    .ld-track {
+      width: 180px;
+      height: 1px;
+      background: rgba(255, 255, 255, .08);
+      margin-top: 36px;
+      overflow: hidden;
+      opacity: 0;
+      animation: fadeUp .4s .4s forwards
+    }
+
+    .ld-fill {
+      height: 100%;
+      background: var(--green);
+      width: 0;
+      animation: fill 1.4s .5s ease forwards
+    }
+
+    @keyframes fill {
+      to {
+        width: 100%
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 0 5%;
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background .4s, box-shadow .4s
+    }
+
+    nav.scrolled {
+      background: rgba(10, 6, 4, .93);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 rgba(122, 154, 58, .12)
+    }
+
+    .nav-logo svg {
+      height: 40px;
+      width: auto
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: .07em;
+      color: rgba(255, 255, 255, .7);
+      transition: color .25s;
+      position: relative;
+      padding-bottom: 2px
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--green);
+      transition: width .3s
+    }
+
+    .nav-links a:hover {
+      color: #fff
+    }
+
+    .nav-links a:hover::after {
+      width: 100%
+    }
+
+    .nav-btn {
+      background: var(--green) !important;
+      color: #fff !important;
+      padding: 10px 22px;
+      border-radius: 2px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: background .25s !important
+    }
+
+    .nav-btn:hover {
+      background: var(--green2) !important
+    }
+
+    .nav-btn::after {
+      display: none !important
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 1.5px;
+      background: #fff;
+      display: block;
+      transition: .3s
+    }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+      overflow: hidden
+    }
+
+    /* CSS gradient fallback shows instantly while image loads */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #1a0a05 0%, #1e2a0a 60%, #0d1405 100%)
+    }
+
+    .hero-bg img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(.32) saturate(.75);
+      will-change: transform
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(10, 6, 4, .72) 0%, rgba(61, 26, 14, .35) 50%, rgba(29, 42, 12, .45) 100%);
+      z-index: 1
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 8%;
+      max-width: 860px
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(122, 154, 58, .13);
+      border: 1px solid rgba(122, 154, 58, .3);
+      border-radius: 30px;
+      padding: 7px 18px;
+      margin-bottom: 30px;
+      opacity: 0;
+      animation: fadeUp .7s 1.6s forwards
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: glow 2.5s infinite
+    }
+
+    @keyframes glow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 6px var(--green)
+      }
+
+      50% {
+        box-shadow: 0 0 16px var(--green), 0 0 28px rgba(122, 154, 58, .3)
+      }
+    }
+
+    .hero-badge span {
+      font-size: 11px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--green);
+      font-weight: 500
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(60px, 10vw, 124px);
+      font-weight: 700;
+      line-height: .92;
+      letter-spacing: -3px;
+      margin-bottom: 18px
+    }
+
+    .hero-title .l1 {
+      display: block;
+      opacity: 0;
+      animation: fadeUp .7s 1.8s forwards
+    }
+
+    .hero-title .l2 {
+      display: block;
+      color: var(--green);
+      font-style: italic;
+      opacity: 0;
+      animation: fadeUp .7s 1.95s forwards
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, .55);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      opacity: 0;
+      animation: fadeUp .7s 2.1s forwards
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      line-height: 1.85;
+      color: rgba(255, 255, 255, .5);
+      max-width: 500px;
+      margin-bottom: 44px;
+      opacity: 0;
+      animation: fadeUp .7s 2.25s forwards
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp .7s 2.4s forwards
+    }
+
+    .btn-p {
+      background: var(--green);
+      color: #fff;
+      padding: 15px 34px;
+      border-radius: 2px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background .25s, transform .25s;
+      display: inline-block
+    }
+
+    .btn-p:hover {
+      background: var(--green2);
+      transform: translateY(-2px)
+    }
+
+    .btn-o {
+      border: 1px solid rgba(255, 255, 255, .28);
+      color: #fff;
+      padding: 15px 34px;
+      border-radius: 2px;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all .25s;
+      display: inline-block
+    }
+
+    .btn-o:hover {
+      border-color: #fff;
+      background: rgba(255, 255, 255, .07);
+      transform: translateY(-2px)
+    }
+
+    .hero-stats {
+      position: absolute;
+      bottom: 56px;
+      right: 8%;
+      z-index: 2;
+      display: flex;
+      gap: 44px;
+      opacity: 0;
+      animation: fadeUp .7s 2.6s forwards
+    }
+
+    .hs-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1
+    }
+
+    .hs-num span {
+      color: var(--green)
+    }
+
+    .hs-lbl {
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .35);
+      margin-top: 3px
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      opacity: 0;
+      animation: fadeUp .7s 2.8s forwards
+    }
+
+    .scroll-label {
+      font-size: 9px;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .35)
+    }
+
+    .scroll-bar {
+      width: 1px;
+      height: 44px;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, .35), transparent);
+      animation: scrollBob 2s infinite
+    }
+
+    @keyframes scrollBob {
+
+      0%,
+      100% {
+        opacity: .4
+      }
+
+      50% {
+        opacity: 1
+      }
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-wrap {
+      background: var(--green);
+      padding: 13px 0;
+      overflow: hidden
+    }
+
+    .marquee-inner {
+      display: flex;
+      gap: 52px;
+      animation: scroll 22s linear infinite;
+      white-space: nowrap;
+      will-change: transform
+    }
+
+    .mi {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .88);
+      display: flex;
+      align-items: center;
+      gap: 18px
+    }
+
+    .mi-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .45);
+      flex-shrink: 0
+    }
+
+    @keyframes scroll {
+      from {
+        transform: translateX(0)
+      }
+
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    /* ── CANVAS SECTION ── */
+    .canvas-sec {
+      position: relative;
+      height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: linear-gradient(180deg, var(--black) 0%, #0c1604 50%, var(--black) 100%)
+    }
+
+    #sphCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%
+    }
+
+    .canvas-text {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      pointer-events: none
+    }
+
+    .c-eye {
+      font-size: 10px;
+      letter-spacing: .4em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 14px
+    }
+
+    .c-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 6vw, 68px);
+      font-weight: 700;
+      line-height: 1.1;
+      color: #fff
+    }
+
+    .c-title em {
+      color: var(--green);
+      font-style: italic
+    }
+
+    /* ── SHARED ── */
+    .eye {
+      font-size: 10px;
+      letter-spacing: .4em;
+      text-transform: uppercase;
+      color: var(--green);
+      display: block;
+      margin-bottom: 12px
+    }
+
+    .h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 700;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 22px
+    }
+
+    .h2 em {
+      color: var(--green);
+      font-style: italic
+    }
+
+    .sline {
+      width: 38px;
+      height: 2px;
+      background: var(--green);
+      margin-bottom: 24px
+    }
+
+    .body-p {
+      font-size: 15px;
+      line-height: 1.9;
+      color: rgba(255, 255, 255, .5);
+      margin-bottom: 16px
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      padding: 110px 8%;
+      background: var(--black);
+      position: relative;
+      overflow: hidden
+    }
+
+    #about::before {
+      content: '';
+      position: absolute;
+      top: -150px;
+      right: -150px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(122, 154, 58, .05), transparent 70%);
+      pointer-events: none
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 90px;
+      align-items: center
+    }
+
+    .about-vis {
+      position: relative;
+      height: 560px
+    }
+
+    .a-main {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 84%;
+      height: 450px;
+      border-radius: 3px;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, .6)
+    }
+
+    /* gradient placeholder while image loads */
+    .a-main::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #1e2a0a, #3d1a0e);
+      z-index: 0
+    }
+
+    .a-main img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 8s ease;
+      display: block
+    }
+
+    .a-main:hover img {
+      transform: scale(1.04)
+    }
+
+    .a-sec {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 52%;
+      height: 260px;
+      border-radius: 3px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, .7);
+      border: 3px solid var(--black)
+    }
+
+    .a-sec::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #2a3d10, #1a0a05);
+      z-index: 0
+    }
+
+    .a-sec img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block
+    }
+
+    .a-badge {
+      position: absolute;
+      top: 48%;
+      left: 68%;
+      transform: translate(-50%, -50%);
+      width: 106px;
+      height: 106px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green), var(--green3));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 8px rgba(122, 154, 58, .12), 0 16px 36px rgba(0, 0, 0, .5);
+      z-index: 3;
+      animation: bob 5s ease-in-out infinite
+    }
+
+    @keyframes bob {
+
+      0%,
+      100% {
+        transform: translate(-50%, -50%) scale(1)
+      }
+
+      50% {
+        transform: translate(-50%, -50%) scale(1.04)
+      }
+    }
+
+    .a-badge-n {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1
+    }
+
+    .a-badge-t {
+      font-size: 9px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .8)
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 32px
+    }
+
+    .pill {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 4px;
+      padding: 20px;
+      transition: all .35s;
+      position: relative;
+      overflow: hidden
+    }
+
+    .pill::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(122, 154, 58, .07), transparent);
+      opacity: 0;
+      transition: opacity .35s
+    }
+
+    .pill:hover {
+      border-color: rgba(122, 154, 58, .28);
+      transform: translateY(-3px)
+    }
+
+    .pill:hover::before {
+      opacity: 1
+    }
+
+    .pill-ico {
+      font-size: 24px;
+      margin-bottom: 9px
+    }
+
+    .pill-t {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 5px
+    }
+
+    .pill-d {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .42);
+      line-height: 1.6
+    }
+
+    /* ── PRODUCTS ── */
+    #products {
+      padding: 110px 8%;
+      background: linear-gradient(180deg, var(--black) 0%, #0b1304 100%);
+      position: relative
+    }
+
+    .prod-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: end;
+      margin-bottom: 60px
+    }
+
+    .prod-head-right p {
+      font-size: 15px;
+      line-height: 1.9;
+      color: rgba(255, 255, 255, .48)
+    }
+
+    .prod-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px
+    }
+
+    .pc {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden
+    }
+
+    .pc-img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      position: relative
+    }
+
+    /* gradient shown instantly, replaced by img */
+    .pc-img::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: linear-gradient(135deg, #1a2a08, #2a1005)
+    }
+
+    .pc-img img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .7s ease;
+      display: block;
+      z-index: 1
+    }
+
+    .pc:hover .pc-img img {
+      transform: scale(1.07)
+    }
+
+    .pc-grad {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(10, 6, 4, .95) 0%, rgba(10, 6, 4, .28) 52%, transparent 100%);
+      z-index: 2;
+      transition: opacity .35s
+    }
+
+    .pc:hover .pc-grad {
+      opacity: .88
+    }
+
+    /* shine sweep */
+    .pc-shine {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, .05) 50%, transparent 62%);
+      transform: translateX(-100%);
+      transition: transform .6s ease;
+      pointer-events: none
+    }
+
+    .pc:hover .pc-shine {
+      transform: translateX(100%)
+    }
+
+    .pc-body {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 26px;
+      z-index: 4
+    }
+
+    .pc-cat {
+      font-size: 10px;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 7px
+    }
+
+    .pc-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 9px
+    }
+
+    .pc-desc {
+      font-size: 13px;
+      color: rgba(255, 255, 255, .58);
+      line-height: 1.65;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease, opacity .4s;
+      opacity: 0
+    }
+
+    .pc:hover .pc-desc {
+      max-height: 90px;
+      opacity: 1
+    }
+
+    .pc-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 12px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--green);
+      opacity: 0;
+      transition: opacity .4s, transform .4s;
+      transform: translateY(7px)
+    }
+
+    .pc:hover .pc-cta {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    /* ── NETWORK ── */
+    #network {
+      padding: 110px 8%;
+      background: var(--brown);
+      position: relative;
+      overflow: hidden
+    }
+
+    #network::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1560493676-04071185765b?w=1200&q=40&auto=format&fit=crop') center/cover;
+      opacity: .06;
+      z-index: 0
+    }
+
+    .net-inner {
+      position: relative;
+      z-index: 1
+    }
+
+    .net-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+      margin-bottom: 60px
+    }
+
+    .net-head p {
+      font-size: 16px;
+      line-height: 1.9;
+      color: rgba(255, 255, 255, .55)
+    }
+
+    .net-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px
+    }
+
+    .nc {
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 4px;
+      padding: 40px 28px;
+      text-align: center;
+      transition: all .4s;
+      position: relative;
+      overflow: hidden
+    }
+
+    .nc::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(122, 154, 58, .1), transparent 55%);
+      opacity: 0;
+      transition: opacity .4s
+    }
+
+    .nc:hover {
+      border-color: rgba(122, 154, 58, .38);
+      transform: translateY(-7px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, .35)
+    }
+
+    .nc:hover::after {
+      opacity: 1
+    }
+
+    .nc-ico {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green), var(--green3));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 22px;
+      box-shadow: 0 8px 24px rgba(122, 154, 58, .25);
+      transition: transform .4s
+    }
+
+    .nc:hover .nc-ico {
+      transform: scale(1.08) rotate(4deg)
+    }
+
+    .nc h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 11px
+    }
+
+    .nc p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, .48);
+      line-height: 1.7
+    }
+
+    .nc-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 50px;
+      font-weight: 700;
+      color: var(--green);
+      margin-top: 18px;
+      line-height: 1
+    }
+
+    /* ── ACHIEVEMENTS ── */
+    #achievements {
+      padding: 110px 8%;
+      background: var(--black)
+    }
+
+    .ach-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 90px;
+      align-items: start
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+      margin-top: 44px
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 6px;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--green), rgba(122, 154, 58, .08))
+    }
+
+    .ti {
+      position: relative;
+      padding-bottom: 46px
+    }
+
+    .ti-dot {
+      position: absolute;
+      left: -38px;
+      top: 6px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 4px rgba(122, 154, 58, .18), 0 0 16px rgba(122, 154, 58, .35)
+    }
+
+    .ti-yr {
+      font-size: 10px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 7px
+    }
+
+    .ti-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 9px
+    }
+
+    .ti-desc {
+      font-size: 14px;
+      color: rgba(255, 255, 255, .42);
+      line-height: 1.75;
+      max-width: 500px
+    }
+
+    .ach-right {
+      position: sticky;
+      top: 96px
+    }
+
+    .ach-img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .5);
+      border: 1px solid rgba(255, 255, 255, .07)
+    }
+
+    .ach-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 6s ease
+    }
+
+    .ach-img:hover img {
+      transform: scale(1.04)
+    }
+
+    .ach-img-ov {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(10, 6, 4, .45) 100%);
+      pointer-events: none
+    }
+
+    .counters {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-top: 2px
+    }
+
+    .cb {
+      background: rgba(255, 255, 255, .04);
+      padding: 26px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, .07);
+      transition: all .3s
+    }
+
+    .cb:hover {
+      background: rgba(122, 154, 58, .07);
+      border-color: rgba(122, 154, 58, .22)
+    }
+
+    .cb-n {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 46px;
+      font-weight: 700;
+      color: var(--green);
+      line-height: 1
+    }
+
+    .cb-l {
+      font-size: 10px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .32);
+      margin-top: 6px
+    }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials {
+      padding: 110px 8%;
+      background: linear-gradient(160deg, #0a1002 0%, var(--black) 55%, #080d02 100%);
+      overflow: hidden
+    }
+
+    .test-head {
+      text-align: center;
+      margin-bottom: 64px
+    }
+
+    .test-head p {
+      font-size: 15px;
+      line-height: 1.9;
+      color: rgba(255, 255, 255, .48);
+      margin-top: 18px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    .test-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: start
+    }
+
+    .tc {
+      background: linear-gradient(145deg, rgba(255, 255, 255, .05), rgba(122, 154, 58, .03));
+      border: 1px solid rgba(255, 255, 255, .09);
+      border-radius: 12px;
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: all .45s;
+      display: flex;
+      flex-direction: column
+    }
+
+    .tc::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% -20%, rgba(122, 154, 58, .1), transparent 65%);
+      opacity: 0;
+      transition: opacity .45s;
+      pointer-events: none
+    }
+
+    .tc:hover {
+      border-color: rgba(122, 154, 58, .35);
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, .4), 0 0 0 1px rgba(122, 154, 58, .12)
+    }
+
+    .tc:hover::after {
+      opacity: 1
+    }
+
+    .tc-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px
+    }
+
+    .tc-av-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .tc-av {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+      border: 2px solid rgba(122, 154, 58, .35);
+      box-shadow: 0 0 0 4px rgba(122, 154, 58, .08)
+    }
+
+    .tc-av.av1 {
+      background: linear-gradient(135deg, #4a7a22, #2d5010)
+    }
+
+    .tc-av.av2 {
+      background: linear-gradient(135deg, #5c3d1a, #3d2010)
+    }
+
+    .tc-av.av3 {
+      background: linear-gradient(135deg, #1a3d5c, #0d2038)
+    }
+
+    .tc-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 2px
+    }
+
+    .tc-role {
+      font-size: 11px;
+      color: rgba(122, 154, 58, .7);
+      letter-spacing: .04em
+    }
+
+    .tc-stars {
+      color: var(--green);
+      font-size: 13px;
+      letter-spacing: 3px
+    }
+
+    .tc-q-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 72px;
+      color: var(--green);
+      line-height: .7;
+      opacity: .25;
+      margin-bottom: 10px;
+      display: block
+    }
+
+    .tc-text {
+      font-size: 14px;
+      line-height: 1.9;
+      color: rgba(255, 255, 255, .65);
+      font-style: italic;
+      flex: 1
+    }
+
+    .tc-divider {
+      width: 32px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--green), transparent);
+      margin: 18px 0 0;
+      border-radius: 1px
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      padding: 110px 8%;
+      background: var(--black);
+      position: relative
+    }
+
+    #contact::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--green), transparent)
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 70px;
+      margin-top: 54px
+    }
+
+    .cinfo {
+      background: linear-gradient(135deg, rgba(122, 154, 58, .07), rgba(61, 26, 14, .18));
+      border: 1px solid rgba(122, 154, 58, .13);
+      border-radius: 4px;
+      padding: 44px;
+      position: relative;
+      overflow: hidden
+    }
+
+    .cinfo::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(122, 154, 58, .07), transparent 70%);
+      pointer-events: none
+    }
+
+    .cinfo h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      line-height: 1.2
+    }
+
+    .cinfo>p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, .48);
+      line-height: 1.8;
+      margin-bottom: 32px
+    }
+
+    .cd {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .06)
+    }
+
+    .cd-ico {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(122, 154, 58, .14);
+      border: 1px solid rgba(122, 154, 58, .22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      flex-shrink: 0;
+      transition: all .3s
+    }
+
+    .cd:hover .cd-ico {
+      background: var(--green);
+      transform: scale(1.08)
+    }
+
+    .cd-l {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      color: rgba(255, 255, 255, .28);
+      margin-bottom: 3px
+    }
+
+    .cd-v {
+      font-size: 14px;
+      font-weight: 500;
+      color: #fff
+    }
+
+    /* Social links */
+    .social-title {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .28);
+      margin-top: 28px;
+      margin-bottom: 14px
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap
+    }
+
+    .sl {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, .12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all .3s;
+      position: relative;
+      overflow: hidden
+    }
+
+    .sl::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity .3s;
+      border-radius: 50%
+    }
+
+    .sl:hover {
+      transform: translateY(-3px);
+      border-color: transparent;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .4)
+    }
+
+    .sl:hover::before {
+      opacity: 1
+    }
+
+    .sl svg {
+      width: 18px;
+      height: 18px;
+      fill: #fff;
+      position: relative;
+      z-index: 1;
+      transition: transform .3s
+    }
+
+    .sl:hover svg {
+      transform: scale(1.15)
+    }
+
+    .sl-ig::before {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)
+    }
+
+    .sl-wa::before {
+      background: #25D366
+    }
+
+    .sl-gm::before {
+      background: linear-gradient(135deg, #EA4335, #FBBC05)
+    }
+
+    .sl-li::before {
+      background: #0A66C2
+    }
+
+    .sl-fb::before {
+      background: #1877F2
+    }
+
+    .sl-yt::before {
+      background: #FF0000
+    }
+
+    .eform {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 4px;
+      padding: 44px
+    }
+
+    .eform h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 28px
+    }
+
+    .frow {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px
+    }
+
+    .fg {
+      margin-bottom: 18px
+    }
+
+    .fg label {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .3);
+      margin-bottom: 9px
+    }
+
+    .fg input,
+    .fg select,
+    .fg textarea {
+      width: 100%;
+      padding: 13px 16px;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 3px;
+      font-size: 14px;
+      font-family: 'Outfit', sans-serif;
+      color: #fff;
+      outline: none;
+      transition: border-color .25s, background .25s;
+      appearance: none
+    }
+
+    .fg input::placeholder,
+    .fg textarea::placeholder {
+      color: rgba(255, 255, 255, .2)
+    }
+
+    .fg input:focus,
+    .fg select:focus,
+    .fg textarea:focus {
+      border-color: var(--green);
+      background: rgba(122, 154, 58, .04)
+    }
+
+    .fg select option {
+      background: #111;
+      color: #fff
+    }
+
+    .fg textarea {
+      resize: vertical;
+      min-height: 110px
+    }
+
+    .btn-sub {
+      width: 100%;
+      background: var(--green);
+      color: #fff;
+      padding: 16px;
+      border: none;
+      border-radius: 3px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: 'Outfit', sans-serif;
+      transition: background .25s, transform .25s;
+      position: relative;
+      overflow: hidden
+    }
+
+    .btn-sub:hover {
+      background: var(--green3);
+      transform: translateY(-2px)
+    }
+
+    .fsuccess {
+      display: none;
+      text-align: center;
+      padding: 50px 20px
+    }
+
+    .fsuccess-ico {
+      font-size: 52px;
+      margin-bottom: 14px
+    }
+
+    .fsuccess h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      color: #fff;
+      margin-bottom: 9px
+    }
+
+    .fsuccess p {
+      color: rgba(255, 255, 255, .45);
+      font-size: 14px
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #050302;
+      padding: 72px 8% 28px;
+      border-top: 1px solid rgba(255, 255, 255, .05)
+    }
+
+    .fg2 {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 52px;
+      margin-bottom: 52px
+    }
+
+    .fb-txt {
+      font-size: 13px;
+      color: rgba(255, 255, 255, .33);
+      line-height: 1.8;
+      margin-top: 18px;
+      max-width: 270px
+    }
+
+    .fc h4 {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .22);
+      margin-bottom: 18px
+    }
+
+    .fc ul {
+      list-style: none
+    }
+
+    .fc li {
+      margin-bottom: 11px
+    }
+
+    .fc a {
+      text-decoration: none;
+      font-size: 13px;
+      color: rgba(255, 255, 255, .42);
+      transition: color .2s
+    }
+
+    .fc a:hover {
+      color: var(--green)
+    }
+
+    .fnl p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, .32);
+      margin-bottom: 14px;
+      line-height: 1.65
+    }
+
+    .fnl h4 {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .22);
+      margin-bottom: 14px
+    }
+
+    .nl-row {
+      display: flex
+    }
+
+    .nl-row input {
+      flex: 1;
+      padding: 11px 13px;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-right: 0;
+      border-radius: 2px 0 0 2px;
+      font-size: 13px;
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      outline: none;
+      transition: border-color .25s
+    }
+
+    .nl-row input:focus {
+      border-color: var(--green)
+    }
+
+    .nl-row button {
+      padding: 11px 15px;
+      background: var(--green);
+      border: none;
+      border-radius: 0 2px 2px 0;
+      color: #fff;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background .25s
+    }
+
+    .nl-row button:hover {
+      background: var(--green2)
+    }
+
+    .fbot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255, 255, 255, .05)
+    }
+
+    .fbot-copy {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .2)
+    }
+
+    .fbot-tag {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: rgba(122, 154, 58, .48)
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .rv {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity .75s ease, transform .75s ease
+    }
+
+    .rvl {
+      opacity: 0;
+      transform: translateX(-32px);
+      transition: opacity .75s ease, transform .75s ease
+    }
+
+    .rvr {
+      opacity: 0;
+      transform: translateX(32px);
+      transition: opacity .75s ease, transform .75s ease
+    }
+
+    .rv.on,
+    .rvl.on,
+    .rvr.on {
+      opacity: 1;
+      transform: none
+    }
+
+    .d1 {
+      transition-delay: .08s
+    }
+
+    .d2 {
+      transition-delay: .16s
+    }
+
+    .d3 {
+      transition-delay: .24s
+    }
+
+    .d4 {
+      transition-delay: .32s
+    }
+
+    /* ── MOBILE ── */
+    @media(max-width:900px) {
+      .nav-links {
+        display: none
+      }
+
+      .hamburger {
+        display: flex
+      }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 74px;
+        left: 0;
+        right: 0;
+        background: rgba(10, 6, 4, .97);
+        backdrop-filter: blur(16px);
+        padding: 20px 8%;
+        gap: 0;
+        border-bottom: 1px solid rgba(122, 154, 58, .12);
+        z-index: 999
+      }
+
+      .nav-links.open li {
+        border-bottom: 1px solid rgba(255, 255, 255, .05)
+      }
+
+      .nav-links.open a {
+        display: block;
+        padding: 13px 0;
+        font-size: 15px
+      }
+
+      .nav-btn {
+        display: none
+      }
+
+      .hero-stats,
+      .hero-scroll {
+        display: none
+      }
+
+      .about-grid,
+      .prod-head,
+      .net-head,
+      .ach-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px
+      }
+
+      .test-cards {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .prod-grid,
+      .net-cards {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .counters,
+      .fg2 {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .a-badge {
+        left: auto;
+        right: -10px;
+        top: auto;
+        bottom: 30px;
+        transform: none
+      }
+    }
+
+    @media(max-width:560px) {
+
+      .prod-grid,
+      .net-cards,
+      .counters,
+      .fg2,
+      .frow,
+      .test-cards {
+        grid-template-columns: 1fr
+      }
+
+      .eform {
+        padding: 28px 18px
+      }
+
+      .cinfo {
+        padding: 28px 18px
+      }
+
+      .pillars {
+        grid-template-columns: 1fr
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="ld-name">VEPURI</div>
+    <div class="ld-sub">Agro Products</div>
+    <div class="ld-track">
+      <div class="ld-fill"></div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-logo">
+      <svg viewBox="0 0 240 58" xmlns="http://www.w3.org/2000/svg">
+        <text x="2" y="44" font-family="Georgia,serif" font-size="42" font-weight="900" fill="#ffffff"
+          letter-spacing="-1.5">VEPURI</text>
+        <polygon points="213,2 220,15 206,15" fill="#7a9a3a" />
+        <text x="28" y="56" font-family="Georgia,serif" font-size="10.5" font-weight="700" fill="#7a9a3a"
+          letter-spacing="5.5">AGRO PRODUCTS</text>
+      </svg>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#network">Network</a></li>
+      <li><a href="#achievements">Journey</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact" class="nav-btn">Enquire Now</a></li>
+    </ul>
+    <div class="hamburger" id="hbg" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg">
+      <!-- preloaded, width=1400 q=70 for fast load -->
+      <img src="assets/image_be94f573.png"
+        alt="Coconut palm landscape" fetchpriority="high" decoding="async">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge"><span class="badge-dot"></span><span>Coconut-Based Food Processing · Est. 2011</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="l1">VEPURI</span>
+        <span class="l2">Agro Products</span>
+      </h1>
+      <div class="hero-sub">From Coconut to Value</div>
+      <p class="hero-desc">Building premium value through coconut-based innovation — structured, scalable, and built for
+        the modern food industry.</p>
+      <div class="hero-btns">
+        <a href="#products" class="btn-p">Explore Products</a>
+        <a href="#contact" class="btn-o">Partner With Us</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hs-num">15<span>+</span></div>
+        <div class="hs-lbl">Years Legacy</div>
+      </div>
+      <div>
+        <div class="hs-num">500<span>+</span></div>
+        <div class="hs-lbl">Farm Partners</div>
+      </div>
+      <div>
+        <div class="hs-num">3<span>+</span></div>
+        <div class="hs-lbl">Product Lines</div>
+      </div>
+    </div>
+    <div class="hero-scroll" onclick="scrollTo('#about')">
+      <span class="scroll-label">Scroll</span>
+      <div class="scroll-bar"></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-inner">
+      <div class="mi">Coconut Powder<span class="mi-dot"></span></div>
+      <div class="mi">Coconut Oil<span class="mi-dot"></span></div>
+      <div class="mi">Cold-Press Processing<span class="mi-dot"></span></div>
+      <div class="mi">B2B Supply Chain<span class="mi-dot"></span></div>
+      <div class="mi">Farm-to-Factory<span class="mi-dot"></span></div>
+      <div class="mi">Export Quality<span class="mi-dot"></span></div>
+      <div class="mi">500+ Farmer Partners<span class="mi-dot"></span></div>
+      <div class="mi">Hygienic Processing<span class="mi-dot"></span></div>
+      <div class="mi">Coconut Powder<span class="mi-dot"></span></div>
+      <div class="mi">Coconut Oil<span class="mi-dot"></span></div>
+      <div class="mi">Cold-Press Processing<span class="mi-dot"></span></div>
+      <div class="mi">B2B Supply Chain<span class="mi-dot"></span></div>
+      <div class="mi">Farm-to-Factory<span class="mi-dot"></span></div>
+      <div class="mi">Export Quality<span class="mi-dot"></span></div>
+      <div class="mi">500+ Farmer Partners<span class="mi-dot"></span></div>
+      <div class="mi">Hygienic Processing<span class="mi-dot"></span></div>
+    </div>
+  </div>
+
+  <!-- 3D CANVAS SECTION -->
+  <div class="canvas-sec">
+    <canvas id="sphCanvas"></canvas>
+    <div class="canvas-text">
+      <div class="c-eye rv">Our Core Philosophy</div>
+      <div class="c-title rv d1">Nature's Finest,<br><em>Engineered to Perfection</em></div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-vis rvl">
+        <div class="a-main">
+          <img src="https://images.unsplash.com/photo-1597362925123-77861d3fbac7?w=700&q=65&auto=format&fit=crop"
+            alt="Coconut processing facility" loading="lazy" decoding="async">
+        </div>
+        <div class="a-sec">
+          <img src="https://images.unsplash.com/photo-1621888373234-f9b2bc89c3f7?w=500&q=65&auto=format&fit=crop"
+            alt="Fresh coconuts" loading="lazy" decoding="async">
+        </div>
+        <div class="a-badge">
+          <div class="a-badge-n">15+</div>
+          <div class="a-badge-t">Years</div>
+        </div>
+      </div>
+      <div class="rvr">
+        <span class="eye">About Vepuri</span>
+        <h2 class="h2">Rooted in Agriculture,<br><em>Built for Industry</em></h2>
+        <div class="sline"></div>
+        <div>
+          <p class="body-p">We are a coconut-based food processing company focused on producing value-added coconut
+            products through structured and hygienic manufacturing practices — transforming mature coconuts into
+            consistent, high-quality food products that meet modern industry requirements.</p>
+          <p class="body-p">By combining traditional agricultural understanding with modern manufacturing systems, we
+            contribute to a stronger coconut value chain and support sustainable growth within the food processing
+            sector.</p>
+        </div>
+        <div class="pillars">
+          <div class="pill d1">
+            <div class="pill-ico">🏭</div>
+            <div class="pill-t">Hygienic Manufacturing</div>
+            <div class="pill-d">Controlled environments, modern equipment, standardized workflows.</div>
+          </div>
+          <div class="pill d2">
+            <div class="pill-ico">🤝</div>
+            <div class="pill-t">Trusted Partnerships</div>
+            <div class="pill-d">Long-term farmer & distributor relationships built on transparency.</div>
+          </div>
+          <div class="pill d3">
+            <div class="pill-ico">🌱</div>
+            <div class="pill-t">Sustainable Practices</div>
+            <div class="pill-d">Responsible processing for long-term agricultural value addition.</div>
+          </div>
+          <div class="pill d4">
+            <div class="pill-ico">📊</div>
+            <div class="pill-t">Scalable Operations</div>
+            <div class="pill-d">Infrastructure built for reliable, repeatable production at scale.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products">
+    <div class="prod-head">
+      <div class="rvl">
+        <span class="eye">Our Portfolio</span>
+        <h2 class="h2">Premium<br><em>Product Range</em></h2>
+      </div>
+      <div class="rvr">
+        <p>A curated range of coconut-based food products engineered for consistency, purity, and performance — designed
+          for distributors, B2B buyers, and export partners.</p>
+      </div>
+    </div>
+    <div class="prod-grid">
+      <div class="pc rv d1">
+        <div class="pc-img">
+          <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=500&q=65&auto=format&fit=crop"
+            alt="Coconut Powder" loading="lazy" decoding="async">
+          <div class="pc-shine"></div>
+        </div>
+        <div class="pc-grad"></div>
+        <div class="pc-body">
+          <div class="pc-cat">Food Grade</div>
+          <div class="pc-name">Coconut Powder</div>
+          <div class="pc-desc">Finely processed desiccated coconut powder with consistent texture, ideal for food
+            manufacturing and culinary applications.</div>
+          <div class="pc-cta">Enquire Now →</div>
+        </div>
+      </div>
+      <div class="pc rv d2">
+        <div class="pc-img">
+          <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=500&q=65&auto=format&fit=crop"
+            alt="Coconut Oil" loading="lazy" decoding="async">
+          <div class="pc-shine"></div>
+        </div>
+        <div class="pc-grad"></div>
+        <div class="pc-body">
+          <div class="pc-cat">Premium Grade</div>
+          <div class="pc-name">Coconut Oil</div>
+          <div class="pc-desc">Pure, cold-pressed coconut oil produced through hygienic processing for cooking,
+            cosmetic, and industrial use.</div>
+          <div class="pc-cta">Enquire Now →</div>
+        </div>
+      </div>
+      <div class="pc rv d3">
+        <div class="pc-img">
+          <img src="https://images.unsplash.com/photo-1610450949065-1f2841536c88?w=500&q=65&auto=format&fit=crop"
+            alt="Coconut Derivatives" loading="lazy" decoding="async">
+          <div class="pc-shine"></div>
+        </div>
+        <div class="pc-grad"></div>
+        <div class="pc-body">
+          <div class="pc-cat">B2B Supply</div>
+          <div class="pc-name">Coconut Derivatives</div>
+          <div class="pc-desc">Value-added derivatives designed for B2B supply chains and specialty food product
+            manufacturers.</div>
+          <div class="pc-cta">Enquire Now →</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NETWORK -->
+  <section id="network">
+    <div class="net-inner">
+      <div class="net-head">
+        <div class="rvl">
+          <span class="eye">Our Reach</span>
+          <h2 class="h2">A Trusted<br><em>Network</em></h2>
+        </div>
+        <div class="rvr">
+          <p>We work closely with farmers and distributors across regions, ensuring a strong and reliable coconut value
+            chain built on long-term trust, transparency, and shared growth.</p>
+        </div>
+      </div>
+      <div class="net-cards">
+        <div class="nc rv d1">
+          <div class="nc-ico">🌾</div>
+          <h3>Farmer Partners</h3>
+          <p>Direct sourcing from coconut farmers — fair pricing, quality control, and sustainable agricultural
+            practice.</p>
+          <div class="nc-num">500+</div>
+        </div>
+        <div class="nc rv d2">
+          <div class="nc-ico">🚚</div>
+          <h3>Distributors</h3>
+          <p>Our distribution network spans multiple regions, ensuring reliable and timely market reach for all
+            products.</p>
+          <div class="nc-num">50+</div>
+        </div>
+        <div class="nc rv d3">
+          <div class="nc-ico">🌐</div>
+          <h3>Export Presence</h3>
+          <p>Building international channels to serve export buyers with certified, high-quality coconut products.</p>
+          <div class="nc-num">10+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+    <div class="ach-grid">
+      <div>
+        <span class="eye rv">Our Journey</span>
+        <h2 class="h2 rv d1">Milestones That<br><em>Define Us</em></h2>
+        <div class="sline rv d2"></div>
+        <div class="timeline">
+          <div class="ti rv">
+            <div class="ti-dot"></div>
+            <div class="ti-yr">2011</div>
+            <div class="ti-title">Foundation Established</div>
+            <p class="ti-desc">Vepuri Agro Products was established with a clear vision to bring structured, scalable
+              coconut processing to the food industry.</p>
+          </div>
+          <div class="ti rv d1">
+            <div class="ti-dot"></div>
+            <div class="ti-yr">2014–2016</div>
+            <div class="ti-title">Processing Facility Built</div>
+            <p class="ti-desc">Constructed integrated processing facilities with modern equipment and standardized
+              hygienic workflows for consistent production.</p>
+          </div>
+          <div class="ti rv d2">
+            <div class="ti-dot"></div>
+            <div class="ti-yr">2018–2020</div>
+            <div class="ti-title">Network Expansion</div>
+            <p class="ti-desc">Expanded farmer and distributor network, establishing Vepuri as a trusted name across
+              multiple regions in India.</p>
+          </div>
+          <div class="ti rv d3">
+            <div class="ti-dot"></div>
+            <div class="ti-yr">2023–Present</div>
+            <div class="ti-title">Export & Diversification</div>
+            <p class="ti-desc">Initiated export operations and diversified product range, positioning Vepuri for
+              international market growth.</p>
+          </div>
+        </div>
+      </div>
+      <div class="ach-right rvr">
+        <div class="ach-img">
+          <img src="assets/img.jpg" alt="Vepuri Agro Products" loading="lazy" decoding="async">
+          <div class="ach-img-ov"></div>
+        </div>
+        <div class="counters">
+          <div class="cb">
+            <div class="cb-n" data-target="15">0</div>
+            <div class="cb-l">Years in Business</div>
+          </div>
+          <div class="cb">
+            <div class="cb-n" data-target="500">0</div>
+            <div class="cb-l">Farmer Partners</div>
+          </div>
+          <div class="cb">
+            <div class="cb-n" data-target="50">0</div>
+            <div class="cb-l">Distributors</div>
+          </div>
+          <div class="cb">
+            <div class="cb-n" data-target="3">0</div>
+            <div class="cb-l">Product Categories</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="test-head rv">
+      <span class="eye">Testimonials</span>
+      <h2 class="h2">Trusted by<br><em>Our Partners</em></h2>
+      <div class="sline" style="margin:0 auto 18px"></div>
+      <p>Real words from our farmers, distributors, and B2B partners who have experienced the Vepuri difference
+        firsthand.</p>
+    </div>
+    <div class="test-cards">
+      <div class="tc rv">
+        <div class="tc-top">
+          <div class="tc-av-wrap">
+            <div class="tc-av av1">R</div>
+            <div>
+              <div class="tc-name">Ramesh K.</div>
+              <div class="tc-role">Procurement Head · Food Mfg.</div>
+            </div>
+          </div>
+          <div class="tc-stars">★★★★★</div>
+        </div>
+        <span class="tc-q-mark">&ldquo;</span>
+        <p class="tc-text">Vepuri has been a consistent and reliable supply partner. The quality of their coconut powder
+          is exceptional — uniform texture, great shelf life, always on time.</p>
+        <div class="tc-divider"></div>
+      </div>
+      <div class="tc rv d1">
+        <div class="tc-top">
+          <div class="tc-av-wrap">
+            <div class="tc-av av2">S</div>
+            <div>
+              <div class="tc-name">Suresh Naidu</div>
+              <div class="tc-role">Regional Distributor · AP</div>
+            </div>
+          </div>
+          <div class="tc-stars">★★★★★</div>
+        </div>
+        <span class="tc-q-mark">&ldquo;</span>
+        <p class="tc-text">Distributing Vepuri's products for 5+ years. Their commitment to quality standards and
+          transparent pricing makes them truly stand out in the market.</p>
+        <div class="tc-divider"></div>
+      </div>
+      <div class="tc rv d2">
+        <div class="tc-top">
+          <div class="tc-av-wrap">
+            <div class="tc-av av3">V</div>
+            <div>
+              <div class="tc-name">Venkat Rao</div>
+              <div class="tc-role">Coconut Farmer · Guntur</div>
+            </div>
+          </div>
+          <div class="tc-stars">★★★★★</div>
+        </div>
+        <span class="tc-q-mark">&ldquo;</span>
+        <p class="tc-text">Partnering with Vepuri as a coconut farmer has given me stable income and direct market
+          access. They treat farmers with genuine respect and fairness.</p>
+        <div class="tc-divider"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="rv">
+      <span class="eye">Get In Touch</span>
+      <h2 class="h2">Let's Build Something<br><em>Together</em></h2>
+      <div class="sline"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="cinfo rvl">
+        <h3>Ready to Partner with Vepuri?</h3>
+        <p>Whether you're a distributor, B2B buyer, export partner, or coconut supplier — we'd love to connect. Our team
+          responds within 1–2 business days.</p>
+        <div class="cd">
+          <div class="cd-ico">📦</div>
+          <div>
+            <div class="cd-l">Products Enquiry</div>
+            <div class="cd-v">Bulk orders, pricing &amp; samples</div>
+          </div>
+        </div>
+        <div class="cd">
+          <div class="cd-ico">🤝</div>
+          <div>
+            <div class="cd-l">Partnership</div>
+            <div class="cd-v">Distribution &amp; supply agreements</div>
+          </div>
+        </div>
+        <div class="cd">
+          <div class="cd-ico">🌐</div>
+          <div>
+            <div class="cd-l">Export</div>
+            <div class="cd-v">International trade &amp; certifications</div>
+          </div>
+        </div>
+        <div class="cd">
+          <div class="cd-ico">📍</div>
+          <div>
+            <div class="cd-l">Location</div>
+            <div class="cd-v">Andhra Pradesh, India</div>
+          </div>
+        </div>
+        <div class="cd">
+          <div class="cd-ico">🕐</div>
+          <div>
+            <div class="cd-l">Business Hours</div>
+            <div class="cd-v">Mon–Sat · 9:00 AM – 6:00 PM</div>
+          </div>
+        </div>
+        <div class="social-title">Connect With Us</div>
+        <div class="social-links">
+          <a href="https://instagram.com" target="_blank" class="sl sl-ig" title="Instagram">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </a>
+          <a href="https://wa.me/919999999999" target="_blank" class="sl sl-wa" title="WhatsApp">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+            </svg>
+          </a>
+          <a href="mailto:info@vepuriagro.com" class="sl sl-gm" title="Gmail / Email">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L12 9.73l8.073-6.237C21.69 2.279 24 3.434 24 5.457z" />
+            </svg>
+          </a>
+          <a href="https://linkedin.com" target="_blank" class="sl sl-li" title="LinkedIn">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
+          </a>
+          <a href="https://facebook.com" target="_blank" class="sl sl-fb" title="Facebook">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+          </a>
+          <a href="https://youtube.com" target="_blank" class="sl sl-yt" title="YouTube">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="eform rvr">
+        <div id="formContent">
+          <h3>Send an Enquiry</h3>
+          <div class="frow">
+            <div class="fg"><label>Full Name</label><input type="text" id="fn" placeholder="Your name"></div>
+            <div class="fg"><label>Phone</label><input type="tel" id="fp" placeholder="+91 XXXXX XXXXX"></div>
+          </div>
+          <div class="fg"><label>Email Address</label><input type="email" id="fe" placeholder="you@company.com"></div>
+          <div class="fg">
+            <label>Business Type</label>
+            <select id="ft">
+              <option value="">Select your category</option>
+              <option>Distributor</option>
+              <option>Retailer / Reseller</option>
+              <option>B2B Buyer / Manufacturer</option>
+              <option>Export Partner</option>
+              <option>Farmer / Supplier</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="fg"><label>Message</label><textarea id="fm"
+              placeholder="Tell us about your requirement..."></textarea></div>
+          <button class="btn-sub" onclick="submitForm()">Submit Enquiry →</button>
+        </div>
+        <div class="fsuccess" id="fSuccess">
+          <div class="fsuccess-ico">✅</div>
+          <h4>Enquiry Received!</h4>
+          <p>Our team will reach out within 1–2 business days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="fg2">
+      <div>
+        <svg viewBox="0 0 240 58" xmlns="http://www.w3.org/2000/svg" height="44">
+          <text x="2" y="44" font-family="Georgia,serif" font-size="42" font-weight="900" fill="#ffffff"
+            letter-spacing="-1.5">VEPURI</text>
+          <polygon points="213,2 220,15 206,15" fill="#7a9a3a" />
+          <text x="28" y="56" font-family="Georgia,serif" font-size="10.5" font-weight="700" fill="#7a9a3a"
+            letter-spacing="5.5">AGRO PRODUCTS</text>
+        </svg>
+        <p class="fb-txt">A coconut-based food processing company building value through innovation, integrity, and
+          industry-grade quality since 2011.</p>
+      </div>
+      <div class="fc">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#network">Network</a></li>
+          <li><a href="#achievements">Our Journey</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+        </ul>
+      </div>
+      <div class="fc">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#products">Coconut Powder</a></li>
+          <li><a href="#products">Coconut Oil</a></li>
+          <li><a href="#products">Coconut Derivatives</a></li>
+          <li><a href="#contact">Request Sample</a></li>
+          <li><a href="#contact">Bulk Enquiry</a></li>
+        </ul>
+      </div>
+      <div class="fnl">
+        <h4>Stay Updated</h4>
+        <p>Get updates on products, partnerships & industry news from Vepuri.</p>
+        <div class="nl-row"><input type="email" placeholder="your@email.com"><button>→</button></div>
+      </div>
+    </div>
+    <div class="fbot">
+      <p class="fbot-copy">© 2025 Vepuri Agro Products. All rights reserved.</p>
+      <p class="fbot-tag">From Coconut to Value</p>
+    </div>
+  </footer>
+
+  <script>
+    // ── LOADER ──
+    window.addEventListener('load', () => {
+      setTimeout(() => document.getElementById('loader').classList.add('gone'), 1800);
+    });
+
+    // ── NAV ──
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+    function toggleNav() { document.getElementById('navLinks').classList.toggle('open') }
+    document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open')));
+
+    // ── SCROLL REVEAL (IntersectionObserver – no JS on scroll) ──
+    const ro = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); ro.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.rv,.rvl,.rvr').forEach(el => ro.observe(el));
+
+    // ── COUNTER ANIMATION ──
+    const co = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target, target = +el.dataset.target;
+        let v = 0;
+        const inc = Math.ceil(target / 50);
+        const t = setInterval(() => {
+          v = Math.min(v + inc, target);
+          el.textContent = v + '+';
+          if (v >= target) clearInterval(t);
+        }, 30);
+        co.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-target]').forEach(el => co.observe(el));
+
+    // ── 3D SPHERE CANVAS (optimised: fewer points, throttled RAF) ──
+    const canvas = document.getElementById('sphCanvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, cx, cy;
+    function resize() {
+      W = canvas.width = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+      cx = W / 2; cy = H / 2;
+    }
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    // Only 80 points, 30 lines – much lighter
+    const pts = Array.from({ length: 80 }, () => ({
+      th: Math.random() * Math.PI * 2,
+      ph: Math.acos(2 * Math.random() - 1),
+      r: 120 + Math.random() * 15,
+      sp: .0015 + Math.random() * .002
+    }));
+    const lns = Array.from({ length: 30 }, () => ({
+      th1: Math.random() * Math.PI * 2, ph1: Math.random() * Math.PI,
+      th2: Math.random() * Math.PI * 2, ph2: Math.random() * Math.PI, r: 128
+    }));
+
+    let ang = 0, canvasVisible = false;
+    const co2 = new IntersectionObserver(entries => {
+      canvasVisible = entries[0].isIntersecting;
+    }, { threshold: 0.1 });
+    co2.observe(canvas);
+
+    function proj(th, ph, r, rot) {
+      const x3 = r * Math.sin(ph) * Math.cos(th + rot);
+      const y3 = r * Math.cos(ph);
+      const z3 = r * Math.sin(ph) * Math.sin(th + rot);
+      const s = 380 / (380 + z3);
+      return { x: cx + x3 * s, y: cy + y3 * s, z: z3, s };
+    }
+
+    let last = 0;
+    function draw(ts) {
+      requestAnimationFrame(draw);
+      if (!canvasVisible) return;
+      if (ts - last < 33) return; // cap ~30fps – smooth but low CPU
+      last = ts;
+      ctx.clearRect(0, 0, W, H);
+      lns.forEach(l => {
+        const p1 = proj(l.th1, l.ph1, l.r, ang), p2 = proj(l.th2, l.ph2, l.r, ang);
+        if (p1.z > -40 && p2.z > -40) {
+          ctx.beginPath(); ctx.moveTo(p1.x, p1.y); ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = `rgba(122,154,58,${Math.min(p1.s, p2.s) * .12})`;
+          ctx.lineWidth = .5; ctx.stroke();
+        }
+      });
+      pts.forEach(p => {
+        p.th += p.sp;
+        const q = proj(p.th, p.ph, p.r, ang);
+        if (q.z > -50) {
+          ctx.beginPath();
+          ctx.arc(q.x, q.y, q.s * 2.2, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(122,154,58,${q.s * .65})`;
+          ctx.fill();
+        }
+      });
+      // soft glow
+      const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, 100);
+      g.addColorStop(0, 'rgba(122,154,58,0.06)');
+      g.addColorStop(1, 'rgba(122,154,58,0)');
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 0, W, H);
+      ang += .004;
+    }
+    requestAnimationFrame(draw);
+
+    // ── FORM ──
+    function submitForm() {
+      if (!document.getElementById('fn').value || !document.getElementById('fp').value || !document.getElementById('fe').value) {
+        alert('Please fill Name, Phone & Email.'); return;
+      }
+      document.getElementById('formContent').style.display = 'none';
+      document.getElementById('fSuccess').style.display = 'block';
+    }
+  </script>
+</body>
+
+</html>
