@@ -128,22 +128,23 @@
       width: 100%;
       z-index: 1000;
       padding: 0 5%;
-      height: 74px;
+      height: 75px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      transition: background .4s, box-shadow .4s
+      background: #ffffff;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, .08);
+      transition: box-shadow .4s
     }
 
     nav.scrolled {
-      background: rgba(10, 6, 4, .93);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 1px 0 rgba(122, 154, 58, .12)
+      box-shadow: 0 4px 24px rgba(0, 0, 0, .14)
     }
 
-    .nav-logo svg {
-      height: 40px;
-      width: auto
+    .nav-logo img {
+      height: 70px;
+      width: auto;
+      display: block
     }
 
     .nav-links {
@@ -155,9 +156,9 @@
     .nav-links a {
       text-decoration: none;
       font-size: 13px;
-      font-weight: 400;
+      font-weight: 500;
       letter-spacing: .07em;
-      color: rgba(255, 255, 255, .7);
+      color: rgba(50, 30, 10, .75);
       transition: color .25s;
       position: relative;
       padding-bottom: 2px
@@ -175,7 +176,7 @@
     }
 
     .nav-links a:hover {
-      color: #fff
+      color: #3d5228
     }
 
     .nav-links a:hover::after {
@@ -198,6 +199,13 @@
       background: var(--green2) !important
     }
 
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: #3d1a0e;
+      border-radius: 2px
+    }
+
     .nav-btn::after {
       display: none !important
     }
@@ -206,15 +214,34 @@
       display: none;
       flex-direction: column;
       gap: 5px;
-      cursor: pointer
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+      z-index: 1001
     }
 
     .hamburger span {
       width: 24px;
-      height: 1.5px;
-      background: #fff;
+      height: 2px;
+      background: #3d1a0e;
+      border-radius: 2px;
       display: block;
-      transition: .3s
+      transition: transform .35s cubic-bezier(.23,1,.32,1), opacity .25s ease, width .3s ease
+    }
+
+    /* Animated X when menu is open */
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg)
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+      width: 0
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg)
     }
 
     /* ── HERO ── */
@@ -567,7 +594,7 @@
       font-size: clamp(36px, 5vw, 60px);
       font-weight: 700;
       line-height: 1.1;
-      color: #fff;
+      color: #2a1a08;
       margin-bottom: 22px
     }
 
@@ -586,14 +613,14 @@
     .body-p {
       font-size: 15px;
       line-height: 1.9;
-      color: rgba(255, 255, 255, .5);
+      color: rgba(40, 25, 8, .65);
       margin-bottom: 16px
     }
 
     /* ── ABOUT ── */
     #about {
       padding: 110px 8%;
-      background: var(--black);
+      background: #fff8e1;
       position: relative;
       overflow: hidden
     }
@@ -737,27 +764,29 @@
     }
 
     .pill {
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .07);
+      background: rgba(255, 255, 255, .7);
+      border: 1px solid rgba(107, 122, 61, .2);
       border-radius: 4px;
       padding: 20px;
       transition: all .35s;
       position: relative;
-      overflow: hidden
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, .06)
     }
 
     .pill::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(122, 154, 58, .07), transparent);
+      background: linear-gradient(135deg, rgba(107, 122, 61, .08), transparent);
       opacity: 0;
       transition: opacity .35s
     }
 
     .pill:hover {
-      border-color: rgba(122, 154, 58, .28);
-      transform: translateY(-3px)
+      border-color: rgba(107, 122, 61, .45);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .1)
     }
 
     .pill:hover::before {
@@ -772,20 +801,20 @@
     .pill-t {
       font-size: 13px;
       font-weight: 600;
-      color: #fff;
+      color: #2a1a08;
       margin-bottom: 5px
     }
 
     .pill-d {
       font-size: 12px;
-      color: rgba(255, 255, 255, .42);
+      color: rgba(40, 25, 8, .60);
       line-height: 1.6
     }
 
     /* ── PRODUCTS ── */
     #products {
       padding: 110px 8%;
-      background: linear-gradient(180deg, var(--black) 0%, #0b1304 100%);
+      background: #6b7a3d;
       position: relative
     }
 
@@ -936,7 +965,7 @@
     /* ── NETWORK ── */
     #network {
       padding: 110px 8%;
-      background: var(--brown);
+      background: #fff8e1;
       position: relative;
       overflow: hidden
     }
@@ -966,7 +995,7 @@
     .net-head p {
       font-size: 16px;
       line-height: 1.9;
-      color: rgba(255, 255, 255, .55)
+      color: rgba(40, 25, 8, .65)
     }
 
     .net-cards {
@@ -976,8 +1005,8 @@
     }
 
     .nc {
-      background: rgba(255, 255, 255, .05);
-      border: 1px solid rgba(255, 255, 255, .1);
+      background: rgba(255, 255, 255, .65);
+      border: 1px solid rgba(107, 122, 61, .2);
       border-radius: 4px;
       padding: 40px 28px;
       text-align: center;
@@ -1027,13 +1056,13 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 22px;
       font-weight: 700;
-      color: #fff;
+      color: #2a1a08;
       margin-bottom: 11px
     }
 
     .nc p {
       font-size: 13px;
-      color: rgba(255, 255, 255, .48);
+      color: rgba(40, 25, 8, .60);
       line-height: 1.7
     }
 
@@ -1049,7 +1078,7 @@
     /* ── ACHIEVEMENTS ── */
     #achievements {
       padding: 110px 8%;
-      background: var(--black)
+      background: #6b7a3d
     }
 
     .ach-grid {
@@ -1095,7 +1124,7 @@
       font-size: 10px;
       letter-spacing: .22em;
       text-transform: uppercase;
-      color: var(--green);
+      color: #fff8e1;
       margin-bottom: 7px
     }
 
@@ -1109,7 +1138,7 @@
 
     .ti-desc {
       font-size: 14px;
-      color: rgba(255, 255, 255, .42);
+      color: rgba(255, 255, 255, .75);
       line-height: 1.75;
       max-width: 500px
     }
@@ -1157,23 +1186,23 @@
     }
 
     .cb {
-      background: rgba(255, 255, 255, .04);
+      background: rgba(255, 255, 255, .18);
       padding: 26px;
       text-align: center;
-      border: 1px solid rgba(255, 255, 255, .07);
+      border: 1px solid rgba(255, 255, 255, .3);
       transition: all .3s
     }
 
     .cb:hover {
-      background: rgba(122, 154, 58, .07);
-      border-color: rgba(122, 154, 58, .22)
+      background: rgba(255, 255, 255, .28);
+      border-color: rgba(255, 255, 255, .5)
     }
 
     .cb-n {
       font-family: 'Cormorant Garamond', serif;
       font-size: 46px;
       font-weight: 700;
-      color: var(--green);
+      color: #fff;
       line-height: 1
     }
 
@@ -1181,14 +1210,14 @@
       font-size: 10px;
       letter-spacing: .15em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, .32);
+      color: rgba(255, 255, 255, .75);
       margin-top: 6px
     }
 
     /* ── TESTIMONIALS ── */
     #testimonials {
       padding: 110px 8%;
-      background: linear-gradient(160deg, #0a1002 0%, var(--black) 55%, #080d02 100%);
+      background: #fff8e1;
       overflow: hidden
     }
 
@@ -1200,7 +1229,7 @@
     .test-head p {
       font-size: 15px;
       line-height: 1.9;
-      color: rgba(255, 255, 255, .48);
+      color: rgba(40, 25, 8, .60);
       margin-top: 18px;
       max-width: 520px;
       margin-left: auto;
@@ -1215,8 +1244,8 @@
     }
 
     .tc {
-      background: linear-gradient(145deg, rgba(255, 255, 255, .05), rgba(122, 154, 58, .03));
-      border: 1px solid rgba(255, 255, 255, .09);
+      background: #fff;
+      border: 1px solid rgba(107, 122, 61, .15);
       border-radius: 12px;
       padding: 32px 28px;
       position: relative;
@@ -1290,7 +1319,7 @@
     .tc-name {
       font-size: 14px;
       font-weight: 600;
-      color: #fff;
+      color: #2a1a08;
       margin-bottom: 2px
     }
 
@@ -1319,7 +1348,7 @@
     .tc-text {
       font-size: 14px;
       line-height: 1.9;
-      color: rgba(255, 255, 255, .65);
+      color: rgba(40, 25, 8, .65);
       font-style: italic;
       flex: 1
     }
@@ -1335,7 +1364,7 @@
     /* ── CONTACT ── */
     #contact {
       padding: 110px 8%;
-      background: var(--black);
+      background: #6b7a3d;
       position: relative
     }
 
@@ -1814,29 +1843,51 @@
         display: flex
       }
 
+      /* Slide-down drawer animation */
       .nav-links.open {
         display: flex;
         flex-direction: column;
         position: fixed;
-        top: 74px;
+        top: 75px;
         left: 0;
         right: 0;
-        background: rgba(10, 6, 4, .97);
-        backdrop-filter: blur(16px);
-        padding: 20px 8%;
+        background: #ffffff;
+        padding: 12px 8% 20px;
         gap: 0;
-        border-bottom: 1px solid rgba(122, 154, 58, .12);
-        z-index: 999
+        border-top: 1px solid rgba(107, 122, 61, .15);
+        border-bottom: 3px solid #6b7a3d;
+        box-shadow: 0 12px 40px rgba(0,0,0,.12);
+        z-index: 999;
+        animation: slideDown .3s ease forwards
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-14px)
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0)
+        }
       }
 
       .nav-links.open li {
-        border-bottom: 1px solid rgba(255, 255, 255, .05)
+        border-bottom: 1px solid rgba(107, 122, 61, .1)
       }
 
       .nav-links.open a {
         display: block;
-        padding: 13px 0;
-        font-size: 15px
+        padding: 14px 0;
+        font-size: 15px;
+        color: #2a1a08;
+        font-weight: 500
+      }
+
+      .nav-links.open a:hover {
+        color: #6b7a3d;
+        padding-left: 6px;
+        transition: padding .2s
       }
 
       .nav-btn {
@@ -1920,13 +1971,7 @@
   <!-- NAV -->
   <nav id="nav">
     <div class="nav-logo">
-      <svg viewBox="0 0 240 58" xmlns="http://www.w3.org/2000/svg">
-        <text x="2" y="44" font-family="Georgia,serif" font-size="42" font-weight="900" fill="#ffffff"
-          letter-spacing="-1.5">VEPURI</text>
-        <polygon points="213,2 220,15 206,15" fill="#7a9a3a" />
-        <text x="28" y="56" font-family="Georgia,serif" font-size="10.5" font-weight="700" fill="#7a9a3a"
-          letter-spacing="5.5">AGRO PRODUCTS</text>
-      </svg>
+      <img src="assets/logo.png" alt="Vepuri Agro Products">
     </div>
     <ul class="nav-links" id="navLinks">
       <li><a href="#hero">Home</a></li>
@@ -1946,8 +1991,7 @@
   <section id="hero">
     <div class="hero-bg">
       <!-- preloaded, width=1400 q=70 for fast load -->
-      <img src="assets/image_be94f573.png"
-        alt="Coconut palm landscape" fetchpriority="high" decoding="async">
+      <img src="assets/image_be94f573.png" alt="Coconut palm landscape" fetchpriority="high" decoding="async">
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -2025,8 +2069,7 @@
             alt="Coconut processing facility" loading="lazy" decoding="async">
         </div>
         <div class="a-sec">
-          <img src="https://images.unsplash.com/photo-1621888373234-f9b2bc89c3f7?w=500&q=65&auto=format&fit=crop"
-            alt="Fresh coconuts" loading="lazy" decoding="async">
+          <img src="assets/image_be94f573.png" alt="Fresh" loading="lazy" decoding="async">
         </div>
         <div class="a-badge">
           <div class="a-badge-n">15+</div>
@@ -2473,8 +2516,14 @@
     window.addEventListener('scroll', () => {
       document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
     }, { passive: true });
-    function toggleNav() { document.getElementById('navLinks').classList.toggle('open') }
-    document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open')));
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+      document.getElementById('hbg').classList.toggle('active');
+    }
+    document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+      document.getElementById('hbg').classList.remove('active');
+    }));
 
     // ── SCROLL REVEAL (IntersectionObserver – no JS on scroll) ──
     const ro = new IntersectionObserver(entries => {
