@@ -8,20 +8,35 @@
   <meta name="description" content="Impact initiatives at Vepuri Agro Products including skills and first-time employment support.">
   <script src="font-loader.js"></script>
   <link rel="stylesheet" href="about-pages.css">
+  <link rel="stylesheet" href="nav-shared.css">
 </head>
 
 <body>
-  <nav class="a-nav">
-    <a class="a-logo" href="index.html"><img src="assets/logo.png" alt="Vepuri Agro Products"></a>
-    <div class="a-links">
-      <a href="index.html">Home</a>
-      <a href="index.html#about">About</a>
-      <a href="journey.html">Journey</a>
-      <a href="index.html#products">Products</a>
-      <a href="index.html#network">Network</a>
-      <a href="brands.html">Brands</a>
-      <a href="index.html#testimonials">Testimonials</a>
-      <a href="index.html#contact">Department Contacts</a>
+  <nav id="nav">
+    <div class="nav-logo">
+      <img src="assets/logo.png" alt="Vepuri Agro Products">
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#hero">Home</a></li>
+      <li class="has-submenu">
+        <a href="index.html#about">About<span class="dd-caret" aria-hidden="true"></span></a>
+        <ul class="submenu">
+          <li><a href="about-vepuri.html">About Vepuri</a></li>
+          <li><a href="our-team.html">Founder Story or Our Team</a></li>
+          <li><a href="certified-awarded.html">Certified or Awarded</a></li>
+          <li><a href="impact.html">Impact</a></li>
+        </ul>
+      </li>
+      <li><a href="journey.html">Journey</a></li>
+      <li><a href="index.html#products">Products</a></li>
+      <li><a href="index.html#network">Network</a></li>
+      <li><a href="index.html#brands">Brands</a></li>
+      <li><a href="index.html#testimonials">Testimonials</a></li>
+      <li><a href="index.html#contact">Department Contacts</a></li>
+      <li><a href="index.html#products" class="nav-btn">Explore Products</a></li>
+    </ul>
+    <div class="hamburger" id="hbg" onclick="toggleNav()">
+      <span></span><span></span><span></span>
     </div>
   </nav>
 
@@ -61,6 +76,7 @@
       </article>
     </section>
   </main>
+  <script src="nav-pages.js" defer></script>
 </body>
 
 </html>

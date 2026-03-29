@@ -1,0 +1,312 @@
+#nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 0 5%;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, .08);
+  transition: box-shadow .4s;
+}
+
+#nav.scrolled {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, .14);
+}
+
+#nav .nav-logo img {
+  height: 150px;
+  width: auto;
+  display: block;
+}
+
+#nav .nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+  list-style: none;
+  margin-left: auto;
+}
+
+#nav .nav-links > li {
+  position: relative;
+}
+
+#nav .nav-links > li:last-child {
+  margin-left: 10px;
+}
+
+#nav .nav-links a {
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  color: #2a1809;
+  transition: color .25s;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+#nav .nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--green, #7a9a3a);
+  transition: width .3s;
+}
+
+#nav .nav-links a:hover {
+  color: #3d5228;
+}
+
+#nav .nav-links a:hover::after {
+  width: 100%;
+}
+
+#nav .has-submenu > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#nav .dd-caret {
+  width: 7px;
+  height: 7px;
+  border-right: 1.6px solid rgba(42, 24, 9, .9);
+  border-bottom: 1.6px solid rgba(42, 24, 9, .9);
+  transform: rotate(45deg) translateY(-1px);
+  transform-origin: center;
+  display: inline-block;
+  flex-shrink: 0;
+  margin-left: 2px;
+}
+
+#nav .submenu {
+  position: absolute;
+  top: calc(100% + 11px);
+  left: 0;
+  min-width: 260px;
+  padding: 8px;
+  list-style: none;
+  background: #fff;
+  border: 1px solid rgba(61, 82, 40, .12);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, .11);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity .22s, transform .22s, visibility .22s;
+  z-index: 1005;
+}
+
+#nav .submenu a {
+  display: block;
+  padding: 10px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .03em;
+  text-transform: none;
+  color: rgba(42, 24, 9, .94);
+}
+
+#nav .submenu a::after {
+  display: none;
+}
+
+#nav .submenu a:hover {
+  background: rgba(122, 154, 58, .1);
+  color: #2f4419;
+}
+
+#nav .has-submenu:hover .submenu,
+#nav .has-submenu:focus-within .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#nav .nav-btn {
+  background: var(--green, #7a9a3a) !important;
+  color: #fff !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: background .25s !important;
+}
+
+#nav .nav-btn:hover {
+  background: var(--green2, #617a45) !important;
+}
+
+#nav .nav-btn::after {
+  display: none !important;
+}
+
+#nav .hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+  z-index: 1001;
+}
+
+#nav .hamburger span {
+  width: 24px;
+  height: 2px;
+  background: #3d1a0e;
+  border-radius: 2px;
+  display: block;
+  transition: transform .35s cubic-bezier(.23,1,.32,1), opacity .25s ease, width .3s ease;
+}
+
+#nav .hamburger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+#nav .hamburger.active span:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+
+#nav .hamburger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media(max-width:900px) {
+  #nav .nav-links {
+    display: none;
+  }
+
+  #nav .hamburger {
+    display: flex;
+  }
+
+  #nav .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 75px;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    padding: 12px 8% 20px;
+    gap: 0;
+    border-top: 1px solid rgba(107, 122, 61, .15);
+    border-bottom: 3px solid #6b7a3d;
+    box-shadow: 0 12px 40px rgba(0,0,0,.12);
+    z-index: 999;
+    animation: navSlideDown .3s ease forwards;
+  }
+
+  @keyframes navSlideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-14px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  #nav .nav-links.open li {
+    width: min(100%, 320px);
+    border-bottom: 1px solid rgba(107, 122, 61, .1);
+  }
+
+  #nav .nav-links.open li:last-child {
+    margin-left: 0;
+  }
+
+  #nav .nav-links.open > li > a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 14px 22px;
+    font-size: 15px;
+    color: #2a1a08;
+    font-weight: 500;
+  }
+
+  #nav .nav-links.open > li > a::after {
+    display: none;
+  }
+
+  #nav .nav-links.open .has-submenu > a {
+    position: relative;
+  }
+
+  #nav .nav-links.open .dd-caret {
+    display: block;
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    margin-left: 0;
+    transform: translateY(-50%) rotate(45deg);
+    transition: transform .2s ease;
+  }
+
+  #nav .nav-links.open .has-submenu.open .dd-caret {
+    transform: translateY(-50%) rotate(225deg);
+  }
+
+  #nav .nav-links.open .submenu {
+    position: static;
+    min-width: 0;
+    padding: 0;
+    margin-bottom: 0;
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .25s ease, padding .25s ease, margin .25s ease;
+  }
+
+  #nav .nav-links.open .has-submenu.open .submenu {
+    max-height: 220px;
+    padding-left: 12px;
+    padding-top: 2px;
+    padding-bottom: 10px;
+    border-left: 2px solid rgba(107, 122, 61, .24);
+    margin-bottom: 8px;
+  }
+
+  #nav .nav-links.open .submenu li {
+    border: 0;
+  }
+
+  #nav .nav-links.open .submenu a {
+    padding: 8px 0;
+    font-size: 13px;
+    color: rgba(42, 26, 8, .88);
+  }
+
+  #nav .nav-links.open .nav-btn {
+    margin-top: 10px;
+    width: 100%;
+  }
+}

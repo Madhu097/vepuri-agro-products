@@ -1703,8 +1703,8 @@ nav.scrolled {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 70px;
+  grid-template-columns: 1fr;
+  gap: 34px;
   margin-top: 54px
 }
 
