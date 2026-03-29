@@ -43,10 +43,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 26px;
-  font-size: 12px;
+  gap: 14px;
+  font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: .08em;
+  letter-spacing: .06em;
   margin-left: auto
 }
 
