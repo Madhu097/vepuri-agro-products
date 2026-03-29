@@ -1,0 +1,666 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vepuri Journey - Timeline</title>
+  <meta name="description" content="Vepuri Agro Products journey - milestones and growth timeline.">
+  <script src="font-loader.js"></script>
+  <style>
+    :root {
+      --green: #7a9a3a;
+      --green2: #617a45;
+      --green3: #3d5228;
+      --brown: #3d1a0e;
+      --cream: #fdf5dc;
+      --white: #ffffff;
+      --black: #0a0604;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at 14% 12%, rgba(186, 217, 95, .2), transparent 32%),
+        radial-gradient(circle at 84% 86%, rgba(24, 14, 8, .45), transparent 36%),
+        linear-gradient(150deg, #7a9a3a 0%, #5f7a2d 48%, #1f120a 100%);
+      color: var(--white);
+      min-height: 100vh
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, .02) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: radial-gradient(circle at center, #000 48%, transparent 100%);
+      z-index: 0
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    /* -- NAV -- */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 75px;
+      background: #ffffff;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, .08)
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex: 1
+    }
+
+    .nav-logo img {
+      height: 150px;
+      width: auto;
+      display: block
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 20px;
+      font-size: 13px;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: #2a1809;
+      margin-left: auto
+    }
+
+    .nav-links a {
+      color: #2a1809;
+      font-weight: 600;
+      position: relative;
+      transition: color .25s, transform .25s
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 1px;
+      background: #3d5228;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .25s ease
+    }
+
+    .nav-links a:hover {
+      color: #2f4419;
+      transform: translateY(-1px)
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1)
+    }
+
+    .nav-cta {
+      padding: 10px 18px;
+      margin-left: 50px;
+      border: 2px solid rgba(61, 82, 40, .35);
+      border-radius: 2px;
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #2a1a08;
+      transition: all .25s
+    }
+
+    .nav-cta:hover {
+      background: #6b7a3d;
+      color: #fff;
+      border-color: #6b7a3d;
+      transform: translateY(-1px)
+    }
+
+    /* -- HERO -- */
+    .hero {
+      padding: 150px 8% 30px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 36px;
+      align-items: center;
+      position: relative;
+      z-index: 1
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', sans-serif;
+      font-size: clamp(44px, 7vw, 90px);
+      font-weight: 800;
+      line-height: .9;
+      text-transform: uppercase;
+      letter-spacing: -.03em
+    }
+
+    .hero h1 span {
+      color: var(--green)
+    }
+
+    .hero p {
+      color: rgba(255, 255, 255, .92);
+      line-height: 1.8;
+      font-size: 15px;
+      margin-top: 14px;
+      max-width: 560px
+    }
+
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(145deg, rgba(10, 6, 4, .86), rgba(33, 20, 10, .82));
+      border: 1px solid rgba(122, 154, 58, .48);
+      border-radius: 6px;
+      padding: 24px;
+      box-shadow: 0 20px 44px rgba(0, 0, 0, .38);
+      backdrop-filter: blur(2px)
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: -55px;
+      right: -35px;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(186, 217, 95, .24), rgba(186, 217, 95, 0));
+      pointer-events: none
+    }
+
+    .hero-card h3 {
+      font-size: 12px;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .9)
+    }
+
+    .hero-card .stat {
+      font-family: 'Playfair Display', sans-serif;
+      font-size: 46px;
+      font-weight: 800;
+      color: #b7da63;
+      text-shadow: 0 8px 22px rgba(122, 154, 58, .24);
+      margin: 10px 0
+    }
+
+    .hero-card p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, .9)
+    }
+
+    /* -- TIMELINE -- */
+    .timeline-wrap {
+      padding: 30px 8% 90px;
+      position: relative;
+      z-index: 1
+    }
+
+    .timeline-stage {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(186, 217, 95, .28);
+      border-radius: 14px;
+      background:
+        radial-gradient(circle at 86% 14%, rgba(186, 217, 95, .12), transparent 36%),
+        radial-gradient(circle at 8% 92%, rgba(186, 217, 95, .08), transparent 34%),
+        linear-gradient(145deg, rgba(8, 5, 3, .9), rgba(23, 15, 10, .84));
+      box-shadow: 0 32px 64px rgba(0, 0, 0, .34);
+      backdrop-filter: blur(3px);
+      padding: 30px 30px 26px
+    }
+
+    .timeline-overlay {
+      display: none
+    }
+
+    .timeline-stage::before,
+    .timeline-stage::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0
+    }
+
+    .timeline-stage::before {
+      width: 180px;
+      height: 180px;
+      top: -66px;
+      right: -56px;
+      background: radial-gradient(circle, rgba(186, 217, 95, .2), rgba(186, 217, 95, 0));
+      animation: floatGlow 7s ease-in-out infinite
+    }
+
+    .timeline-stage::after {
+      width: 140px;
+      height: 140px;
+      bottom: -42px;
+      left: -28px;
+      background: radial-gradient(circle, rgba(186, 217, 95, .16), rgba(186, 217, 95, 0));
+      animation: floatGlow 8s ease-in-out infinite reverse
+    }
+
+    .timeline-content {
+      position: relative;
+      z-index: 2;
+      animation: fadeRise .8s ease both
+    }
+
+    .timeline-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 30px
+    }
+
+    .timeline-head h2 {
+      font-family: 'Playfair Display', sans-serif;
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 800;
+      text-transform: uppercase
+    }
+
+    .timeline-head p {
+      max-width: 520px;
+      color: rgba(255, 255, 255, .9);
+      font-size: 14px;
+      line-height: 1.8
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 22px;
+      top: 12px;
+      bottom: 12px;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(122, 154, 58, .1), rgba(122, 154, 58, .8), rgba(122, 154, 58, .1))
+    }
+
+    .tl-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 18px;
+      padding: 10px 0 10px 8px;
+      opacity: 0;
+      animation: fadeRise .7s ease forwards
+    }
+
+    .tl-item:nth-child(1) {
+      animation-delay: .08s
+    }
+
+    .tl-item:nth-child(2) {
+      animation-delay: .18s
+    }
+
+    .tl-item:nth-child(3) {
+      animation-delay: .28s
+    }
+
+    .tl-item:nth-child(4) {
+      animation-delay: .38s
+    }
+
+    .tl-dot {
+      position: absolute;
+      left: 14px;
+      top: 18px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 6px rgba(122, 154, 58, .18)
+    }
+
+    .tl-year {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .94);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 32px;
+      padding: 0 10px;
+      border-radius: 4px;
+      border: 1px solid rgba(122, 154, 58, .45);
+      background: rgba(12, 8, 6, .7)
+    }
+
+    .tl-card {
+      background: linear-gradient(160deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .02));
+      border: 1px solid rgba(122, 154, 58, .2);
+      border-radius: 6px;
+      padding: 18px 20px;
+      transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease
+    }
+
+    .tl-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(186, 217, 95, .42);
+      box-shadow: 0 16px 30px rgba(0, 0, 0, .24)
+    }
+
+    .tl-title {
+      font-family: 'Playfair Display', sans-serif;
+      font-size: 20px;
+      text-transform: uppercase;
+      margin-bottom: 6px
+    }
+
+    .tl-bullets {
+      display: grid;
+      gap: 6px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, .9)
+    }
+
+    .tl-bullets span {
+      display: block;
+      position: relative;
+      padding-left: 14px
+    }
+
+    .tl-bullets span::before {
+      content: '-';
+      position: absolute;
+      left: 0;
+      color: var(--green)
+    }
+
+    /* -- HIGHLIGHTS -- */
+    .highlights {
+      margin-top: 36px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      position: relative;
+      z-index: 2
+    }
+
+    .hl {
+      background: linear-gradient(160deg, rgba(255, 255, 255, .05), rgba(16, 10, 6, .48));
+      border: 1px solid rgba(122, 154, 58, .2);
+      border-radius: 6px;
+      border-top: 2px solid rgba(186, 217, 95, .38);
+      padding: 18px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, .2);
+      transition: transform .3s ease, border-color .3s ease;
+      opacity: 0;
+      animation: fadeRise .7s ease forwards
+    }
+
+    .hl:nth-child(1) {
+      animation-delay: .45s
+    }
+
+    .hl:nth-child(2) {
+      animation-delay: .52s
+    }
+
+    .hl:nth-child(3) {
+      animation-delay: .59s
+    }
+
+    .hl:nth-child(4) {
+      animation-delay: .66s
+    }
+
+    .hl:hover {
+      transform: translateY(-4px);
+      border-color: rgba(186, 217, 95, .4)
+    }
+
+    .hl .hl-num {
+      font-family: 'Playfair Display', sans-serif;
+      font-size: 28px;
+      color: var(--green)
+    }
+
+    .hl .hl-lbl {
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .9);
+      margin-top: 6px
+    }
+
+    /* -- FOOTER -- */
+    footer {
+      padding: 26px 8% 40px;
+      color: rgba(255, 255, 255, .88);
+      font-size: 12px
+    }
+
+    @keyframes fadeRise {
+      from {
+        opacity: 0;
+        transform: translateY(16px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes floatGlow {
+      0%,
+      100% {
+        transform: translateY(0) scale(1)
+      }
+
+      50% {
+        transform: translateY(-10px) scale(1.05)
+      }
+    }
+
+    /* -- MOBILE -- */
+    @media(max-width:900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 50px
+      }
+
+      .hero {
+        padding-top: 118px
+      }
+
+      .timeline-head {
+        flex-direction: column;
+        align-items: flex-start
+      }
+
+      .timeline-stage {
+        padding: 24px 22px 20px
+      }
+
+      .timeline-content {
+        padding: 0
+      }
+
+      .highlights {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    @media(max-width:560px) {
+      .nav-links {
+        display: none
+      }
+
+      .timeline-stage {
+        padding: 20px 16px 16px
+      }
+
+      .timeline-content {
+        padding: 0
+      }
+
+      .highlights {
+        grid-template-columns: 1fr
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-left">
+      <a class="nav-logo" href="index.html"><img src="assets/logo.png" alt="Vepuri Agro Products"></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#products">Products</a>
+        <a href="brands.html">Brands</a>
+        <a href="index.html#network">Network</a>
+      </div>
+    </div>
+    <a class="nav-cta" href="index.html#contact">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <div>
+      <h1>Journey<br><span>Timeline</span></h1>
+      <p>Key milestones that shaped Vepuri Agro Products - focused on scale, quality, and partnerships. Crisp milestones,
+        no heavy paragraphs.</p>
+    </div>
+    <div class="hero-card">
+      <h3>Since 2011</h3>
+      <div class="stat">15+ Years</div>
+      <p>From foundation to export readiness, the journey stays rooted in structured processing and trusted networks.</p>
+    </div>
+  </section>
+
+  <section class="timeline-wrap">
+    <div class="timeline-stage">
+      <div class="timeline-overlay"></div>
+      <div class="timeline-content">
+        <div class="timeline-head">
+          <h2>Milestones</h2>
+          <p>Infographic style timeline with concise highlights. Each step reflects a measurable build in capacity, network,
+            and product focus.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-year">2011</div>
+            <div class="tl-card">
+              <div class="tl-title">Foundation Established</div>
+              <div class="tl-bullets">
+                <span>Company set up with a focused coconut-processing vision.</span>
+                <span>Early farmer partnerships built.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-year">2014 to 2016</div>
+            <div class="tl-card">
+              <div class="tl-title">Facility Built</div>
+              <div class="tl-bullets">
+                <span>Integrated processing units established.</span>
+                <span>Hygienic workflows standardized.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-year">2018 to 2020</div>
+            <div class="tl-card">
+              <div class="tl-title">Network Expansion</div>
+              <div class="tl-bullets">
+                <span>Farmer and distributor reach scaled across regions.</span>
+                <span>Stronger B2B supply stability achieved.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-year">2023 to Present</div>
+            <div class="tl-card">
+              <div class="tl-title">Export and Diversification</div>
+              <div class="tl-bullets">
+                <span>Export channels initiated.</span>
+                <span>Product range expanded for global demand.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="highlights">
+          <div class="hl">
+            <div class="hl-num">15+</div>
+            <div class="hl-lbl">Years</div>
+          </div>
+          <div class="hl">
+            <div class="hl-num">500+</div>
+            <div class="hl-lbl">Farm Partners</div>
+          </div>
+          <div class="hl">
+            <div class="hl-num">50+</div>
+            <div class="hl-lbl">Distributors</div>
+          </div>
+          <div class="hl">
+            <div class="hl-num">3+</div>
+            <div class="hl-lbl">Product Lines</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>Vepuri Agro Products - From Coconut to Value</div>
+  </footer>
+</body>
+
+</html>
+
+
+

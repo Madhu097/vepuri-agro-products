@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vepuri Product Details</title>
+  <meta name="description" content="Product details for Vepuri Agro Products categories.">
+  <script src="font-loader.js"></script>
+  <link rel="stylesheet" href="product.css">
+</head>
+
+<body>
+  <nav class="p-nav">
+    <a class="p-logo" href="index.html"><img src="assets/logo.png" alt="Vepuri Agro Products"></a>
+    <div class="p-nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#products">Products</a>
+      <a href="brands.html">Brands</a>
+      <a href="journey.html">Journey</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main class="p-main">
+    <section class="p-showcase">
+      <div class="p-showcase-media">
+        <div class="p-media-card">
+          <img id="productImage" src="assets/products/oil.jpg" alt="Virgin Coconut Oil product image" loading="eager" decoding="async">
+          <div class="p-media-overlay"></div>
+        </div>
+      </div>
+
+      <div class="p-showcase-content">
+        <span class="p-eye">Product Detail Page</span>
+        <p class="p-kicker" id="detailCategory">Coconut Value-Added Product</p>
+        <h1 id="productName">Virgin Coconut Oil</h1>
+        <p id="productDescription">Premium coconut category from Vepuri Agro Products.</p>
+        <p id="detailDescription">Description will load based on selected product.</p>
+
+        <div class="p-usecases">
+          <h2>Use Cases</h2>
+          <ul id="detailUseCases"></ul>
+        </div>
+
+        <div class="p-cta-wrap">
+          <a id="ctaBtn" class="p-cta" href="index.html#contact">Enquire Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="products-config.js" defer></script>
+  <script src="product.js" defer></script>
+</body>
+
+</html>
