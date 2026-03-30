@@ -5,16 +5,18 @@
   --ink: #1f1b17;
   --paper: #f4f0e8;
   --white: #ffffff;
+  --site-font: 'Spectral', serif;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: var(--site-font) !important;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--site-font);
   background: #7a9a3a;
   color: var(--ink);
   min-height: 100vh;

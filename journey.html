@@ -217,6 +217,10 @@
       z-index: 0;
     }
 
+    .tone-red .event-media .accent {
+      background: var(--red);
+    }
+
     .event.left .event-media .accent {
       left: -16px;
     }
@@ -232,9 +236,9 @@
       height: 100%;
       border-radius: 50%;
       object-fit: cover;
-      filter: grayscale(1);
-      border: 2px solid rgba(0, 0, 0, 0.08);
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+      filter: saturate(1.2) contrast(1.06) brightness(1.04);
+      border: 2px solid rgba(255, 255, 255, 0.7);
+      box-shadow: 0 12px 24px rgba(12, 24, 34, 0.18);
     }
 
     .event-copy {
@@ -507,13 +511,13 @@
             <p class="event-note">Direct farmer sourcing framework formalized.</p>
             <div class="event-place">Coastal Belt</div>
           </div>
-          <div class="event-media"><span class="accent"></span><img src="assets/hero.jpg" alt="Procurement network"></div>
+          <div class="event-media"><span class="accent"></span><img src="assets/journey/factory.jpeg" alt="Procurement network"></div>
         </div>
       </article>
 
       <article class="event left tone-teal">
         <div class="event-content">
-          <div class="event-media"><span class="accent"></span><img src="assets/milestone.jpg" alt="Facility setup"></div>
+          <div class="event-media"><span class="accent"></span><img src="assets/journey/SDP08586.JPG.jpeg" alt="Facility setup"></div>
           <div class="event-copy">
             <div class="event-year">2015</div>
             <h3 class="event-title">Facility Expansion</h3>

@@ -1,5 +1,5 @@
 (function () {
-  var fontHref = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap';
+  var fontHref = 'https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&display=swap';
 
   function injectLink(rel, href, crossOrigin) {
     var link = document.createElement('link');
