@@ -16,6 +16,71 @@ function scrollToSection(selector) {
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
+// -- HERO CARD INTERACTION --
+const heroCardEl = document.querySelector('.hero-card.hero-tilt');
+if (heroCardEl && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  heroCardEl.addEventListener('pointermove', (event) => {
+    const rect = heroCardEl.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width;
+    const y = (event.clientY - rect.top) / rect.height;
+    const rx = (0.5 - y) * 2.6;
+    const ry = (x - 0.5) * 3.6;
+    heroCardEl.style.transform = `perspective(1100px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg)`;
+    heroCardEl.style.setProperty('--hero-card-x', `${(x * 100).toFixed(2)}%`);
+    heroCardEl.style.setProperty('--hero-card-y', `${(y * 100).toFixed(2)}%`);
+  });
+
+  heroCardEl.addEventListener('pointerleave', () => {
+    heroCardEl.style.transform = 'perspective(1100px) rotateX(0deg) rotateY(0deg)';
+  });
+}
+
+function animateHeroCounters() {
+  const counters = Array.from(document.querySelectorAll('.hs-num[data-hero-target]'));
+  if (!counters.length) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const run = () => {
+    counters.forEach(counter => {
+      const target = Number(counter.dataset.heroTarget || 0);
+      const valueEl = counter.querySelector('.hs-val');
+      if (!valueEl || !Number.isFinite(target)) return;
+      if (reduceMotion) {
+        valueEl.textContent = String(target);
+        return;
+      }
+
+      const duration = 1200;
+      const start = performance.now();
+      const from = 0;
+      const tick = (now) => {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        const val = Math.round(from + (target - from) * eased);
+        valueEl.textContent = String(val);
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+  };
+
+  const hero = document.getElementById('hero');
+  if (!hero) {
+    run();
+    return;
+  }
+
+  const io = new IntersectionObserver(entries => {
+    if (!entries[0].isIntersecting) return;
+    run();
+    io.disconnect();
+  }, { threshold: 0.4 });
+
+  io.observe(hero);
+}
+
+animateHeroCounters();
+
 // -- NAV --
 window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
