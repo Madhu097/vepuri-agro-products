@@ -408,26 +408,26 @@ nav.scrolled {
 }
 
 .btn-p {
-  background: #6a6f3a;
-  color: #f6e2bf;
+  background: transparent;
+  color: #4b2a1a;
   padding: 10px 16px;
   border-radius: 2px;
   font-size: 10px;
   letter-spacing: .22em;
   text-transform: uppercase;
   text-decoration: none;
-  border: 1px solid #6a6f3a;
+  border: 1px solid #4b2a1a;
   transition: transform .2s ease, background .2s ease
 }
 
 .btn-p:hover {
   transform: translateY(-2px);
-  background: #5b6032
+  background: rgba(75, 42, 26, .08)
 }
 
 .btn-o {
-  border: 1px solid #6a6f3a;
-  color: #6a6f3a;
+  border: 1px solid #4b2a1a;
+  color: #4b2a1a;
   background: rgba(246, 226, 191, .7);
   padding: 10px 16px;
   border-radius: 2px;
@@ -862,6 +862,18 @@ nav.scrolled {
   font-size: 14px;
   line-height: 1.8;
   color: rgba(75, 42, 26, .8)
+}
+
+.about-cta {
+  display: flex;
+  gap: 14px;
+  margin-top: 24px;
+  flex-wrap: wrap
+}
+
+.about-cta .btn-p,
+.about-cta .btn-o {
+  flex: none
 }
 
 .about-cards {
@@ -1605,6 +1617,25 @@ nav.scrolled {
   color: rgba(40, 25, 8, .86);
   line-height: 1.75;
   max-width: 500px
+}
+
+.ti-cta {
+  display: inline-block;
+  margin-top: 50px;
+  padding: 9px 14px;
+  border: 1px solid #4b2a1a;
+  color: #4b2a1a;
+  background: transparent;
+  font-size: 10px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform .2s ease, background .2s ease
+}
+
+.ti-cta:hover {
+  transform: translateY(-2px);
+  background: rgba(75, 42, 26, .08)
 }
 
 .ach-right {
@@ -2801,6 +2832,15 @@ footer {
 
   .about-card-wide {
     grid-column: span 1
+  }
+
+  .about-cta {
+    flex-direction: column
+  }
+
+  .about-cta .btn-p,
+  .about-cta .btn-o {
+    width: 100%
   }
 
   .prod-grid {
