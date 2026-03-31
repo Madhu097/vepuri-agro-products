@@ -20,7 +20,7 @@
   }, { passive: true });
 
   function isMobileNav() {
-    return window.matchMedia('(max-width: 900px)').matches;
+    return window.matchMedia('(max-width: 1080px)').matches;
   }
 
   document.querySelectorAll('.has-submenu > a').forEach(function (a) {

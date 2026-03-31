@@ -13,6 +13,14 @@
   padding: 0;
   box-sizing: border-box;
   font-family: var(--site-font) !important;
+  max-width: 100%;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+  position: relative;
 }
 
 body {
@@ -37,10 +45,10 @@ body::before {
 .a-main {
   position: relative;
   z-index: 1;
-  max-width: 1400px;
-  margin: 0 auto; /* Restored centering */
+  max-width: 100%;
+  margin: 0 auto;
   padding-top: 112px;
-  overflow-x: visible; 
+  overflow-x: hidden;
 }
 
 .a-hero {
@@ -171,11 +179,89 @@ body::before {
   margin-bottom: 0;
   min-height: 220px;
   grid-row: 1 / span 2;
+  aspect-ratio: 16/9;
 }
 
-.a-card-wide h2,
-.a-card-wide p {
-  grid-column: 2;
+.impact-bottom-card .a-card-media {
+  aspect-ratio: 21/9 !important;
+}
+
+.impact-main-card {
+  padding: 0 !important;
+  overflow: hidden;
+  border: none !important;
+}
+
+.impact-main-card .a-hero-media {
+  height: 100%;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+}
+
+.page-about .impact-grid {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+  grid-template-areas:
+    "main side"
+    "bottom bottom";
+  gap: 16px;
+  align-items: start;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.page-about .impact-side-stack {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+  margin-top: 60px;
+}
+
+.page-about .impact-grid .a-card {
+  padding: 14px;
+  height: auto;
+}
+
+.page-about .impact-main-card {
+  grid-area: main;
+}
+
+.page-about .impact-side-stack {
+  grid-area: side;
+}
+
+.page-about .impact-bottom-card {
+  grid-area: bottom;
+}
+
+.page-about .impact-grid .a-card h2 {
+  font-size: 10px;
+  margin-bottom: 8px;
+}
+
+.page-about .impact-grid .a-card p {
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.page-about .impact-main-card .a-hero-media {
+  min-height: clamp(240px, 30vw, 330px);
+  max-height: 360px;
+  aspect-ratio: 4/3;
+}
+
+.page-about .impact-bottom-card {
+  grid-template-columns: .85fr 1.15fr;
+  gap: 16px;
+  align-items: center;
+}
+
+.page-about .impact-bottom-card>div:last-child {
+  padding-top: 10px;
+}
+
+.page-about .impact-bottom-card .a-card-media {
+  min-height: 180px;
 }
 
 .section-header {
@@ -258,27 +344,32 @@ body::before {
 
 /* -- ABOUT VEPURI PAGE UI REFRESH -- */
 .page-about .a-main {
-  max-width: 1380px;
+  max-width: 100%;
 }
 
 .page-about .av-hero {
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%); /* More stable centering for breakout */
-  min-height: 70vh;
-  margin-bottom: 40px;
+  grid-template-columns: 1.18fr 0.82fr;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto 40px;
+  min-height: 58vh;
+  background: var(--paper);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .52);
+  box-shadow: 0 16px 42px rgba(20, 16, 12, .12);
 }
 
 .page-about .av-copy {
   background: var(--paper);
-  padding: 6% 6% 6% calc(4.5% + 40px); /* Aligns text start with logo above */
+  padding: 5% 5% 5% 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 
 /* Specific background division logic */
@@ -301,7 +392,7 @@ body::before {
 
 .page-about .av-copy h1 {
   font-family: 'Playfair Display', sans-serif;
-  font-size: clamp(34px, 5.2vw, 68px);
+  font-size: clamp(30px, 4.4vw, 56px);
   line-height: .95;
   letter-spacing: -.01em;
   color: #21170f;
@@ -314,10 +405,10 @@ body::before {
 
 .page-about .av-copy p {
   margin-top: 16px;
-  font-size: 15px;
-  line-height: 1.9;
+  font-size: 14px;
+  line-height: 1.78;
   color: rgba(38, 28, 20, .92);
-  max-width: 620px;
+  max-width: 540px;
 }
 
 .page-about .av-actions {
@@ -368,6 +459,7 @@ body::before {
   position: relative;
   height: 100%;
   overflow: hidden;
+  max-height: 560px;
 }
 
 .page-about .av-main-img {
@@ -414,6 +506,45 @@ body::before {
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-bottom: 18px;
+}
+
+.page-about .core-philosophy-wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 48px 36px;
+}
+
+.page-about .core-philosophy-wrap .section-header {
+  margin-bottom: 34px;
+}
+
+.page-about .core-philosophy-wrap .section-header h2 {
+  font-size: clamp(28px, 3.8vw, 46px);
+}
+
+.page-about .core-philosophy-wrap .section-header p {
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.page-about .core-philosophy-wrap .av-values {
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.page-about .core-philosophy-wrap .av-value-card {
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.page-about .core-philosophy-wrap .av-value-card h2 {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.page-about .core-philosophy-wrap .av-value-card p {
+  font-size: 13px;
+  line-height: 1.65;
 }
 
 .page-about .av-value-card {
@@ -502,6 +633,12 @@ body::before {
   gap: 20px;
 }
 
+.page-about .team-gov-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 14px;
+}
+
 .team-member {
   display: flex;
   flex-direction: column;
@@ -511,6 +648,10 @@ body::before {
   border: 1px solid rgba(61, 82, 40, .14);
   box-shadow: 0 8px 24px rgba(20, 16, 12, .08);
   transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+
+.page-about .team-member {
+  border-radius: 10px;
 }
 
 .team-member:hover {
@@ -524,6 +665,10 @@ body::before {
   aspect-ratio: 16 / 11;
   background: #d7d5ce;
   overflow: hidden;
+}
+
+.page-about .team-member-media {
+  aspect-ratio: 16 / 10;
 }
 
 .team-member-media img {
@@ -543,6 +688,11 @@ body::before {
   padding: 18px 16px;
 }
 
+.page-about .team-member-copy {
+  min-height: 108px;
+  padding: 14px 12px;
+}
+
 .team-member-copy h2 {
   font-family: 'Playfair Display', sans-serif;
   font-size: clamp(20px, 1.8vw, 28px);
@@ -553,10 +703,20 @@ body::before {
   margin-bottom: 10px;
 }
 
+.page-about .team-member-copy h2 {
+  font-size: clamp(18px, 1.55vw, 24px);
+  margin-bottom: 7px;
+}
+
 .team-member-copy p {
   font-size: clamp(13px, 1.02vw, 15px);
   line-height: 1.52;
   color: #2d2c2a;
+}
+
+.page-about .team-member-copy p {
+  font-size: clamp(12px, .95vw, 14px);
+  line-height: 1.45;
 }
 
 .tone-light {
@@ -572,48 +732,98 @@ body::before {
   color: #f2f1ea;
 }
 
-@media(max-width:980px) {
+@media(max-width:1024px) {
   .a-main {
-    padding: 106px 6% 72px;
+    padding-top: 106px;
+    padding-left: 6%;
+    padding-right: 6%;
   }
 
-  .a-hero {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .a-hero-media {
-    min-height: 220px;
-  }
-
-  .a-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .page-about .av-hero {
+  .page-about .av-hero,
+  .page-impact .a-hero,
+  .page-team .team-gov,
+  .page-certified-awarded .ca-hero {
     grid-template-columns: 1fr;
     width: 100%;
-    left: auto;
-    right: auto;
-    margin-left: 0;
-    margin-right: 0;
+    margin-bottom: 24px;
     min-height: auto;
   }
   
+  .a-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .page-about .impact-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "main"
+      "side"
+      "bottom";
+    gap: 14px;
+  }
+
+  .page-about .impact-side-stack {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 0;
+  }
+
+  .page-about .impact-main-card .a-hero-media {
+    min-height: 230px;
+    max-height: 300px;
+  }
+
+  .page-about .impact-bottom-card {
+    grid-template-columns: 1fr;
+  }
+
+  .page-about .impact-bottom-card>div:last-child {
+    padding-top: 4px;
+  }
+  
   .page-about .av-copy {
-    padding: 60px 8%;
+    padding: 40px 6% 32px;
+    text-align: center;
+    align-items: center;
+    width: 100%;
   }
 
-  .page-about .av-media-stage {
-    height: 350px;
+  .page-about .av-media-stage,
+  .page-about .av-main-img {
+    max-height: 360px;
   }
 
-  .page-about .av-media-stage {
-    min-height: 300px;
+  .page-about .av-media-stage,
+  .a-hero-media,
+  .page-certified-awarded .ca-media-stage {
+    height: auto;
+    min-height: 250px;
+    aspect-ratio: 16/10;
+  }
+
+  .a-hero-copy, .av-copy, .ca-copy {
+    padding: 32px 18px !important;
+    text-align: center;
+    align-items: center;
+    width: 100%;
   }
 
   .page-about .av-values {
     grid-template-columns: 1fr;
+  }
+
+  .page-about .core-philosophy-wrap {
+    max-width: 100%;
+    padding: 34px 22px;
+  }
+
+  .page-about .core-philosophy-wrap .section-header {
+    margin-bottom: 26px;
+  }
+
+  .page-about .core-philosophy-wrap .av-value-card {
+    padding: 14px;
   }
 
   .page-about .av-strip {
@@ -628,6 +838,11 @@ body::before {
     grid-template-columns: 1fr 1fr;
   }
 
+  .page-about .team-gov-grid {
+    max-width: 860px;
+    gap: 12px;
+  }
+
   .team-member:last-child {
     grid-column: 1 / -1;
   }
@@ -636,9 +851,17 @@ body::before {
     min-height: 0;
   }
 
+  .page-about .team-member-copy {
+    padding: 12px 11px;
+  }
+
   .a-card-wide {
     grid-column: auto;
     grid-template-columns: 1fr;
+  }
+
+  .impact-bottom-card .a-card-media {
+    aspect-ratio: 16/9 !important;
   }
 
   .a-card-wide .a-card-media,
@@ -676,20 +899,46 @@ body::before {
     border-radius: 12px;
   }
 
-  .a-card {
-    padding: 16px;
+  .a-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 
-  .a-card-media {
-    aspect-ratio: 4 / 3;
+  .page-about .impact-side-stack {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
-  .page-about .av-copy {
-    padding: 18px;
+  .page-about .impact-bottom-card>div:last-child {
+    padding-top: 0;
   }
+
+  .page-about .impact-grid .a-card {
+    padding: 12px;
+  }
+
+  .page-about .impact-main-card .a-hero-media {
+    min-height: 190px;
+    max-height: 240px;
+  }
+
+  .page-about .impact-grid .a-card p {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .a-card, .a-card-wide {
+    width: 100%;
+  }
+
 
   .page-about .av-copy h1 {
-    font-size: clamp(28px, 10vw, 40px);
+    font-size: clamp(26px, 9.2vw, 36px);
+  }
+
+  .page-about .av-media-stage,
+  .page-about .av-main-img {
+    max-height: 260px;
   }
 
   .page-about .av-actions {
@@ -705,6 +954,28 @@ body::before {
     grid-template-columns: 1fr;
   }
 
+  .page-about .core-philosophy-wrap {
+    padding: 28px 16px;
+  }
+
+  .page-about .core-philosophy-wrap .section-header h2 {
+    font-size: clamp(24px, 8.2vw, 34px);
+  }
+
+  .page-about .core-philosophy-wrap .section-header p {
+    font-size: 13px;
+    line-height: 1.58;
+  }
+
+  .page-about .core-philosophy-wrap .av-value-card h2 {
+    font-size: 21px;
+  }
+
+  .page-about .core-philosophy-wrap .av-value-card p {
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
   .team-gov {
     padding: 14px;
   }
@@ -718,12 +989,21 @@ body::before {
     gap: 12px;
   }
 
+  .page-about .team-gov-grid {
+    max-width: 520px;
+    gap: 10px;
+  }
+
   .team-member:last-child {
     grid-column: auto;
   }
 
   .team-member-copy {
     padding: 12px 11px;
+  }
+
+  .page-about .team-member-copy h2 {
+    font-size: clamp(17px, 6vw, 21px);
   }
 }
 
@@ -1039,9 +1319,10 @@ footer {
 
 .fg2 {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 52px;
   margin-bottom: 52px;
+  width: 100%;
 }
 
 .f-logo {
@@ -1174,6 +1455,30 @@ footer {
   margin-top: 48px;
 }
 
+.page-about .cert-quality-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 46px 34px;
+}
+
+.page-about .cert-quality-wrap .section-header {
+  margin-bottom: 30px;
+}
+
+.page-about .cert-quality-wrap .section-header h2 {
+  font-size: clamp(28px, 3.7vw, 44px);
+}
+
+.page-about .cert-quality-wrap .section-header p {
+  font-size: 14px;
+  line-height: 1.62;
+}
+
+.page-about .cert-quality-wrap .cert-showcase {
+  gap: 14px;
+  margin-top: 24px;
+}
+
 .cert-tile {
   background: rgba(255, 255, 255, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.6);
@@ -1181,6 +1486,11 @@ footer {
   border-radius: 12px;
   text-align: center;
   transition: all 0.3s ease;
+}
+
+.page-about .cert-quality-wrap .cert-tile {
+  padding: 20px 16px;
+  border-radius: 10px;
 }
 
 .cert-tile:hover {
@@ -1202,11 +1512,22 @@ footer {
   margin-bottom: 20px;
 }
 
+.page-about .cert-quality-wrap .cert-badge {
+  margin-bottom: 12px;
+  font-size: 10px;
+  padding: 3px 10px;
+}
+
 .cert-tile h3 {
   font-family: 'Playfair Display', sans-serif;
   font-size: 20px;
   color: #2a2018;
   margin-bottom: 12px;
+}
+
+.page-about .cert-quality-wrap .cert-tile h3 {
+  font-size: 17px;
+  margin-bottom: 8px;
 }
 
 .cert-tile p {
@@ -1215,11 +1536,21 @@ footer {
   color: #4a4a4a;
 }
 
+.page-about .cert-quality-wrap .cert-tile p {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 .cert-footer-info {
   margin-top: 40px;
   padding-top: 30px;
   border-top: 1px solid rgba(0,0,0,0.06);
   text-align: center;
+}
+
+.page-about .cert-quality-wrap .cert-footer-info {
+  margin-top: 24px;
+  padding-top: 18px;
 }
 
 .cf-item h4 {
@@ -1237,14 +1568,41 @@ footer {
   margin: 0 auto;
 }
 
+.page-about .cert-quality-wrap .cf-item p {
+  font-size: 13px;
+  max-width: 520px;
+}
+
 @media (max-width: 1080px) {
   .cert-showcase {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .page-about .cert-quality-wrap {
+    max-width: 100%;
+    padding: 34px 22px;
+  }
+
+  .page-about .cert-quality-wrap .cert-showcase {
+    gap: 12px;
   }
 }
 
 @media (max-width: 600px) {
   .cert-showcase {
     grid-template-columns: 1fr;
+  }
+
+  .page-about .cert-quality-wrap {
+    padding: 26px 14px;
+  }
+
+  .page-about .cert-quality-wrap .section-header h2 {
+    font-size: clamp(24px, 7.8vw, 34px);
+  }
+
+  .page-about .cert-quality-wrap .section-header p {
+    font-size: 13px;
+    line-height: 1.55;
   }
 }
