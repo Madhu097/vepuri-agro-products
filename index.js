@@ -183,84 +183,131 @@ const co = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 document.querySelectorAll('[data-target]').forEach(el => co.observe(el));
 
-// -- 3D SPHERE CANVAS (optimised: fewer points, throttled RAF) --
+// -- FRESH AGRICULTURAL CANVAS (Agriculture/Coconut Theme) --
 const canvas = document.getElementById('sphCanvas');
 const ctx = canvas.getContext('2d');
-let W, H, cx, cy;
+let W, H, cx, cy, time = 0;
+
 function resize() {
   W = canvas.width = canvas.offsetWidth;
   H = canvas.height = canvas.offsetHeight;
-  cx = W / 2; cy = H / 2;
+  cx = W / 2;
+  cy = H / 2;
 }
 resize();
 window.addEventListener('resize', resize, { passive: true });
 
-// Only 80 points, 30 lines -- much lighter
-const pts = Array.from({ length: 80 }, () => ({
-  th: Math.random() * Math.PI * 2,
-  ph: Math.acos(2 * Math.random() - 1),
-  r: 120 + Math.random() * 15,
-  sp: .0015 + Math.random() * .002
-}));
-const lns = Array.from({ length: 30 }, () => ({
-  th1: Math.random() * Math.PI * 2, ph1: Math.random() * Math.PI,
-  th2: Math.random() * Math.PI * 2, ph2: Math.random() * Math.PI, r: 128
+// Agricultural Color Palettes (Greens, Creams, Soft Whites)
+const colors = ['#96AC38', '#D7D5CE', '#FFFFFF', '#606C38'];
+
+const particles = Array.from({ length: 220 }, () => ({
+  x: Math.random(),
+  y: Math.random(),
+  size: 0.3 + Math.random() * 1.8,
+  speed: 0.00015 + Math.random() * 0.0008,
+  opacity: 0.1 + Math.random() * 0.8,
+  drift: (Math.random() - 0.5) * 0.00015,
+  pulse: Math.random() * Math.PI * 2,
+  pulseSpeed: 0.01 + Math.random() * 0.02,
+  color: colors[Math.floor(Math.random() * colors.length)]
 }));
 
-let ang = 0, canvasVisible = false;
-const co2 = new IntersectionObserver(entries => {
+let canvasVisible = false;
+const observer = new IntersectionObserver(entries => {
   canvasVisible = entries[0].isIntersecting;
 }, { threshold: 0.1 });
-co2.observe(canvas);
+observer.observe(canvas);
 
-function proj(th, ph, r, rot) {
-  const x3 = r * Math.sin(ph) * Math.cos(th + rot);
-  const y3 = r * Math.cos(ph);
-  const z3 = r * Math.sin(ph) * Math.sin(th + rot);
-  const s = 380 / (380 + z3);
-  return { x: cx + x3 * s, y: cy + y3 * s, z: z3, s };
-}
-
-let last = 0;
 function draw(ts) {
   requestAnimationFrame(draw);
   if (!canvasVisible) return;
-  if (ts - last < 33) return; // cap ~30fps -- smooth but low CPU
-  last = ts;
+  
+  time = ts / 1000;
   ctx.clearRect(0, 0, W, H);
-  lns.forEach(l => {
-    const p1 = proj(l.th1, l.ph1, l.r, ang), p2 = proj(l.th2, l.ph2, l.r, ang);
-    if (p1.z > -40 && p2.z > -40) {
-      ctx.beginPath(); ctx.moveTo(p1.x, p1.y); ctx.lineTo(p2.x, p2.y);
-      ctx.strokeStyle = `rgba(122,154,58,${Math.min(p1.s, p2.s) * .12})`;
-      ctx.lineWidth = .5; ctx.stroke();
-    }
-  });
-  pts.forEach(p => {
-    p.th += p.sp;
-    const q = proj(p.th, p.ph, p.r, ang);
-    if (q.z > -50) {
+  
+  // 1. Draw Morning Sun (Agriculture Spotlight)
+  const sunX = cx;
+  const sunY = -80;
+  
+  // Sun Core
+  const sunCore = ctx.createRadialGradient(sunX, sunY, 0, sunX, sunY, 200);
+  sunCore.addColorStop(0, 'rgba(255, 255, 240, 0.45)'); // Soft morning sun
+  sunCore.addColorStop(0.3, 'rgba(150, 172, 56, 0.12)'); // Hint of green in the scatter
+  sunCore.addColorStop(1, 'rgba(0, 0, 0, 0)');
+  ctx.fillStyle = sunCore;
+  ctx.fillRect(0, 0, W, H);
+
+  // Natural Light Scatter
+  const flare = ctx.createRadialGradient(sunX, sunY, 0, sunX, sunY, H * 1.5);
+  flare.addColorStop(0, 'rgba(150, 172, 56, 0.25)'); // Organic green scatter
+  flare.addColorStop(0.4, 'rgba(96, 108, 56, 0.04)');
+  flare.addColorStop(1, 'rgba(0, 0, 0, 0)');
+  ctx.fillStyle = flare;
+  ctx.fillRect(0, 0, W, H);
+
+  // 2. Cinematic Organic Particles (Pollen/Spores/Life)
+  particles.forEach((p, idx) => {
+    // Gentle upward drifting
+    p.y -= p.speed;
+    p.x += p.drift;
+    
+    // Bounds wrap
+    if (p.y < -0.05) { p.y = 1.05; p.x = Math.random(); }
+    if (p.x < -0.05) p.x = 1.05;
+    if (p.x > 1.05) p.x = -0.05;
+    
+    const x = p.x * W;
+    const y = p.y * H;
+    
+    // Smooth shimmering
+    const shimmer = 0.5 + Math.sin(time * 2 + p.pulse) * 0.5;
+    const finalOpacity = p.opacity * (0.3 + shimmer * 0.7);
+    
+    // Soft Bokeh Glow
+    const blurSize = p.size * (idx % 2 === 0 ? 6 : 3);
+    const particleGlow = ctx.createRadialGradient(x, y, 0, x, y, blurSize);
+    particleGlow.addColorStop(0, p.color + Math.floor(finalOpacity * 255).toString(16).padStart(2, '0'));
+    particleGlow.addColorStop(1, 'transparent');
+    
+    ctx.beginPath();
+    ctx.arc(x, y, blurSize, 0, Math.PI * 2);
+    ctx.fillStyle = particleGlow;
+    ctx.fill();
+    
+    // Organic Core
+    if (p.size > 0.8) {
       ctx.beginPath();
-      ctx.arc(q.x, q.y, q.s * 2.2, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(122,154,58,${q.s * .65})`;
+      ctx.arc(x, y, p.size * 0.6, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 255, 255, ${finalOpacity * 0.8})`;
       ctx.fill();
     }
   });
-  // soft glow
-  const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, 100);
-  g.addColorStop(0, 'rgba(122,154,58,0.06)');
-  g.addColorStop(1, 'rgba(122,154,58,0)');
-  ctx.fillStyle = g;
-  ctx.fillRect(0, 0, W, H);
-  ang += .004;
+  
+  // 3. Natural Vignette (Earthy green bottom)
+  const vig = ctx.createLinearGradient(0, H * 0.6, 0, H);
+  vig.addColorStop(0, 'rgba(27, 38, 18, 0)');
+  vig.addColorStop(1, 'rgba(27, 38, 18, 0.85)'); // Deep Forest Green fade
+  ctx.fillStyle = vig;
+  ctx.fillRect(0, H * 0.6, W, H * 0.4);
 }
+
 requestAnimationFrame(draw);
 
 // -- FORM --
 function submitForm() {
-  if (!document.getElementById('fn').value || !document.getElementById('fp').value || !document.getElementById('fe').value) {
-    alert('Please fill Name, Phone & Email.'); return;
-  }
-  document.getElementById('formContent').style.display = 'none';
-  document.getElementById('fSuccess').style.display = 'block';
+  const formBox = document.getElementById('formContent');
+  const successBox = document.getElementById('fSuccess');
+  
+  // Show success message
+  formBox.style.display = 'none';
+  successBox.style.display = 'block';
+
+  // Reset and show form again after 4 seconds for a clean experience
+  setTimeout(() => {
+    const form = document.getElementById('enquiryForm');
+    if (form) form.reset();
+    
+    successBox.style.display = 'none';
+    formBox.style.display = 'block';
+  }, 4000);
 }

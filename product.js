@@ -118,4 +118,41 @@ function renderProduct() {
   });
 }
 
-renderProduct();
+function renderOtherProducts() {
+  const currentKey = getProductKey();
+  const otherProductsContainer = document.getElementById('otherProductsGrid');
+  if (!otherProductsContainer) return;
+
+  otherProductsContainer.innerHTML = '';
+  
+  // Get all keys except current
+  const keys = Object.keys(productData).filter(key => key !== currentKey);
+  
+  keys.forEach((key, index) => {
+    const product = productData[key];
+    const imageMap = window.PRODUCT_IMAGE_MAP || {};
+    const imgData = imageMap[key] || { src: product.image };
+    
+    const card = document.createElement('a');
+    card.href = `product.html?item=${key}`;
+    card.className = `pc-modern rv d${(index % 3) + 1}`;
+    
+    card.innerHTML = `
+      <img src="${imgData.src}" alt="${product.name}">
+      <div class="pc-overlay">
+        <div class="pc-label">${product.category}</div>
+        <h3 class="pc-title">${product.name}</h3>
+        <p class="pc-text">${product.description.substring(0, 80)}...</p>
+      </div>
+    `;
+    
+    otherProductsContainer.appendChild(card);
+  });
+}
+
+function init() {
+  renderProduct();
+  renderOtherProducts();
+}
+
+init();
