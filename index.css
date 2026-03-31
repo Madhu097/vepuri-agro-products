@@ -992,8 +992,7 @@ nav.scrolled {
   display: block
 }
 
-.a-main:hover img,
-.a-main:hover video {
+.a-main:hover img {
   transform: scale(1.04)
 }
 
@@ -1002,6 +1001,8 @@ nav.scrolled {
   height: 100%;
   object-fit: cover;
   display: block;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
 }
 
 .a-sec {
@@ -2463,7 +2464,7 @@ footer {
 }
 
 /* -- MOBILE -- */
-@media(max-width:900px) {
+@media(max-width:1080px) {
   #hero {
     min-height: 95vh;
     padding: 112px 6% 84px

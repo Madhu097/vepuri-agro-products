@@ -93,7 +93,7 @@ function toggleNav() {
 }
 
 function isMobileNav() {
-  return window.matchMedia('(max-width: 900px)').matches;
+  return window.matchMedia('(max-width: 1080px)').matches;
 }
 
 document.querySelectorAll('.has-submenu > a').forEach(a => {
@@ -310,4 +310,20 @@ function submitForm() {
     successBox.style.display = 'none';
     formBox.style.display = 'block';
   }, 4000);
+}
+// -- ABOUT VIDEO PERSISTENCE --
+const aboutVid = document.querySelector('.a-main-video');
+if (aboutVid) {
+  // Ensure it plays on load
+  aboutVid.play().catch(() => { /* Silence autoplay blocks */ });
+  
+  // Keep it playing when it enters the screen
+  const vidObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        aboutVid.play();
+      }
+    });
+  }, { threshold: 0.1 });
+  vidObs.observe(aboutVid);
 }
