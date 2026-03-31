@@ -434,14 +434,14 @@ body::before {
 }
 
 .page-about .av-btn-primary {
-  background: #6b7a3d;
-  border: 1px solid #6b7a3d;
+  background: #606c38;
+  border: 1px solid #606c38;
   color: #fff;
 }
 
 .page-about .av-btn-primary:hover {
-  background: #5a6833;
-  border-color: #5a6833;
+  background: #556132;
+  border-color: #556132;
 }
 
 .page-about .av-btn-secondary {

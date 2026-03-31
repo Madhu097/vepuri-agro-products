@@ -136,27 +136,28 @@
 }
 
 #nav .nav-btn {
-  background: transparent !important;
-  color: #000 !important;
-  display: inline;
-  padding: 0 !important;
-  border-radius: 0;
+  background: #606c38 !important;
+  color: #ffe9c4 !important;
+  display: inline-block;
+  padding: 10px 16px !important;
+  border-radius: 3px;
+  border: 1px solid #606c38;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: .07em;
-  text-transform: none;
+  text-transform: uppercase;
   white-space: nowrap;
-  transition: color .25s !important;
+  transition: background .25s ease, border-color .25s ease, color .25s ease !important;
 }
 
 #nav .nav-btn:hover {
-  background: transparent !important;
-  color: #000 !important;
+  background: #556132 !important;
+  border-color: #556132 !important;
+  color: #ffe9c4 !important;
 }
 
 #nav .nav-btn::after {
-  display: block !important;
-  width: 100% !important;
+  display: none !important;
 }
 
 #nav .hamburger {
@@ -266,9 +267,11 @@
     text-align: center;
     padding: 14px 22px !important;
     font-size: 15px;
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    text-decoration: none;
     letter-spacing: .07em;
+    background: #606c38 !important;
+    border-color: #606c38 !important;
+    color: #ffe9c4 !important;
   }
 
   #nav .nav-links.open .has-submenu>a {
