@@ -1559,8 +1559,8 @@ nav.scrolled {
 
 .ach-grid {
   display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  gap: 90px;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 32px;
   align-items: start
 }
 
@@ -1568,6 +1568,15 @@ nav.scrolled {
   position: relative;
   padding-left: 32px;
   margin-top: 44px
+}
+
+.journey-summary {
+  margin-top: 30px;
+  max-width: 560px
+}
+
+.journey-summary .ti-desc+.ti-desc {
+  margin-top: 14px
 }
 
 .timeline::before {
@@ -1640,7 +1649,10 @@ nav.scrolled {
 
 .ach-right {
   position: sticky;
-  top: 96px
+  top: 96px;
+  width: 100%;
+  max-width: 430px;
+  justify-self: end
 }
 
 .ach-img {
@@ -2698,6 +2710,15 @@ footer {
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 40px
+  }
+
+  .ach-grid {
+    gap: 24px
+  }
+
+  .ach-right {
+    max-width: none;
+    justify-self: stretch
   }
 
   #products,
