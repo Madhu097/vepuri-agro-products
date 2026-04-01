@@ -363,7 +363,7 @@ nav.scrolled {
 }
 
 .hero-topline {
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: .18em;
   text-transform: uppercase;
   font-weight: 800;
@@ -379,7 +379,7 @@ nav.scrolled {
 }
 
 .hero-brand-logo {
-  width: clamp(300px, 20vw, 220px);
+  width: clamp(400px, 20vw, 220px);
   height: auto;
   display: block
 }
@@ -392,10 +392,10 @@ nav.scrolled {
 
 .tag-eye {
   display: block;
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: .42em;
   color: var(--cream);
-  font-weight: 800;
+  font-weight: 500;
   margin-bottom: 6px;
   text-shadow: 0 2px 10px rgba(0, 0, 0, .45);
 }

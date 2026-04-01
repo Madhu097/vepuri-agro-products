@@ -8,9 +8,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #f5ddb4;
+  background: #ffe9c4;
   box-shadow: 0 2px 16px rgba(0, 0, 0, .08);
   transition: box-shadow .4s;
+  font-family: 'Spectral', serif;
 }
 
 #nav.scrolled {
