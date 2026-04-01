@@ -3,6 +3,7 @@ const loaderEl = document.getElementById('loader');
 function hideLoader() {
   if (!loaderEl) return;
   loaderEl.classList.add('gone');
+  document.body.classList.add('hero-ready');
   // Keep vertical scrolling enabled even if any future style changes attempt to lock it.
   document.body.style.overflowY = 'auto';
 }

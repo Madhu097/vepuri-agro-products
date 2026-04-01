@@ -9,8 +9,8 @@
     content="Vepuri Agro Products – Premium coconut-based food processing company. Quality, trust, and innovation since 2011.">
   <script src="font-loader.js"></script>
 
-  <!-- Preload hero image for instant display -->
-  <link rel="preload" as="image" href="assets/hero.jpg">
+  <!-- Preload hero video for faster first frame -->
+  <link rel="preload" as="video" href="assets/video/video-compress.mp4" type="video/mp4">
   <link rel="stylesheet" href="index.css">
 </head>
 
@@ -52,14 +52,17 @@
 
   <!-- HERO -->
   <section id="hero" class="hero-classic">
-    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-bg" aria-hidden="true">
+      <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata">
+        <source src="assets/video/hero.mp4" type="video/mp4">
+      </video>
+    </div>
     <div class="hero-inner">
       <div class="hero-topline">COCONUT-BASED FOOD PROCESSING • EST.2011</div>
       <div class="hero-brand">
         <img class="hero-brand-logo" src="assets/logo.png" alt="Vepuri Agro Products">
         <div class="hero-tagline-unified">
           <span class="tag-eye">FROM COCONUT TO VALUE</span>
-          <h1 class="tag-main">BUILDING PREMIUM VALUE THROUGH COCONUT-BASED INNOVATION</h1>
           <p class="tag-sub">STRUCTURED, SCALABLE, AND BUILT FOR THE MODERN FOOD INDUSTRY</p>
         </div>
       </div>
@@ -126,7 +129,7 @@
           </video>
         </div>
         <div class="a-sec">
-          <img src="assets/image_be94f573.png" alt="Fresh coconut produce" loading="lazy" decoding="async">
+          <img src="assets/images/For Slide3 small.jpg" alt="Fresh coconut produce" loading="lazy" decoding="async">
         </div>
       </div>
       <div class="about-copy rvr">
@@ -313,7 +316,7 @@
 
         <article class="bh-card rv d2">
           <div class="bh-media">
-            <img src="assets/brands/cocomunzz.JPG" alt="Cocomunzzz brand image" loading="lazy" decoding="async">
+            <img src="assets/brands/Brand2.jpeg" alt="Cocomunzzz brand image" loading="lazy" decoding="async">
           </div>
           <div class="bh-content">
             <div class="bh-tag">Brand 02</div>
@@ -326,7 +329,7 @@
 
         <article class="bh-card rv d3">
           <div class="bh-media">
-            <img src="assets/brands/2 frame copy.jpg" alt="Coconut Dairy brand image" loading="lazy" decoding="async">
+            <img src="assets/brands/Brand3.jpg" alt="Coconut Dairy brand image" loading="lazy" decoding="async">
           </div>
           <div class="bh-content">
             <div class="bh-tag">Brand 03</div>
