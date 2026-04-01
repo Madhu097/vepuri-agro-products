@@ -512,4 +512,5 @@ footer {
 
 @media(max-width:900px) {
   .fg2 { grid-template-columns: 1fr; gap: 30px; }
+  .fbot { flex-direction: column; text-align: center; gap: 12px; }
 }

@@ -3122,6 +3122,17 @@ footer {
     grid-template-columns: 1fr
   }
 
+  .pillars {
+    grid-template-columns: 1fr
+  }
+
+  .fbot {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+    padding-bottom: 20px;
+  }
+
   .eform {
     padding: 28px 18px
   }
