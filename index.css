@@ -50,7 +50,7 @@ body {
 }
 
 .ld-logo {
-  width: clamp(220px, 34vw, 360px);
+  width: clamp(240px, 65vw, 360px);
   height: auto;
   display: block;
   opacity: 0;
