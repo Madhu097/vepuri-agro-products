@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vepuri Agro Products &ndash; From Coconut to Value</title>
+  <meta name="description"
+    content="Vepuri Agro Products &ndash; Premium coconut-based food processing company. Quality, trust, and innovation since 2018.">
+  <script src="font-loader.js"></script>
+
+  <!-- Preload hero video for faster first frame -->
+  <link rel="preload" as="video" href="assets/video/video-compress.mp4" type="video/mp4">
+  <link rel="stylesheet" href="index.css?v=1.01">
+  <link rel="stylesheet" href="footer-shared.css?v=1.01">
+  <link rel="icon" type="image/png" href="assets/website%20tab%20icon.png">
+</head>
+
+<body>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <img class="ld-logo" src="assets/newlogo.png" alt="Vepuri Agro Products">
+    <div class="ld-track">
+      <div class="ld-fill"></div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-logo">
+      <a href="index.html"><img src="assets/newlogo.png" alt="Vepuri Agro Products"></a>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero">Home</a></li>
+      <li class="has-submenu">
+        <a href="#about">About<span class="dd-caret" aria-hidden="true"></span></a>
+        <ul class="submenu">
+          <li><a href="about-vepuri.html">About Vepuri</a></li>
+          <li><a href="journey.html">Our Journey</a></li>
+          <li><a href="brands.html">Our Brands</a></li>
+        </ul>
+      </li>
+      <li><a href="product.html">Products</a></li>
+      <li><a href="#network">Network</a></li>
+      <li><a href="b2b-expertise.html">B2B Expertise</a></li>
+      <li><a href="#dept-contacts">Department Contacts</a></li>
+      <li><a href="#enquiryForm" class="nav-btn">ENQUIRE NOW &rarr;</a></li>
+    </ul>
+    <div class="hamburger" id="hbg" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" class="hero-classic">
+    <div class="hero-bg" aria-hidden="true">
+      <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata">
+        <source src="assets/video/hero.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-brand">
+        <img class="hero-brand-logo" src="assets/newlogo.png" alt="Vepuri Agro Products">
+        <div class="hero-tagline-unified">
+          <span class="tag-eye">FROM COCONUT TO VALUE</span>
+          <p class="tag-sub">COCONUT-BASED FOOD PROCESSING &bull; EST.2018</p>
+        </div>
+      </div>
+      <div class="hero-btns">
+        <a href="#products" class="btn-p">Explore Products &rarr;</a>
+        <a href="#enquiryForm" class="btn-o">Partner With Us &rarr;</a>
+      </div>
+    </div>
+    <div class="hero-metrics">
+      <div class="hero-metric">
+        <span class="count" id="liveDailyCount">0</span>
+        <small>Coconut Breaking / Day</small>
+      </div>
+      <div class="hero-metric">
+        <span class="count" id="liveTotalCount">0</span>
+        <small>Total Coconut Breaking</small>
+      </div>
+      <div class="hero-metric">
+        <span class="count" data-target="500" data-suffix="+">0</span>
+        <small>Farm Partners</small>
+      </div>
+      <div class="hero-metric">
+        <span class="count" data-target="10" data-suffix="+">0</span>
+        <small>Product Lines</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-inner">
+      <div class="mi">Coconut Powder<span class="mi-dot"></span></div>
+      <div class="mi">Coconut Oil<span class="mi-dot"></span></div>
+      <div class="mi">Cold-Press Processing<span class="mi-dot"></span></div>
+      <div class="mi">B2B Supply Chain<span class="mi-dot"></span></div>
+      <div class="mi">Farm-to-Factory<span class="mi-dot"></span></div>
+      <div class="mi">Export Quality<span class="mi-dot"></span></div>
+      <div class="mi">500+ Farmer Partners<span class="mi-dot"></span></div>
+      <div class="mi">Hygienic Processing<span class="mi-dot"></span></div>
+      <div class="mi">Coconut Powder<span class="mi-dot"></span></div>
+      <div class="mi">Coconut Oil<span class="mi-dot"></span></div>
+      <div class="mi">Cold-Press Processing<span class="mi-dot"></span></div>
+      <div class="mi">B2B Supply Chain<span class="mi-dot"></span></div>
+      <div class="mi">Farm-to-Factory<span class="mi-dot"></span></div>
+      <div class="mi">Export Quality<span class="mi-dot"></span></div>
+      <div class="mi">500+ Farmer Partners<span class="mi-dot"></span></div>
+      <div class="mi">Hygienic Processing<span class="mi-dot"></span></div>
+    </div>
+  </div>
+
+  <!-- 3D CANVAS SECTION -->
+  <div class="canvas-sec">
+    <canvas id="sphCanvas"></canvas>
+    <div class="canvas-text">
+      <div class="c-eye rv">Vepuri Philosophy</div>
+      <div class="c-title rv d1">Elevating Agriculture<br><em>Through Value & Innovation</em></div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" class="about-classic">
+    <div class="about-grid">
+      <div class="about-vis rvl">
+        <div class="a-main">
+          <video class="a-main-video" autoplay muted loop playsinline>
+            <source src="assets/video/video-compress.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="a-sec">
+          <img src="assets/images/For Slide3 small.jpg" alt="Fresh coconut produce" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="about-copy rvr">
+        <span class="eye" id="about-vepuri">ABOUT VEPURI</span>
+        <h2 class="h2">Built on Agriculture<br><em>Driven by Value</em></h2>
+        <p class="about-text">Vepuri Agro Products Pvt. Ltd. is a coconut-based food processing and value-addition
+          company based in Andhra Pradesh, India.
+          We operate with a clear focus on transforming raw coconut produce into high-value products through structured
+          processing systems, ensuring consistent quality, reliable supply, and better market realization. With direct
+          farmer sourcing, integrated operations, and expanding processing capabilities, Vepuri has built a strong
+          foundation across the coconut value chain connecting agriculture, processing, and markets into a scalable and
+          efficient system.
+        </p>
+        <p class="about-text">Our growing product portfolio serves domestic and global requirements, supported by
+          operational discipline, continuous innovation, and a long-term approach to value creation.</p>
+        <div class="about-cta">
+          <a href="about-vepuri.html" class="btn-p">Explore Vepuri &rarr;</a>
+        </div>
+        <div class="about-cards">
+          <article class="about-card">
+            <div class="card-icon">🏭</div>
+            <div class="card-title">HYGIENIC<br><em>Manufacturing</em></div>
+            <p>Controlled environments, modern equipment, standardized workflows.</p>
+          </article>
+          <article class="about-card">
+            <div class="card-icon">🤝</div>
+            <div class="card-title">TRUSTED<br><em>Partnerships</em></div>
+            <p>Long-term farmer & distributor relationships built on transparency.</p>
+          </article>
+          <article class="about-card">
+            <div class="card-icon">🌱</div>
+            <div class="card-title">SUSTAINABLE<br><em>Practices</em></div>
+            <p>Responsible processing for long-term agricultural value addition.</p>
+          </article>
+          <article class="about-card">
+            <div class="card-icon">📊</div>
+            <div class="card-title">Scalable Operations</div>
+            <p>Infrastructure built for reliable, repeatable production at scale.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products">
+    <div class="prod-head">
+      <div class="rvl">
+        <span class="eye">OUR PORTFOLIO</span>
+        <h2 class="h2">Premium<br><em>Product Range</em></h2>
+      </div>
+      <div class="rvr">
+        <p>A curated range of coconut-based food products engineered for consistency, purity, and performance &mdash;
+          designed
+          for distributors, B2B buyers, and export partners.</p>
+      </div>
+    </div>
+    <div class="prod-grid">
+      <!-- 1 -->
+      <a href="product.html?item=coconut-blossom-sugar" class="pc-modern rv d1">
+        <img src="assets/products/blossom sugar.png" alt="Coconut Milk Powder">
+        <div class="pc-overlay">
+          <div class="pc-label">FOOD GRADE</div>
+          <h3 class="pc-title">blossom sugar </h3>
+          <p class="pc-text">Finely processed desiccated coconut powder with consistent texture.</p>
+        </div>
+      </a>
+
+      <!-- 2 -->
+      <a href="product.html?item=virgin-coconut-oil" class="pc-modern rv d2">
+        <img src="assets/products/oil.jpeg" alt="Virgin Coconut Oil">
+        <div class="pc-overlay">
+          <div class="pc-label">PREMIUM GRADE</div>
+          <h3 class="pc-title">Virgin Coconut Oil</h3>
+          <p class="pc-text">Pure, cold-pressed coconut oil extracted from fresh coconuts.</p>
+        </div>
+      </a>
+
+      <!-- 3 -->
+      <a href="product.html?item=frozen-grated-coconut" class="pc-modern rv d3">
+        <img src="assets/products/frozen gated.png" alt="Frozen Grated Coconut">
+        <div class="pc-overlay">
+          <div class="pc-label">FROZEN FRESH</div>
+          <h3 class="pc-title">Frozen Grated Coconut</h3>
+          <p class="pc-text">Hygienically processed and frozen to preserve natural freshness.</p>
+        </div>
+      </a>
+
+      <!-- 4 -->
+      <a href="product.html?item=tender-coconut-water" class="pc-modern rv d1">
+        <img src="assets/products/water.png" alt="Tender Coconut Water">
+        <div class="pc-overlay">
+          <div class="pc-label">NATURAL HYDRATION</div>
+          <h3 class="pc-title">Tender Coconut Water</h3>
+          <p class="pc-text">Naturally refreshing water sourced from high-quality coconuts.</p>
+        </div>
+      </a>
+
+      <!-- 5 -->
+      <a href="product.html?item=coconut-milk-tin" class="pc-modern rv d2">
+        <img src="assets/products/milk.png" alt="Coconut Milk Tin">
+        <div class="pc-overlay">
+          <div class="pc-label">CANNED CONVENIENCE</div>
+          <h3 class="pc-title">Coconut Milk</h3>
+          <p class="pc-text">Smooth, rich, and consistent texture for culinary and industrial use.</p>
+        </div>
+      </a>
+
+      <!-- 6 (View More) -->
+      <a href="product.html?item=coconut-caned-milk" class="pc-modern pc-view-more rv d3">
+        <div class="pc-more-content">
+          <div class="pc-ico-more">📦</div>
+          <h3 class="pc-title-more">Click here for<br>More Products &rarr;</h3>
+          <p class="pc-text-more">Discover our complete portfolio of coconut-based excellence.</p>
+        </div>
+      </a>
+    </div>
+
+  </section>
+
+  <!-- NETWORK -->
+  <section id="network">
+    <div class="net-inner">
+      <div class="net-head">
+        <div class="rvl">
+          <span class="eye">OUR REACH</span>
+          <h2 class="h2-ch">A Trusted<br><em>Network</em></h2>
+        </div>
+        <div class="rvr">
+          <p>We work closely with farmers and distributors across regions, ensuring a strong and reliable coconut value
+            chain built on long-term trust, transparency, and shared growth.</p>
+        </div>
+      </div>
+      <div class="net-cards">
+        <div class="nc rv d1">
+          <div class="nc-ico">🌾</div>
+          <h3>Farmer Partners</h3>
+          <p>Direct sourcing from coconut farmers &mdash; fair pricing, quality control, and sustainable agricultural
+            practice.</p>
+          <div class="nc-num">500+</div>
+        </div>
+        <div class="nc rv d2">
+          <div class="nc-ico">🌐</div>
+          <h3>Export Presence</h3>
+          <p>Building international channels to serve export buyers with certified, high-quality coconut products.</p>
+          <div class="nc-num">10+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- BRANDS -->
+  <section id="brands">
+    <div class="brands-home-inner">
+      <div class="brands-home-head">
+        <div class="rvl">
+          <span class="eye">BRAND PORTFOLIO</span>
+          <h2 class="h2">Brand<br><em>Ecosystem</em></h2>
+        </div>
+        <div class="rvr">
+          <p>Vepuri Agro Products is building a focused brand ecosystem across coconut-based food, wellness, and
+            emerging product categories. Each brand is developed with a clear purpose from large-scale value-added
+            products to consumer-facing innovations all rooted in a single objective: creating value from coconut at
+            every level.</p>
+        </div>
+      </div>
+
+      <div class="brands-home-grid">
+        <!-- Brand 1: Coasta Naturals -->
+        <a href="brands.html" class="bh-card rv d1">
+          <div class="bh-media" style="background: #fff;"><img src="assets/brands/brand1.jpg" alt="Coasta Naturals">
+          </div>
+          <div class="bh-content">
+            <span class="bh-tag">BULK & INDUSTRIAL</span>
+            <h3>Coasta Naturals</h3>
+            <p><strong>Role:</strong> Bulk product brand focused on high quality coconut-based ingredients for
+              industrial supply chains.</p>
+          </div>
+        </a>
+        <!-- Brand 2: Cocomunzzz -->
+        <a href="brands.html" class="bh-card rv d2">
+          <div class="bh-media"><img src="assets/brands/cocomunzz.jpeg" alt="Cocomunzzz"></div>
+          <div class="bh-content">
+            <span class="bh-tag">CONSUMER RETAIL</span>
+            <h3>Cocomunzzz</h3>
+            <p><strong>Role:</strong> Consumer focused brand delivering modern coconut products designed for everyday
+              lifestyle.</p>
+          </div>
+        </a>
+        <!-- Brand 3: The Coconut Dairy -->
+        <a href="brands.html" class="bh-card rv d3">
+          <div class="bh-media"><img src="assets/brands/Brand3.jpg" alt="The Coconut Dairy"></div>
+          <div class="bh-content">
+            <span class="bh-tag">PLANT-BASED DAIRY</span>
+            <h3>The Coconut Dairy</h3>
+            <p><strong>Role:</strong> Innovation led brand developing next generation dairy alternatives and
+              future-ready food apps.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="brands-cta-wrap rv" style="margin-top: 60px; text-align: center;">
+        <a href="brands.html" class="btn-p btn-light">Explore Ecosystem &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+    <div class="ach-grid">
+      <div>
+        <span class="eye rv">OUR JOURNEY</span>
+        <h2 class="h2-ch">Milestones That<br><em>Define us</em></h2>
+        <div class="sline rv d2"></div>
+        <div class="journey-summary rv">
+          <p class="ti-desc">Vepuri Agro Products has grown through a focused and disciplined journey from a regional
+            coconut processing operation to a value-added enterprise serving wider domestic and international markets.
+          </p>
+          <p class="ti-desc">Our progress is built on integrated sourcing, modernized processing systems, quality
+            consistency,
+            and continuous product diversification that creates long-term value for farmers, partners, and customers.
+          </p>
+          <a class="ti-cta" href="journey.html">Explore our Journey &rarr;</a>
+        </div>
+      </div>
+      <div class="ach-right rvr">
+        <div class="ach-img">
+          <img src="assets/milestone.jpg" alt="Vepuri Agro Products" loading="lazy" decoding="async">
+          <div class="ach-img-ov"></div>
+        </div>
+        <div class="counters">
+          <div class="cb">
+            <div class="cb-n" data-target="8">0</div>
+            <div class="cb-l">Years in Business</div>
+          </div>
+          <div class="cb">
+            <div class="cb-n" data-target="500">0</div>
+            <div class="cb-l">Farmer Partners</div>
+          </div>
+          <div class="cb">
+            <div class="cb-n" data-target="10">0</div>
+            <div class="cb-l">Product Categories</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTRACT MANUFACTURE OVERHAUL -->
+  <!-- B2B EXPERTISE TEASER -->
+  <section id="contract-mfg" class="cm-section" style="background: var(--green);">
+    <div class="cm-hero rv" style="background: transparent;">
+      <div class="cm-hero-top">
+        <span class="eye" style="color: var(--cream);">B2B Expertise</span>
+        <h2 class="h2-ch" style="color: var(--cream); margin-bottom: 20px;">Contract Manufacturing<br><em>&
+            Partnerships</em></h2>
+        <div class="sline" style="margin: 0 auto 30px; background: var(--cream);"></div>
+      </div>
+      <div class="cm-hero-grid" style="text-align: center; display: block;">
+        <p style="color: #fff; max-width: 800px; margin: 0 auto 40px; font-size: 18px; line-height: 1.6;">
+          Vepuri Agro Products offers end-to-end contract manufacturing and strategic partnership models for domestic
+          and global brands. Our structured value chain ensures repeat quality and operational excellence.
+        </p>
+        <div class="cm-cta-wrap">
+          <a href="b2b-expertise.html" class="btn-p btn-light">Explore B2B Expertise &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPARTMENTAL CONTACTS -->
+  <section id="dept-contacts" class="dept-contacts-sec rv">
+    <div class="dept-inner">
+      <div class="dept-head">
+        <span class="eye" style="color: var(--brown);">DEPARTMENTAL ENQUIRIES</span>
+        <h2 class="h2" style="margin-bottom: 20px; color: var(--green);">Direct <em>Connect</em></h2>
+        <div class="sline" style="margin: 0 0 50px;"></div>
+      </div>
+      <div class="dept-grid">
+        <div class="dept-card">
+          <div class="dept-card-inner">
+            <span class="dept-tag">Primary Contact</span>
+            <h3>B2B & Operations</h3>
+            <p class="dept-name" style="color: #6b3828 !important;">Sai Sharath</p>
+            <p class="dept-role">Head, B2B, Horeca & India operations, International business</p>
+            <div class="dept-info">
+              <a href="tel:9705607044" class="dept-tel">📞 +91 97056 07044</a>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vepurigroup@gmail.com" target="_blank"
+                class="dept-mail">✉️ vepurigroup@gmail.com</a>
+            </div>
+            <div class="dept-actions">
+              <a href="tel:9705607044" class="dept-btn">Call Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="dept-card">
+          <div class="dept-card-inner">
+            <span class="dept-tag">Office Support</span>
+            <h3>General Enquiries</h3>
+            <p class="dept-name">Vepuri HQ Landline</p>
+            <p class="dept-role">Admin & Support Helpdesk</p>
+            <div class="dept-info">
+              <a href="tel:+9108662487421" class="dept-tel">📞 +91 0866 2487421</a>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vepurigroup@gmail.com" target="_blank"
+                class="dept-mail">✉️ vepurigroup@gmail.com</a>
+            </div>
+            <div class="dept-actions">
+              <a href="tel:+9108662487421" class="dept-btn">Dial Landline &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="rv">
+      <span class="eye">GET IN TOUCH</span>
+      <h2 class="h2">Let's Build Something<br><em>Together</em></h2>
+      <div class="sline"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="cinfo rvl">
+        <h3>Ready to Partner with Vepuri?</h3>
+        <p>Whether you're a distributor, B2B buyer, export partner, or coconut supplier.</p>
+        <div class="cd">
+          <div class="cd-ico">📦</div>
+          <div>
+            <div class="cd-l">Products Enquiry</div>
+            <div class="cd-v">Bulk orders, pricing &amp; samples</div>
+          </div>
+        </div>
+        <div class="cd">
+          <div class="cd-ico">🤝</div>
+          <div>
+            <div class="cd-l">Partnership</div>
+            <div class="cd-v">Distribution &amp; supply agreements</div>
+          </div>
+        </div>
+        <div class="cd">
+          <div class="cd-ico">🌐</div>
+          <div>
+            <div class="cd-l">Export & Certifications</div>
+            <div class="cd-v">ISO 9001, 22000 &bull; FSSC 22000 &bull; USFDA &bull; GMP &bull; CDB Registered</div>
+          </div>
+        </div>
+        <div class="cd">
+          <div class="cd-ico">📍</div>
+          <div>
+            <div class="cd-l">Office Locations</div>
+            <div class="cd-v">Vijayawada &bull; Hyderabad</div>
+          </div>
+        </div>
+        <div class="office-maps" aria-label="Office location maps">
+          <div class="omap">
+            <div class="omap-t">Vijayawada Office</div>
+            <iframe title="Vijayawada office map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.5228530599484!2d80.6636255!3d16.499681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fb35a3d9ad67%3A0x463fdc3afe07866c!2sCOCO%20MUNZZZ%20THE%20COCONUT%20CAFE!5e0!3m2!1sen!2sin!4v1776874702041!5m2!1sen!2sin"
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="omap">
+            <div class="omap-t">Hyderabad Office</div>
+            <iframe title="Hyderabad office map"
+              src="https://www.google.com/maps?q=Hyderabad,Telangana,India&output=embed" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        <div class="cd">
+          <div class="cd-ico">🕐</div>
+          <div>
+            <div class="cd-l">Business Hours</div>
+            <div class="cd-v">Mon&ndash;Sat &middot; 9:30 AM &ndash; 6:30 PM</div>
+          </div>
+        </div>
+        <div class="social-title">Connect With Us</div>
+        <div class="social-links">
+          <a href="https://www.instagram.com/vepuriagro" class="sl sl-ig" title="Instagram">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </a>
+          <a href="#" class="sl sl-wa" title="WhatsApp">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+            </svg>
+          </a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vepurigroup@gmail.com" target="_blank" class="sl sl-gm"
+            title="Gmail / Email">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L12 9.73l8.073-6.237C21.69 2.279 24 3.434 24 5.457z" />
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/company/vepuri-agro-products/" class="sl sl-li" title="LinkedIn">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
+          </a>
+          <a href="#" class="sl sl-fb" title="Facebook">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+          </a>
+          <a href="https://www.youtube.com/@cocomunzzz" class="sl sl-yt" title="YouTube">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="eform rvr">
+        <form id="enquiryForm" onsubmit="event.preventDefault(); submitForm();">
+          <div id="formContent">
+            <h3>Send an Enquiry</h3>
+            <div class="frow">
+              <div class="fg"><label>Full Name</label><input type="text" id="fn" placeholder="Your name" required></div>
+              <div class="fg"><label>Phone</label><input type="tel" id="fp" placeholder="+91 XXXXX XXXXX"
+                  oninput="this.value = this.value.replace(/[^0-9]/g, '')" required></div>
+            </div>
+            <div class="fg"><label>Email Address</label><input type="email" id="fe" placeholder="you@company.com"
+                required></div>
+            <div class="fg">
+              <label>Business Type</label>
+              <select id="ft" required>
+                <option value="">Select your category</option>
+                <option>Distributor</option>
+                <option>Retailer / Reseller</option>
+                <option>B2B Buyer / Manufacturer</option>
+                <option>Export Partner</option>
+                <option>Farmer / Supplier</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="fg"><label>Message</label><textarea id="fm" placeholder="Tell us about your requirement..."
+                required></textarea></div>
+            <button type="submit" class="btn-sub">Submit Enquiry &rarr;</button>
+          </div>
+        </form>
+        <div class="fsuccess" id="fSuccess">
+          <div class="fsuccess-ico">✅</div>
+          <h4>Enquiry Received!</h4>
+          <p>Our team will reach out within 1&ndash;2 business days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="fg2">
+      <div>
+        <a href="index.html"><img class="f-logo" src="assets/newlogo.png" alt="Vepuri Agro Products"></a>
+        <p class="fb-txt">A coconut-based food processing company building value through innovation, integrity, and
+          industry-grade quality since 2018.</p>
+      </div>
+      <div class="fc">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="about-vepuri.html">About</a></li>
+          <li><a href="journey.html">Journey</a></li>
+          <li><a href="product.html">Products</a></li>
+          <li><a href="index.html#network">Network</a></li>
+          <li><a href="brands.html">Brands</a></li>
+          <li><a href="b2b-expertise.html">B2B Expertise</a></li>
+          <li><a href="index.html#dept-contacts">Department Contacts</a></li>
+          <li><a href="product.html">Explore Products</a></li>
+        </ul>
+      </div>
+      <div class="fc">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="product.html">Coconut Powder</a></li>
+          <li><a href="product.html">Coconut Oil</a></li>
+          <li><a href="product.html">Coconut Derivatives</a></li>
+          <li><a href="index.html#contact">Request Sample</a></li>
+          <li><a href="index.html#contact">Bulk Enquiry</a></li>
+        </ul>
+      </div>
+      <div class="fnl">
+        <h4>Stay Updated</h4>
+        <p>Get updates on products, partnerships & industry news from Vepuri.</p>
+        <div class="nl-row"><input type="email" placeholder="your@email.com"><button>&rarr;</button></div>
+      </div>
+    </div>
+    <div class="fbot">
+      <p class="fbot-copy">&copy; 2025 Vepuri Agro Products. All rights reserved.</p>
+      <p class="fbot-tag">Designed and Developed by <a href="https://firstlook.digital/" target="_blank"
+          style="text-decoration: none; font-weight: 700;"><span style="color: #ff6d1f;">F</span><span
+            style="color: #222222;">1</span><span style="color: #ff6d1f;">RST</span><span
+            style="color: #222222;">LOOK</span></a></p>
+    </div>
+  </footer>
+
+  <script src="products-config.js" defer></script>
+  <script src="index.js" defer></script>
+</body>
+
+</html>
