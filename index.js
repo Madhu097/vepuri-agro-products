@@ -358,23 +358,39 @@ function draw(ts) {
 
 requestAnimationFrame(draw);
 
-// -- FORM --
-function submitForm() {
-  const formBox = document.getElementById('formContent');
-  const successBox = document.getElementById('fSuccess');
+// -- FORM (FormSubmit.co via AJAX) --
+const enquiryForm = document.getElementById('enquiryForm');
+if (enquiryForm) {
+  enquiryForm.addEventListener('submit', function (e) {
+    e.preventDefault();
 
-  // Show success message
-  formBox.style.display = 'none';
-  successBox.style.display = 'block';
+    const formBox = document.getElementById('formContent');
+    const successBox = document.getElementById('fSuccess');
+    const formData = new FormData(enquiryForm);
 
-  // Reset and show form again after 4 seconds for a clean experience
-  setTimeout(() => {
-    const form = document.getElementById('enquiryForm');
-    if (form) form.reset();
+    fetch(enquiryForm.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+      .then(response => {
+        if (response.ok) {
+          formBox.style.display = 'none';
+          successBox.style.display = 'block';
+          enquiryForm.reset();
 
-    successBox.style.display = 'none';
-    formBox.style.display = 'block';
-  }, 4000);
+          setTimeout(() => {
+            successBox.style.display = 'none';
+            formBox.style.display = 'block';
+          }, 4000);
+        } else {
+          alert('Something went wrong. Please try again.');
+        }
+      })
+      .catch(() => {
+        alert('Network error. Please check your connection and try again.');
+      });
+  });
 }
 // -- ABOUT VIDEO PERSISTENCE --
 const aboutVid = document.querySelector('.a-main-video');

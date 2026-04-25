@@ -554,19 +554,24 @@
         </div>
       </div>
       <div class="eform rvr">
-        <form id="enquiryForm" onsubmit="event.preventDefault(); submitForm();">
+        <form id="enquiryForm" action="https://formsubmit.co/mvishwateja2220@gmail.com" method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="New Enquiry from Vepuri Website">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" style="display:none">
           <div id="formContent">
             <h3>Send an Enquiry</h3>
             <div class="frow">
-              <div class="fg"><label>Full Name</label><input type="text" id="fn" placeholder="Your name" required></div>
-              <div class="fg"><label>Phone</label><input type="tel" id="fp" placeholder="+91 XXXXX XXXXX"
+              <div class="fg"><label>Full Name</label><input type="text" name="Full Name" id="fn"
+                  placeholder="Your name" required></div>
+              <div class="fg"><label>Phone</label><input type="tel" name="Phone" id="fp" placeholder="+91 XXXXX XXXXX"
                   oninput="this.value = this.value.replace(/[^0-9]/g, '')" required></div>
             </div>
-            <div class="fg"><label>Email Address</label><input type="email" id="fe" placeholder="you@company.com"
-                required></div>
+            <div class="fg"><label>Email Address</label><input type="email" name="Email" id="fe"
+                placeholder="you@company.com" required></div>
             <div class="fg">
               <label>Business Type</label>
-              <select id="ft" required>
+              <select name="Business Type" id="ft" required>
                 <option value="">Select your category</option>
                 <option>Distributor</option>
                 <option>Retailer / Reseller</option>
@@ -576,8 +581,8 @@
                 <option>Other</option>
               </select>
             </div>
-            <div class="fg"><label>Message</label><textarea id="fm" placeholder="Tell us about your requirement..."
-                required></textarea></div>
+            <div class="fg"><label>Message</label><textarea name="Message" id="fm"
+                placeholder="Tell us about your requirement..." required></textarea></div>
             <button type="submit" class="btn-sub">Submit Enquiry &rarr;</button>
           </div>
         </form>
