@@ -392,6 +392,31 @@ if (enquiryForm) {
       });
   });
 }
+
+// -- NEWSLETTER (FormSubmit.co via AJAX) --
+const nlForm = document.getElementById('newsletterForm');
+if (nlForm) {
+  nlForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const nlRow = document.getElementById('nlRow');
+    const nlSuccess = document.getElementById('nlSuccess');
+    const formData = new FormData(nlForm);
+
+    fetch(nlForm.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+      .then(response => {
+        if (response.ok) {
+          nlRow.style.display = 'none';
+          nlSuccess.style.display = 'block';
+          nlForm.reset();
+        }
+      })
+      .catch(() => { });
+  });
+}
 // -- ABOUT VIDEO PERSISTENCE --
 const aboutVid = document.querySelector('.a-main-video');
 if (aboutVid) {

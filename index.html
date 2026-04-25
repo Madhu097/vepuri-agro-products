@@ -630,7 +630,18 @@
       <div class="fnl">
         <h4>Stay Updated</h4>
         <p>Get updates on products, partnerships & industry news from Vepuri.</p>
-        <div class="nl-row"><input type="email" placeholder="your@email.com"><button>&rarr;</button></div>
+        <form id="newsletterForm" action="https://formsubmit.co/mvishwateja2220@gmail.com" method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="New Newsletter Subscriber - Vepuri">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" style="display:none">
+          <div class="nl-row" id="nlRow">
+            <input type="email" name="Subscriber Email" placeholder="your@email.com" required>
+            <button type="submit">&rarr;</button>
+          </div>
+        </form>
+        <div id="nlSuccess" style="display:none; color:#96AC38; font-weight:600; margin-top:10px;">Welcome! You're
+          subscribed.</div>
       </div>
     </div>
     <div class="fbot">
