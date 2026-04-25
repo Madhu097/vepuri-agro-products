@@ -338,7 +338,7 @@
       font-size: 28px;
       line-height: 1;
       color: var(--teal);
-            font-family: var(--body-font);
+      font-family: var(--body-font);
       margin-bottom: 5px;
       font-weight: 800;
     }
@@ -683,10 +683,12 @@
     </section>
 
     <section class="summary-row">
-      <div class="summary-card"><strong class="count" data-target="50" data-suffix="K+">0</strong><span>Coconut Breaking / Day</span></div>
-      <div class="summary-card"><strong class="count" data-target="2.5" data-suffix="+ Cr" data-decimal="1">0</strong><span>Total Coconut Breaking</span></div>
-      <div class="summary-card"><strong class="count" data-target="500" data-suffix="+">0</strong><span>Farm Partners</span></div>
-      <div class="summary-card"><strong class="count" data-target="10" data-suffix="+">0</strong><span>Product Lines</span></div>
+      <div class="summary-card"><strong id="liveDailyCount">0</strong><span>Coconut Breaking / Day</span></div>
+      <div class="summary-card"><strong id="liveTotalCount">0</strong><span>Total Coconut Breaking</span></div>
+      <div class="summary-card"><strong class="count" data-target="500" data-suffix="+">0</strong><span>Farm
+          Partners</span></div>
+      <div class="summary-card"><strong class="count" data-target="10" data-suffix="+">0</strong><span>Product
+          Lines</span></div>
     </section>
   </main>
 
@@ -774,6 +776,55 @@
       });
     }, { threshold: 0.2 });
     document.querySelectorAll('.count[data-target]').forEach(el => co.observe(el));
+
+    // -- LIVE COCONUT COUNTERS (same as index page) --
+    (function initLiveCounters() {
+      const dailyEl = document.getElementById('liveDailyCount');
+      const totalEl = document.getElementById('liveTotalCount');
+      if (!dailyEl || !totalEl) return;
+
+      const DAILY_TARGET = 50000;
+      const BASE_TOTAL = 25000000;
+      const START_DATE = new Date(2026, 3, 25);
+      const SECONDS_IN_DAY = 86400;
+
+      function secondsSinceMidnight() {
+        const now = new Date();
+        return now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
+      }
+
+      function daysSinceStart() {
+        const now = new Date();
+        const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        const diff = today - START_DATE;
+        return Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
+      }
+
+      function formatIndian(n) {
+        n = Math.floor(n);
+        const s = n.toString();
+        if (s.length <= 3) return s;
+        let last3 = s.slice(-3);
+        let rest = s.slice(0, -3);
+        rest = rest.replace(/\B(?=(\d{2})+(?!\d))/g, ',');
+        return rest + ',' + last3;
+      }
+
+      function updateCounters() {
+        const elapsed = secondsSinceMidnight();
+        const dailyCount = Math.floor((elapsed / SECONDS_IN_DAY) * DAILY_TARGET);
+        const completedDays = daysSinceStart();
+        const currentTotal = BASE_TOTAL + (completedDays * DAILY_TARGET) + dailyCount;
+
+        dailyEl.textContent = formatIndian(dailyCount);
+
+        const croreVal = (currentTotal / 10000000).toFixed(2);
+        totalEl.textContent = croreVal + '+ Cr';
+      }
+
+      updateCounters();
+      setInterval(updateCounters, 1000);
+    })();
   </script>
 </body>
 

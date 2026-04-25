@@ -88,77 +88,44 @@ animateHeroCounters();
   const totalEl = document.getElementById('liveTotalCount');
   if (!dailyEl || !totalEl) return;
 
-  const DAILY_TARGET = 1500; // 1500 coconuts broken per day
-  const STORAGE_KEY_TOTAL = 'vepuri_total_coconut';
-  const STORAGE_KEY_DATE = 'vepuri_counter_date';
-
-  // Get today's date string (YYYY-MM-DD) based on local time
-  function getTodayStr() {
-    const now = new Date();
-    return now.getFullYear() + '-' +
-      String(now.getMonth() + 1).padStart(2, '0') + '-' +
-      String(now.getDate()).padStart(2, '0');
-  }
-
-  // Seconds elapsed since midnight today
+  const DAILY_TARGET = 50000;
+  const BASE_TOTAL = 25000000; // 2.5 Crore — existing historical total
+  const START_DATE = new Date(2026, 3, 25); // April 25, 2026 (month is 0-indexed)
+  const SECONDS_IN_DAY = 86400;
   function secondsSinceMidnight() {
     const now = new Date();
     return now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
   }
 
-  // Total seconds in a day
-  const SECONDS_IN_DAY = 24 * 60 * 60; // 86400
-
-  // Format number with commas (Indian style: 1,00,000)
+  function daysSinceStart() {
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const diff = today - START_DATE;
+    return Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
+  }
   function formatIndian(n) {
     n = Math.floor(n);
     const s = n.toString();
     if (s.length <= 3) return s;
     let last3 = s.slice(-3);
     let rest = s.slice(0, -3);
-    // Add commas every 2 digits in the rest
     rest = rest.replace(/\B(?=(\d{2})+(?!\d))/g, ',');
     return rest + ',' + last3;
-  }
-
-  // Check for day rollover and get stored total
-  function getStoredTotal() {
-    const storedDate = localStorage.getItem(STORAGE_KEY_DATE);
-    let total = parseInt(localStorage.getItem(STORAGE_KEY_TOTAL), 10) || 0;
-    const today = getTodayStr();
-
-    if (storedDate && storedDate !== today) {
-      // Day changed — add a full day's worth for each missed day, then reset
-      // (For simplicity, we just add one full day target since we can't track offline days accurately)
-      total += DAILY_TARGET;
-      localStorage.setItem(STORAGE_KEY_TOTAL, total);
-      localStorage.setItem(STORAGE_KEY_DATE, today);
-    } else if (!storedDate) {
-      // First visit ever
-      localStorage.setItem(STORAGE_KEY_DATE, today);
-      localStorage.setItem(STORAGE_KEY_TOTAL, 0);
-    }
-
-    return total;
   }
 
   function updateCounters() {
     const elapsed = secondsSinceMidnight();
     const dailyCount = Math.floor((elapsed / SECONDS_IN_DAY) * DAILY_TARGET);
-    const baseTotal = getStoredTotal();
-    const currentTotal = baseTotal + dailyCount;
+    const completedDays = daysSinceStart();
+    const currentTotal = BASE_TOTAL + (completedDays * DAILY_TARGET) + dailyCount;
 
-    // Update daily counter
     dailyEl.textContent = formatIndian(dailyCount);
 
-    // Update total counter
-    totalEl.textContent = formatIndian(currentTotal);
+    const croreVal = (currentTotal / 10000000).toFixed(2);
+    totalEl.textContent = croreVal + '+ Cr';
   }
 
-  // Initial update
   updateCounters();
-
-  // Update every second
   setInterval(updateCounters, 1000);
 })();
 
@@ -389,23 +356,39 @@ function draw(ts) {
 
 requestAnimationFrame(draw);
 
-// -- FORM --
-function submitForm() {
-  const formBox = document.getElementById('formContent');
-  const successBox = document.getElementById('fSuccess');
+// -- FORM (FormSubmit.co via AJAX) --
+const enquiryForm = document.getElementById('enquiryForm');
+if (enquiryForm) {
+  enquiryForm.addEventListener('submit', function (e) {
+    e.preventDefault();
 
-  // Show success message
-  formBox.style.display = 'none';
-  successBox.style.display = 'block';
+    const formBox = document.getElementById('formContent');
+    const successBox = document.getElementById('fSuccess');
+    const formData = new FormData(enquiryForm);
 
-  // Reset and show form again after 4 seconds for a clean experience
-  setTimeout(() => {
-    const form = document.getElementById('enquiryForm');
-    if (form) form.reset();
+    fetch(enquiryForm.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+      .then(response => {
+        if (response.ok) {
+          formBox.style.display = 'none';
+          successBox.style.display = 'block';
+          enquiryForm.reset();
 
-    successBox.style.display = 'none';
-    formBox.style.display = 'block';
-  }, 4000);
+          setTimeout(() => {
+            successBox.style.display = 'none';
+            formBox.style.display = 'block';
+          }, 4000);
+        } else {
+          alert('Something went wrong. Please try again.');
+        }
+      })
+      .catch(() => {
+        alert('Network error. Please check your connection and try again.');
+      });
+  });
 }
 // -- ABOUT VIDEO PERSISTENCE --
 const aboutVid = document.querySelector('.a-main-video');
