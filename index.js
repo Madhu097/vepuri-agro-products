@@ -89,75 +89,45 @@ animateHeroCounters();
   if (!dailyEl || !totalEl) return;
 
   const DAILY_TARGET = 50000;
-  const BASE_TOTAL = 25000000;
-  const STORAGE_KEY_TOTAL = 'vepuri_total_coconut';
-  const STORAGE_KEY_DATE = 'vepuri_counter_date';
+  const BASE_TOTAL = 25000000; // 2.5 Crore — existing historical total
+  const START_DATE = new Date(2026, 3, 25); // April 25, 2026 (month is 0-indexed)
+  const SECONDS_IN_DAY = 86400;
 
-  // Get today's date string (YYYY-MM-DD) based on local time
-  function getTodayStr() {
-    const now = new Date();
-    return now.getFullYear() + '-' +
-      String(now.getMonth() + 1).padStart(2, '0') + '-' +
-      String(now.getDate()).padStart(2, '0');
-  }
-
-  // Seconds elapsed since midnight today
   function secondsSinceMidnight() {
     const now = new Date();
     return now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
   }
 
-  // Total seconds in a day
-  const SECONDS_IN_DAY = 24 * 60 * 60; // 86400
+  function daysSinceStart() {
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const diff = today - START_DATE;
+    return Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
+  }
 
-  // Format number with commas (Indian style: 1,00,000)
   function formatIndian(n) {
     n = Math.floor(n);
     const s = n.toString();
     if (s.length <= 3) return s;
     let last3 = s.slice(-3);
     let rest = s.slice(0, -3);
-    // Add commas every 2 digits in the rest
     rest = rest.replace(/\B(?=(\d{2})+(?!\d))/g, ',');
     return rest + ',' + last3;
-  }
-
-  // Check for day rollover and get stored total
-  function getStoredTotal() {
-    const storedDate = localStorage.getItem(STORAGE_KEY_DATE);
-    let total = parseInt(localStorage.getItem(STORAGE_KEY_TOTAL), 10) || 0;
-    const today = getTodayStr();
-
-    if (storedDate && storedDate !== today) {
-      total += DAILY_TARGET;
-      localStorage.setItem(STORAGE_KEY_TOTAL, total);
-      localStorage.setItem(STORAGE_KEY_DATE, today);
-    } else if (!storedDate) {
-      localStorage.setItem(STORAGE_KEY_DATE, today);
-      localStorage.setItem(STORAGE_KEY_TOTAL, 0);
-    }
-
-    return total;
   }
 
   function updateCounters() {
     const elapsed = secondsSinceMidnight();
     const dailyCount = Math.floor((elapsed / SECONDS_IN_DAY) * DAILY_TARGET);
-    const accumulated = getStoredTotal();
-    const currentTotal = BASE_TOTAL + accumulated + dailyCount;
+    const completedDays = daysSinceStart();
+    const currentTotal = BASE_TOTAL + (completedDays * DAILY_TARGET) + dailyCount;
 
-    // Update daily counter
     dailyEl.textContent = formatIndian(dailyCount);
 
-    // Update total counter (in Crore format)
     const croreVal = (currentTotal / 10000000).toFixed(2);
     totalEl.textContent = croreVal + '+ Cr';
   }
 
-  // Initial update
   updateCounters();
-
-  // Update every second
   setInterval(updateCounters, 1000);
 })();
 
