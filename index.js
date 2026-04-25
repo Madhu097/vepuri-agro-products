@@ -88,7 +88,8 @@ animateHeroCounters();
   const totalEl = document.getElementById('liveTotalCount');
   if (!dailyEl || !totalEl) return;
 
-  const DAILY_TARGET = 1500; // 1500 coconuts broken per day
+  const DAILY_TARGET = 50000;
+  const BASE_TOTAL = 25000000;
   const STORAGE_KEY_TOTAL = 'vepuri_total_coconut';
   const STORAGE_KEY_DATE = 'vepuri_counter_date';
 
@@ -128,13 +129,10 @@ animateHeroCounters();
     const today = getTodayStr();
 
     if (storedDate && storedDate !== today) {
-      // Day changed — add a full day's worth for each missed day, then reset
-      // (For simplicity, we just add one full day target since we can't track offline days accurately)
       total += DAILY_TARGET;
       localStorage.setItem(STORAGE_KEY_TOTAL, total);
       localStorage.setItem(STORAGE_KEY_DATE, today);
     } else if (!storedDate) {
-      // First visit ever
       localStorage.setItem(STORAGE_KEY_DATE, today);
       localStorage.setItem(STORAGE_KEY_TOTAL, 0);
     }
@@ -145,14 +143,15 @@ animateHeroCounters();
   function updateCounters() {
     const elapsed = secondsSinceMidnight();
     const dailyCount = Math.floor((elapsed / SECONDS_IN_DAY) * DAILY_TARGET);
-    const baseTotal = getStoredTotal();
-    const currentTotal = baseTotal + dailyCount;
+    const accumulated = getStoredTotal();
+    const currentTotal = BASE_TOTAL + accumulated + dailyCount;
 
     // Update daily counter
     dailyEl.textContent = formatIndian(dailyCount);
 
-    // Update total counter
-    totalEl.textContent = formatIndian(currentTotal);
+    // Update total counter (in Crore format)
+    const croreVal = (currentTotal / 10000000).toFixed(2);
+    totalEl.textContent = croreVal + '+ Cr';
   }
 
   // Initial update
