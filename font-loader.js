@@ -22,13 +22,26 @@
     var fontLink = document.createElement('link');
     fontLink.rel = 'stylesheet';
     fontLink.href = fontHref;
+    fontLink.media = 'print';
+    fontLink.onload = function () {
+      this.media = 'all';
+    };
     fontLink.setAttribute('data-fonts', 'primary');
     document.head.appendChild(fontLink);
   }
 
-  if (navigator.onLine) {
-    loadFonts();
+  function scheduleFontLoad() {
+    if (!navigator.onLine) return;
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(loadFonts, { timeout: 1200 });
+      return;
+    }
+    setTimeout(loadFonts, 300);
   }
 
-  window.addEventListener('online', loadFonts, { once: true });
+  if (navigator.onLine) {
+    scheduleFontLoad();
+  }
+
+  window.addEventListener('online', scheduleFontLoad, { once: true });
 })();

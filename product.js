@@ -15,7 +15,7 @@ const productData = {
     name: 'Coconut Neera',
     category: 'Natural Coconut Sap Category',
     description: 'Vepuri  Neera is a naturally refreshing drink tapped from the sweet sap of palm trees. Collected fresh every morning, Neera is packed with essential nutrients, making it a perfect daily detox and hydration booster. No preservatives, no added sugar – just pure wellness in a bottle.',
-    image: 'https://images.unsplash.com/photo-1528825871115-3581a5387919?w=1400&q=75&auto=format&fit=crop',
+    image: 'assets/products/neera.jpg',
     imageAlt: 'Coconut neera beverage image',
     useCases: [
       '100% Natural & Fresh – No additives, no processing. Just raw palm nectar.',
@@ -28,7 +28,7 @@ const productData = {
     name: 'Coconut Honey',
     category: 'Natural Sweetener Category',
     description: 'Coco Munzz Coconut Honey is nature’s sweet gift – made from pure coconut nectar slowly simmered into a thick, golden syrup. With no added sugar or artificial ingredients, it’s a wholesome, plant-based alternative to refined sweeteners. Drizzle, dip, or stir – pure coconut sweetness in every drop.',
-    image: 'https://images.unsplash.com/photo-1587049352851-8d4e89133924?w=1400&q=75&auto=format&fit=crop',
+    image: 'assets/products/honey.png',
     imageAlt: 'Coconut honey syrup image',
     useCases: [
       '100% Natural & Plant-Based – Made from pure coconut nectar with no additives.',
@@ -41,7 +41,7 @@ const productData = {
     name: 'Coconut Caned Milk',
     category: 'Coconut Milk Category',
     description: 'Vepuri Coconut Milk Powder is a creamy, dairy-free alternative made from pure coconut extract. Just mix with warm water to enjoy rich, aromatic coconut milk anytime, anywhere. Ideal for cooking, baking, or beverages – it’s coconut convenience without compromise.',
-    image: 'https://images.unsplash.com/photo-1600788886242-5c96aabe3757?w=1400&q=75&auto=format&fit=crop',
+    image: 'assets/products/milk.png',
     imageAlt: 'Coconut milk product image',
     useCases: [
       '100% Dairy-Free – Perfect for vegans and lactose-intolerant diets.',
@@ -54,7 +54,7 @@ const productData = {
     name: 'Coconut Blossom Sugar',
     category: 'Coconut Blossom Sweetener Category',
     description: "Vepuri Coconut Sugar is a natural sweetener crafted from the pure nectar of coconut blossoms. With a delicious caramel-like flavor, it's the perfect healthier alternative to refined sugar for cooking, baking, or beverages.",
-    image: 'https://images.unsplash.com/photo-1516684732162-798a0062be99?w=1400&q=75&auto=format&fit=crop',
+    image: 'assets/products/blossom%20sugar.png',
     imageAlt: 'Coconut blossom sugar image',
     useCases: [
       '100% Natural & Unrefined – No artificial additives.',
@@ -66,7 +66,7 @@ const productData = {
     name: 'Frozen Grated Coconut',
     category: 'Frozen Coconut Category',
     description: 'Vepuri Frozen Grated Coconut is produced from carefully selected mature coconuts, processed under hygienic conditions and frozen immediately to preserve natural freshness, aroma, and texture. It delivers consistent quality and ready-to-use convenience for large-scale food preparation and product applications. Designed for efficiency and reliability, it ensures uniform performance across batches while reducing preparation time and wastage.',
-    image: 'assets/products/oil.jpg',
+    image: 'assets/products/frozen%20gated.png',
     imageAlt: 'Frozen grated coconut',
     useCases: [
       'Freshness Preserved – Frozen immediately to retain natural taste and texture.',
@@ -79,7 +79,7 @@ const productData = {
     name: 'Frozen Tender Coconut',
     category: 'Frozen Coconut Category',
     description: 'Vepuri Frozen Tender Coconut is made from fresh tender coconut pulp, carefully extracted and preserved to maintain its natural softness, taste, and nutritional profile. It ensures year-round availability without the challenges of sourcing fresh tender coconuts. Engineered for consistency and ease of use, it supports a wide range of product and preparation needs.',
-    image: 'assets/products/oil.jpg',
+    image: 'assets/products/frozen%20tender.png',
     imageAlt: 'Frozen tender coconut',
     useCases: [
       'Natural Taste Retained - Preserves the authentic flavor and softness of tender coconut.',
@@ -131,7 +131,7 @@ const productData = {
     name: 'Coconut Yogurt',
     category: 'Plant-Based Dairy Category',
     description: 'Vepuri Coconut Yogurt is a plant-based alternative developed from coconut, offering a smooth texture and balanced flavor profile. It is designed to meet the growing demand for dairy-free and functional food options. Suitable for both direct consumption and product integration, it aligns with modern dietary preferences and evolving market needs.',
-    image: 'assets/products/oil.jpg',
+    image: 'assets/products/yogurt.png',
     imageAlt: 'Coconut yogurt',
     useCases: [
       'Dairy-Free Alternative - Suitable for vegan and lactose-intolerant diets.',
@@ -242,7 +242,7 @@ function renderOtherProducts() {
     card.className = `pc-modern rv d${(index % 3) + 1}`;
     
     card.innerHTML = `
-      <img src="${imgData.src}" alt="${product.name}">
+      <img src="${imgData.src}" alt="${product.name}" loading="lazy" decoding="async">
       <div class="pc-overlay">
         <div class="pc-label">${product.category}</div>
         <h3 class="pc-title">${formatHeadingText(product.name)}</h3>

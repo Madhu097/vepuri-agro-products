@@ -1,0 +1,63 @@
+:root {
+  --site-font: 'Cormorant Garamond', serif;
+  --body-font: 'Outfit', sans-serif;
+  --accent-font: 'Spectral', serif;
+}
+
+body,
+button,
+input,
+select,
+textarea,
+label,
+p,
+li,
+a,
+small,
+span {
+  font-family: var(--body-font);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h2-ch {
+  font-family: var(--site-font);
+}
+
+h1 em,
+h2 em,
+h3 em,
+.h2 em,
+.h2-ch em,
+.c-title em {
+  font-family: var(--accent-font) !important;
+}
+
+.eye,
+.av-eye,
+.a-eye,
+.p-eye,
+.p-kicker,
+.tag-eye,
+.journey-kicker {
+  font-family: var(--accent-font) !important;
+}
+
+#nav,
+#nav a,
+#nav .nav-btn,
+footer,
+footer a,
+.fc h4,
+.fnl h4,
+.fbot,
+.fbot-copy,
+.fbot-tag {
+  font-family: var(--body-font);
+}

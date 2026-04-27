@@ -34,10 +34,9 @@ p {
 .page-about span,
 .page-about .av-eye,
 .page-about .eye,
-.page-about nav{
+.page-about nav,
 .page-about nav a {
-  font-family: var(--site-font) !important;
-}
+  font-family: var(--body-font) !important;
 }
 h1 {
   font-family: 'Cormorant Garamond', serif !important;

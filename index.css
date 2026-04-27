@@ -89,6 +89,20 @@ body {
   overflow-y: auto
 }
 
+/* Skip heavy paint/layout for below-fold sections until needed */
+#about,
+#products,
+#network,
+#brands,
+#achievements,
+#contract-mfg,
+#dept-contacts,
+#contact,
+footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 800px;
+}
+
 /* -- LOADER -- */
 #loader {
   position: fixed;

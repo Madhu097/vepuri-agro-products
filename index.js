@@ -12,10 +12,38 @@ window.addEventListener('load', () => setTimeout(hideLoader, 220));
 window.addEventListener('DOMContentLoaded', () => setTimeout(hideLoader, 900));
 window.addEventListener('pageshow', hideLoader);
 
+const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+const saveDataMode = Boolean(conn && (conn.saveData || /2g/.test(conn.effectiveType || '')));
+
 function scrollToSection(selector) {
   const el = document.querySelector(selector);
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
+
+function initHeroVideoPlayback() {
+  const heroVideo = document.querySelector('.hero-bg-video');
+  if (!heroVideo) return;
+
+  if (reduceMotionQuery.matches || saveDataMode) {
+    heroVideo.pause();
+    return;
+  }
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        heroVideo.play().catch(() => { });
+      } else {
+        heroVideo.pause();
+      }
+    });
+  }, { threshold: 0.2 });
+
+  obs.observe(heroVideo);
+}
+
+initHeroVideoPlayback();
 
 // -- HERO CARD INTERACTION --
 const heroCardEl = document.querySelector('.hero-card.hero-tilt');
@@ -125,8 +153,16 @@ animateHeroCounters();
     totalEl.textContent = croreVal + '+ Cr';
   }
 
+  let counterTimer = null;
+  function startCounterLoop() {
+    const intervalMs = document.hidden ? 5000 : 1000;
+    if (counterTimer) clearInterval(counterTimer);
+    counterTimer = setInterval(updateCounters, intervalMs);
+  }
+
   updateCounters();
-  setInterval(updateCounters, 1000);
+  startCounterLoop();
+  document.addEventListener('visibilitychange', startCounterLoop);
 })();
 
 // -- NAV --
@@ -250,6 +286,7 @@ document.querySelectorAll('[data-target]').forEach(el => co.observe(el));
 const canvas = document.getElementById('sphCanvas');
 const ctx = canvas.getContext('2d');
 let W, H, cx, cy, time = 0;
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 function resize() {
   W = canvas.width = canvas.offsetWidth;
@@ -263,7 +300,7 @@ window.addEventListener('resize', resize, { passive: true });
 // Agricultural Color Palettes (Greens, Creams, Soft Whites)
 const colors = ['#96AC38', '#D7D5CE', '#FFFFFF', '#606C38'];
 
-const particles = Array.from({ length: 220 }, () => ({
+const particles = Array.from({ length: prefersReducedMotion ? 70 : 130 }, () => ({
   x: Math.random(),
   y: Math.random(),
   size: 0.3 + Math.random() * 1.8,
@@ -278,12 +315,30 @@ const particles = Array.from({ length: 220 }, () => ({
 let canvasVisible = false;
 const observer = new IntersectionObserver(entries => {
   canvasVisible = entries[0].isIntersecting;
+  if (canvasVisible && !document.hidden) {
+    startCanvasLoop();
+  } else {
+    stopCanvasLoop();
+  }
 }, { threshold: 0.1 });
 observer.observe(canvas);
 
+let rafId = null;
+let lastFrameTime = 0;
+const frameInterval = prefersReducedMotion ? 100 : 33;
+
 function draw(ts) {
-  requestAnimationFrame(draw);
-  if (!canvasVisible) return;
+  if (!canvasVisible || document.hidden) {
+    rafId = null;
+    return;
+  }
+
+  if (ts - lastFrameTime < frameInterval) {
+    rafId = requestAnimationFrame(draw);
+    return;
+  }
+
+  lastFrameTime = ts;
 
   time = ts / 1000;
   ctx.clearRect(0, 0, W, H);
@@ -352,9 +407,30 @@ function draw(ts) {
   vig.addColorStop(1, 'rgba(27, 38, 18, 0.85)'); // Deep Forest Green fade
   ctx.fillStyle = vig;
   ctx.fillRect(0, H * 0.6, W, H * 0.4);
+
+  rafId = requestAnimationFrame(draw);
 }
 
-requestAnimationFrame(draw);
+function startCanvasLoop() {
+  if (rafId !== null || !canvasVisible || document.hidden) return;
+  rafId = requestAnimationFrame(draw);
+}
+
+function stopCanvasLoop() {
+  if (rafId === null) return;
+  cancelAnimationFrame(rafId);
+  rafId = null;
+}
+
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    stopCanvasLoop();
+    return;
+  }
+  startCanvasLoop();
+});
+
+startCanvasLoop();
 
 // -- FORM (FormSubmit.co via AJAX) --
 const enquiryForm = document.getElementById('enquiryForm');
@@ -393,14 +469,13 @@ if (enquiryForm) {
 // -- ABOUT VIDEO PERSISTENCE --
 const aboutVid = document.querySelector('.a-main-video');
 if (aboutVid) {
-  // Ensure it plays on load
-  aboutVid.play().catch(() => { /* Silence autoplay blocks */ });
-
-  // Keep it playing when it enters the screen
+  // Play only when visible to avoid below-fold video load on startup.
   const vidObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        aboutVid.play();
+        aboutVid.play().catch(() => { });
+      } else {
+        aboutVid.pause();
       }
     });
   }, { threshold: 0.1 });

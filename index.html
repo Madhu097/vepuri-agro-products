@@ -7,12 +7,11 @@
   <title>Vepuri Agro Products &ndash; From Coconut to Value</title>
   <meta name="description"
     content="Vepuri Agro Products &ndash; Premium coconut-based food processing company. Quality, trust, and innovation since 2018.">
-  <script src="font-loader.js"></script>
+  <script src="font-loader.js" defer></script>
 
-  <!-- Preload hero video for faster first frame -->
-  <link rel="preload" as="video" href="assets/video/video-compress.mp4" type="video/mp4">
   <link rel="stylesheet" href="index.css?v=1.01">
   <link rel="stylesheet" href="footer-shared.css?v=1.01">
+  <link rel="stylesheet" href="typography-shared.css?v=1.00">
   <link rel="icon" type="image/png" href="assets/website%20tab%20icon.png">
 </head>
 
@@ -29,7 +28,7 @@
   <!-- NAV -->
   <nav id="nav">
     <div class="nav-logo">
-      <a href="index.html"><img src="assets/newlogo.png" alt="Vepuri Agro Products"></a>
+      <a href="index.html"><img src="assets/newlogo.png" alt="Vepuri Agro Products" loading="eager" decoding="async"></a>
     </div>
     <ul class="nav-links" id="navLinks">
       <li><a href="#hero">Home</a></li>
@@ -55,13 +54,13 @@
   <!-- HERO -->
   <section id="hero" class="hero-classic">
     <div class="hero-bg" aria-hidden="true">
-      <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata">
+      <video class="hero-bg-video" muted loop playsinline preload="none" poster="assets/hero.jpg">
         <source src="assets/video/hero.mp4" type="video/mp4">
       </video>
     </div>
     <div class="hero-inner">
       <div class="hero-brand">
-        <img class="hero-brand-logo" src="assets/newlogo.png" alt="Vepuri Agro Products">
+        <img class="hero-brand-logo" src="assets/newlogo.png" alt="Vepuri Agro Products" loading="eager" decoding="async" fetchpriority="high">
         <div class="hero-tagline-unified">
           <span class="tag-eye">FROM COCONUT TO VALUE</span>
           <p class="tag-sub">COCONUT-BASED FOOD PROCESSING &bull; EST.2018</p>
@@ -128,7 +127,7 @@
     <div class="about-grid">
       <div class="about-vis rvl">
         <div class="a-main">
-          <video class="a-main-video" autoplay muted loop playsinline>
+          <video class="a-main-video" muted loop playsinline preload="none">
             <source src="assets/video/video-compress.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -195,7 +194,7 @@
     <div class="prod-grid">
       <!-- 1 -->
       <a href="product.html?item=coconut-blossom-sugar" class="pc-modern rv d1">
-        <img src="assets/products/blossom sugar.png" alt="Coconut Milk Powder">
+        <img src="assets/products/blossom sugar.png" alt="Coconut Milk Powder" loading="lazy" decoding="async">
         <div class="pc-overlay">
           <div class="pc-label">FOOD GRADE</div>
           <h3 class="pc-title">blossom sugar </h3>
@@ -205,7 +204,7 @@
 
       <!-- 2 -->
       <a href="product.html?item=virgin-coconut-oil" class="pc-modern rv d2">
-        <img src="assets/products/oil.jpeg" alt="Virgin Coconut Oil">
+        <img src="assets/products/oil.jpeg" alt="Virgin Coconut Oil" loading="lazy" decoding="async">
         <div class="pc-overlay">
           <div class="pc-label">PREMIUM GRADE</div>
           <h3 class="pc-title">Virgin Coconut Oil</h3>
@@ -215,7 +214,7 @@
 
       <!-- 3 -->
       <a href="product.html?item=frozen-grated-coconut" class="pc-modern rv d3">
-        <img src="assets/products/frozen gated.png" alt="Frozen Grated Coconut">
+        <img src="assets/products/frozen gated.png" alt="Frozen Grated Coconut" loading="lazy" decoding="async">
         <div class="pc-overlay">
           <div class="pc-label">FROZEN FRESH</div>
           <h3 class="pc-title">Frozen Grated Coconut</h3>
@@ -225,7 +224,7 @@
 
       <!-- 4 -->
       <a href="product.html?item=tender-coconut-water" class="pc-modern rv d1">
-        <img src="assets/products/water.png" alt="Tender Coconut Water">
+        <img src="assets/products/water.png" alt="Tender Coconut Water" loading="lazy" decoding="async">
         <div class="pc-overlay">
           <div class="pc-label">NATURAL HYDRATION</div>
           <h3 class="pc-title">Tender Coconut Water</h3>
@@ -235,7 +234,7 @@
 
       <!-- 5 -->
       <a href="product.html?item=coconut-milk-tin" class="pc-modern rv d2">
-        <img src="assets/products/milk.png" alt="Coconut Milk Tin">
+        <img src="assets/products/milk.png" alt="Coconut Milk Tin" loading="lazy" decoding="async">
         <div class="pc-overlay">
           <div class="pc-label">CANNED CONVENIENCE</div>
           <h3 class="pc-title">Coconut Milk</h3>
@@ -307,7 +306,7 @@
       <div class="brands-home-grid">
         <!-- Brand 1: Coasta Naturals -->
         <a href="brands.html" class="bh-card rv d1">
-          <div class="bh-media" style="background: #fff;"><img src="assets/brands/brand1.jpg" alt="Coasta Naturals">
+          <div class="bh-media" style="background: #fff;"><img src="assets/brands/brand1.jpg" alt="Coasta Naturals" loading="lazy" decoding="async">
           </div>
           <div class="bh-content">
             <span class="bh-tag">BULK & INDUSTRIAL</span>
@@ -318,7 +317,7 @@
         </a>
         <!-- Brand 2: Cocomunzzz -->
         <a href="brands.html" class="bh-card rv d2">
-          <div class="bh-media"><img src="assets/brands/cocomunzz.jpeg" alt="Cocomunzzz"></div>
+          <div class="bh-media"><img src="assets/brands/cocomunzz.jpeg" alt="Cocomunzzz" loading="lazy" decoding="async"></div>
           <div class="bh-content">
             <span class="bh-tag">CONSUMER RETAIL</span>
             <h3>Cocomunzzz</h3>
@@ -328,7 +327,7 @@
         </a>
         <!-- Brand 3: The Coconut Dairy -->
         <a href="brands.html" class="bh-card rv d3">
-          <div class="bh-media"><img src="assets/brands/Brand3.jpg" alt="The Coconut Dairy"></div>
+          <div class="bh-media"><img src="assets/brands/Brand3.jpg" alt="The Coconut Dairy" loading="lazy" decoding="async"></div>
           <div class="bh-content">
             <span class="bh-tag">PLANT-BASED DAIRY</span>
             <h3>The Coconut Dairy</h3>
@@ -598,7 +597,7 @@
   <footer>
     <div class="fg2">
       <div>
-        <a href="index.html"><img class="f-logo" src="assets/newlogo.png" alt="Vepuri Agro Products"></a>
+        <a href="index.html"><img class="f-logo" src="assets/newlogo.png" alt="Vepuri Agro Products" loading="lazy" decoding="async"></a>
         <p class="fb-txt">A coconut-based food processing company building value through innovation, integrity, and
           industry-grade quality since 2018.</p>
       </div>
@@ -641,6 +640,7 @@
     </div>
   </footer>
 
+  <script src="performance-boost.js" defer></script>
   <script src="products-config.js" defer></script>
   <script src="index.js" defer></script>
 </body>

@@ -6,17 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vepuri Product Details</title>
   <meta name="description" content="Product details for Vepuri Agro Products categories.">
-  <script src="font-loader.js"></script>
+  <script src="font-loader.js" defer></script>
   <link rel="stylesheet" href="product.css?v=1.01">
   <link rel="stylesheet" href="nav-shared.css?v=1.01">
   <link rel="stylesheet" href="footer-shared.css?v=1.01">
+  <link rel="stylesheet" href="typography-shared.css?v=1.00">
   <link rel="icon" type="image/png" href="assets/website%20tab%20icon.png">
 </head>
 
 <body>
   <nav id="nav">
     <div class="nav-logo">
-      <a href="index.html"><img src="assets/newlogo.png" alt="Vepuri Agro Products"></a>
+      <a href="index.html"><img src="assets/newlogo.png" alt="Vepuri Agro Products" loading="eager" decoding="async"></a>
     </div>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html#hero">Home</a></li>
@@ -79,7 +80,7 @@
   <footer>
     <div class="fg2">
       <div>
-        <a href="index.html"><img class="f-logo" src="assets/newlogo.png" alt="Vepuri Agro Products"></a>
+        <a href="index.html"><img class="f-logo" src="assets/newlogo.png" alt="Vepuri Agro Products" loading="lazy" decoding="async"></a>
         <p class="fb-txt">A coconut-based food processing company building value through innovation, integrity, and
           industry-grade quality since 2018.</p>
       </div>
@@ -122,6 +123,7 @@
     </div>
   </footer>
 
+  <script src="performance-boost.js" defer></script>
   <script src="products-config.js" defer></script>
   <script src="product.js" defer></script>
   <script src="nav-pages.js" defer></script>
