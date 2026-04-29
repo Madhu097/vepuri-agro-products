@@ -801,9 +801,9 @@
       const totalEl = document.getElementById('liveTotalCount');
       if (!dailyEl || !totalEl) return;
 
-      const DAILY_TARGET = 50000;
-      const BASE_TOTAL = 25000000;
-      const START_DATE = new Date(2026, 3, 25);
+      const DAILY_TARGET = 17000;
+      const BASE_TOTAL = 25000000; // 2.5 Crore — existing historical total
+      const START_DATE = new Date(2026, 3, 25); // April 25, 2026 (month is 0-indexed)
       const SECONDS_IN_DAY = 86400;
 
       function secondsSinceMidnight() {
@@ -835,9 +835,7 @@
         const currentTotal = BASE_TOTAL + (completedDays * DAILY_TARGET) + dailyCount;
 
         dailyEl.textContent = formatIndian(dailyCount);
-
-        const croreVal = (currentTotal / 10000000).toFixed(2);
-        totalEl.textContent = croreVal + '+ Cr';
+        totalEl.textContent = formatIndian(currentTotal);
       }
 
       updateCounters();
