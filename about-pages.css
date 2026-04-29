@@ -782,126 +782,107 @@ body::before {
 }
 
 .team-gov-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.page-about .team-gov-grid {
-  max-width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center; /* Centers the last item if it's alone on a row */
+  max-width: 1240px;
   margin: 0 auto;
-  gap: 20px;
 }
 
 .team-member {
-  background: rgba(255, 255, 255, .05);
+  flex: 0 1 580px;
+  background: rgba(40, 50, 20, 0.4);
   border: 1px solid rgba(255, 255, 255, .1);
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, .15);
-  transition: all .4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth animation */
   display: flex;
-  flex-direction: column;
-  height: 100%;
+  flex-direction: row;
+  align-items: stretch;
   text-decoration: none;
-}
-
-.page-about .team-member {
-  border-radius: 12px;
+  min-height: 280px;
 }
 
 .team-member:hover {
-  transform: translateY(-6px);
-  border-color: rgba(186, 217, 95, .52);
-  box-shadow: 0 24px 54px rgba(0, 0, 0, .3);
+  transform: translateY(-8px); /* Subtle lift */
+  border-color: rgba(186, 217, 95, .4);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, .25);
+}
+
+.page-about .team-member {
+  background: rgba(40, 50, 20, 0.4);
+  min-height: 280px;
 }
 
 .team-member-media {
-  width: 100%;
-  aspect-ratio: 4/5; /* Taller image size for better visibility */
+  width: 35%; /* Fixed width for image */
+  min-width: 180px;
   overflow: hidden;
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.page-about .team-member-media {
-  aspect-ratio: 4/5;
+  position: relative;
 }
 
 .team-member-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top; /* Focus on faces */
-  display: block;
-  transition: transform .7s ease;
+  object-position: top;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth image scale */
+  image-rendering: -webkit-optimize-contrast; /* Sharpen images */
+  image-rendering: high-quality;
 }
 
 .team-member:hover .team-member-media img {
-  transform: scale(1.06);
+  transform: scale(1.05); /* Gentle zoom */
 }
 
 .team-member-copy {
-  padding: 30px 25px;
-  background: rgba(40, 50, 20, 0.4);
+  padding: 25px 30px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   flex: 1;
-  text-align: center; /* Center align text */
-  align-items: center; /* Center flex items */
-}
-
-.page-about .team-member-copy {
-  padding: 25px 22px 35px;
+  text-align: left; /* Left align for horizontal readability */
 }
 
 .team-member-copy h2 {
   font-family: 'Cormorant Garamond', serif !important;
-  font-size: clamp(22px, 1.6vw, 26px); /* Reduced to fit full long names */
+  font-size: 24px;
   color: var(--white) !important;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   font-weight: 700;
-  font-style: normal;
-  line-height: 1.1;
-  text-shadow: none;
-  min-height: auto;
-  display: block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 100%;
-  letter-spacing: -0.025em; /* Tighter spacing to fit more characters */
+  line-height: 1.2;
+  min-height: 1.2em; /* Align names */
 }
 
-.page-about .team-member-copy h2 {
-  font-family: 'Cormorant Garamond', serif !important;
-  font-size: clamp(22px, 1.6vw, 26px);
-  margin-bottom: 4px;
-  min-height: auto;
-  display: block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 100%;
-}
-
-.team-member-copy p {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 14px;
-  line-height: 1.5;
-  font-family: var(--body-font), sans-serif;
-}
-
-.page-about .team-member-copy p:first-of-type {
-  min-height: auto; /* Removed min-height to tighten space */
+.team-member-copy p:first-of-type {
+  font-size: 13px;
   font-weight: 600;
   color: #c5d98d;
-  margin-bottom: 8px; /* Reduced space from 15px */
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  min-height: 3.2em; /* Align roles */
+}
+
+.team-desc {
+  font-size: 13.5px !important;
+  line-height: 1.5 !important;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 0;
+  min-height: 6em; /* Align bios */
+}
+
+@media (max-width: 600px) {
+  .team-member {
+    flex-direction: column; /* Stack on small mobile */
+  }
+  .team-member-media {
+    width: 100%;
+    aspect-ratio: 1/1;
+  }
 }
 
 .page-about .team-member-copy p {
@@ -1521,10 +1502,16 @@ body::before {
 
 /* -- CERTIFICATION SHOWCASE -- */
 .cert-showcase {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* This centers the tiles on the last row */
   gap: 20px;
   margin-top: 48px;
+}
+
+.cert-tile {
+  flex: 0 1 calc(33.33% - 20px); /* Approx 3 per row */
+  min-width: 300px;
 }
 
 .page-about .cert-quality-wrap {
