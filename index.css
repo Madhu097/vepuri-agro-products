@@ -1332,10 +1332,10 @@ section[style*="background: var(--green)"] em {
 
 .prod-head {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 70px;
-  align-items: end;
-  margin-bottom: 60px
+  grid-template-columns: 1.4fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 60px;
 }
 
 #products .eye {
