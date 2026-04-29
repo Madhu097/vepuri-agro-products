@@ -1707,9 +1707,9 @@ section[style*="background: var(--green)"] em {
 }
 
 .nc-num {
-  font-family: var(--body-font);
-  font-size: 40px;
-  font-weight: 600;
+  font-family: var(--site-font);
+  font-size: 44px;
+  font-weight: 700;
   color: #6b3828;
   margin-top: 25px;
   line-height: 1
