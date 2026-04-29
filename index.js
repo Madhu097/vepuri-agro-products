@@ -120,6 +120,7 @@ animateHeroCounters();
   const BASE_TOTAL = 25000000; // 2.5 Crore — existing historical total
   const START_DATE = new Date(2026, 3, 25); // April 25, 2026 (month is 0-indexed)
   const SECONDS_IN_DAY = 86400;
+
   function secondsSinceMidnight() {
     const now = new Date();
     return now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
@@ -131,6 +132,7 @@ animateHeroCounters();
     const diff = today - START_DATE;
     return Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
   }
+
   function formatIndian(n) {
     n = Math.floor(n);
     const s = n.toString();
@@ -414,6 +416,7 @@ function startCanvasLoop() {
   rafId = requestAnimationFrame(draw);
 }
 
+<<<<<<< HEAD
 function stopCanvasLoop() {
   if (rafId === null) return;
   cancelAnimationFrame(rafId);
@@ -451,6 +454,29 @@ if (enquiryForm) {
           successBox.style.display = 'block';
           enquiryForm.reset();
 
+=======
+// -- FORM (FormSubmit.co via AJAX) --
+const enquiryForm = document.getElementById('enquiryForm');
+if (enquiryForm) {
+  enquiryForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const formBox = document.getElementById('formContent');
+    const successBox = document.getElementById('fSuccess');
+    const formData = new FormData(enquiryForm);
+
+    fetch(enquiryForm.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+      .then(response => {
+        if (response.ok) {
+          formBox.style.display = 'none';
+          successBox.style.display = 'block';
+          enquiryForm.reset();
+
+>>>>>>> 3a6e6b87aee762cd22a9fc51b1be1204dcbaad4e
           setTimeout(() => {
             successBox.style.display = 'none';
             formBox.style.display = 'block';
@@ -463,6 +489,34 @@ if (enquiryForm) {
         alert('Network error. Please check your connection and try again.');
       });
   });
+<<<<<<< HEAD
+=======
+}
+
+// -- NEWSLETTER (FormSubmit.co via AJAX) --
+const nlForm = document.getElementById('newsletterForm');
+if (nlForm) {
+  nlForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const nlRow = document.getElementById('nlRow');
+    const nlSuccess = document.getElementById('nlSuccess');
+    const formData = new FormData(nlForm);
+
+    fetch(nlForm.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+      .then(response => {
+        if (response.ok) {
+          nlRow.style.display = 'none';
+          nlSuccess.style.display = 'block';
+          nlForm.reset();
+        }
+      })
+      .catch(() => { });
+  });
+>>>>>>> 3a6e6b87aee762cd22a9fc51b1be1204dcbaad4e
 }
 // -- ABOUT VIDEO PERSISTENCE --
 const aboutVid = document.querySelector('.a-main-video');

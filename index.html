@@ -562,7 +562,7 @@
         </div>
       </div>
       <div class="eform rvr">
-        <form id="enquiryForm" action="https://formsubmit.co/mvishwateja2220@gmail.com" method="POST">
+        <form id="enquiryForm" action="https://formsubmit.co/vepurigroup@gmail.com" method="POST">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_subject" value="New Enquiry from Vepuri Website">
           <input type="hidden" name="_template" value="table">
@@ -638,7 +638,20 @@
       <div class="fnl">
         <h4>Stay Updated</h4>
         <p>Get updates on products, partnerships & industry news from Vepuri.</p>
-        <div class="nl-row"><input type="email" placeholder="your@email.com"><button>&rarr;</button></div>
+        <form id="newsletterForm" action="https://formsubmit.co/vepurigroup@gmail.com" method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="New Newsletter Subscriber - Vepuri">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_autoresponse"
+            value="Welcome to Vepuri Agro Products! Thank you for subscribing. You'll now receive updates on our products, partnerships, and industry news. Stay connected with us at vepuriagro.com">
+          <input type="text" name="_honey" style="display:none">
+          <div class="nl-row" id="nlRow">
+            <input type="email" name="email" placeholder="your@email.com" required>
+            <button type="submit">&rarr;</button>
+          </div>
+        </form>
+        <div id="nlSuccess" style="display:none; color:#96AC38; font-weight:600; margin-top:10px;">Welcome! You're
+          subscribed.</div>
       </div>
     </div>
     <div class="fbot">
