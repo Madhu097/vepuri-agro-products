@@ -29,7 +29,7 @@ p {
 h1 em,
 h2 em,
 h3 em {
-  font-family: 'Spectral', serif !important;
+  font-family: var(--accent-font) !important;
   color: var(--kicker-color) !important;
   font-style: italic;
   display: inline;
@@ -40,7 +40,7 @@ h3 em {
 
 .b-eye,
 .b-tag {
-  font-family: 'Spectral', serif !important;
+  font-family: var(--accent-font) !important;
   text-transform: uppercase;
   font-weight: 700;
   font-size: 14px;

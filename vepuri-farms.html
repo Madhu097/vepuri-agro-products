@@ -30,12 +30,14 @@
       font-size: clamp(32px, 5vw, 64px);
       margin-bottom: 20px;
       color: var(--cream);
+      font-family: var(--site-font);
     }
     .farm-hero p {
       max-width: 800px;
       margin: 0 auto;
       font-size: 18px;
       line-height: 1.6;
+      font-family: var(--body-font);
     }
     .farm-content {
       padding: 100px 8%;
@@ -51,12 +53,14 @@
       font-size: clamp(28px, 4vw, 48px);
       color: #606c38;
       margin-bottom: 24px;
+      font-family: var(--site-font);
     }
     .farm-copy p {
       font-size: 16px;
       line-height: 1.8;
       color: #333;
       margin-bottom: 20px;
+      font-family: var(--body-font);
     }
     .farm-features {
       display: grid;
@@ -65,16 +69,27 @@
       margin-top: 80px;
     }
     .farm-feature {
-      background: #fff;
+      background: rgba(255, 255, 255, .05);
       padding: 40px;
       border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, .15);
       text-align: center;
-      border: 1px solid #eee;
+      border: 1px solid rgba(0, 0, 0, .1);
+      transition: all .4s ease;
+    }
+    .farm-feature:hover {
+      transform: translateY(-6px);
+      border-color: rgba(186, 217, 95, .52);
     }
     .farm-feature h3 {
       color: #606c38;
       margin-bottom: 15px;
+      font-family: var(--site-font);
+      font-size: 24px;
+    }
+    .farm-feature p {
+      font-family: var(--body-font);
+      color: #555;
     }
     @media (max-width: 768px) {
       .farm-grid { grid-template-columns: 1fr; }

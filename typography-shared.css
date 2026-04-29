@@ -4,6 +4,36 @@
   --accent-font: 'Spectral', serif;
 }
 
+h1 {
+  font-family: var(--site-font) !important;
+  font-size: clamp(36px, 10vw, 124px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-family: var(--site-font) !important;
+  font-size: clamp(28px, 5vw, 60px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+h1 em,
+h2 em,
+h3 em,
+.section-header h1 em,
+.section-header h2 em {
+  font-family: var(--accent-font) !important;
+  color: var(--kicker-color) !important;
+  font-style: italic;
+  display: inline;
+  text-transform: none;
+  font-weight: 700;
+  font-size: 0.72em;
+}
+
 body,
 button,
 input,
@@ -18,8 +48,6 @@ span {
   font-family: var(--body-font);
 }
 
-h1,
-h2,
 h3,
 h4,
 h5,
@@ -28,15 +56,6 @@ h6,
 .h2,
 .h2-ch {
   font-family: var(--site-font);
-}
-
-h1 em,
-h2 em,
-h3 em,
-.h2 em,
-.h2-ch em,
-.c-title em {
-  font-family: var(--accent-font) !important;
 }
 
 .eye,

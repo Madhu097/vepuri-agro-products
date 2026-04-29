@@ -39,7 +39,7 @@ p {
   font-family: var(--body-font) !important;
 }
 h1 {
-  font-family: 'Cormorant Garamond', serif !important;
+  font-family: var(--site-font) !important;
   font-size: clamp(36px, 10vw, 124px);
   font-weight: 800;
   line-height: 0.95;
@@ -47,7 +47,7 @@ h1 {
 }
 
 h2 {
-  font-family: 'Cormorant Garamond', serif !important;
+  font-family: var(--site-font) !important;
   font-size: clamp(28px, 5vw, 60px);
   font-weight: 700;
   line-height: 1.1;
@@ -59,7 +59,7 @@ h2 em,
 h3 em,
 .section-header h1 em,
 .section-header h2 em {
-  font-family: 'Spectral', serif !important;
+  font-family: var(--accent-font) !important;
   color: var(--kicker-color) !important;
   font-style: italic;
   display: inline;
@@ -70,7 +70,7 @@ h3 em,
 
 .a-eye,
 .av-eye {
-  font-family: 'Spectral', serif !important;
+  font-family: var(--accent-font) !important;
   text-transform: uppercase;
   font-weight: 700;
   font-size: 14px;
@@ -794,128 +794,131 @@ body::before {
 }
 
 .team-member {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
+  background: rgba(255, 255, 255, .05);
+  border: 1px solid rgba(255, 255, 255, .1);
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(61, 82, 40, .14);
-  box-shadow: 0 8px 24px rgba(20, 16, 12, .08);
-  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, .15);
+  transition: all .4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: flex;
+  flex-direction: column;
   height: 100%;
+  text-decoration: none;
 }
 
 .page-about .team-member {
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 .team-member:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 36px rgba(20, 16, 12, .14);
-  border-color: rgba(61, 82, 40, .28);
+  transform: translateY(-6px);
+  border-color: rgba(186, 217, 95, .52);
+  box-shadow: 0 24px 54px rgba(0, 0, 0, .3);
 }
 
 .team-member-media {
   width: 100%;
-  aspect-ratio: 4 / 4;
-  /* Changed to portrait for professional team headshots */
-  background: #d7d5ce;
+  aspect-ratio: 4/5; /* Taller image size for better visibility */
   overflow: hidden;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .page-about .team-member-media {
-  aspect-ratio: 4 / 4;
+  aspect-ratio: 4/5;
 }
 
 .team-member-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
-  /* Ensures heads are not cut off */
+  object-position: top; /* Focus on faces */
   display: block;
-  transition: transform .6s ease;
+  transition: transform .7s ease;
 }
 
 .team-member:hover .team-member-media img {
-  transform: scale(1.04);
+  transform: scale(1.06);
 }
 
 .team-member-copy {
-  min-height: 180px;
-  /* Standardized to fit longer titles and ensure alignment */
-  padding: 18px 16px;
+  padding: 30px 25px;
+  background: rgba(40, 50, 20, 0.4);
   display: flex;
   flex-direction: column;
   flex: 1;
+  text-align: center; /* Center align text */
+  align-items: center; /* Center flex items */
 }
 
 .page-about .team-member-copy {
-  min-height: 120px;
-  padding: 12px 16px 20px; /* Reduced top padding from 20px to 12px */
+  padding: 25px 22px 35px;
 }
 
 .team-member-copy h2 {
-  font-family: var(--body-font), sans-serif !important;
-  font-size: clamp(16px, 1.25vw, 21px); /* Adjusted size to ensure names fit on one line */
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: clamp(22px, 1.6vw, 26px); /* Reduced to fit full long names */
+  color: var(--white) !important;
+  margin-bottom: 4px;
+  font-weight: 700;
   font-style: normal;
-  font-weight: 900;
-  color: #000000 !important;
-  line-height: 1.2;
-  margin-bottom: 8px;
-  letter-spacing: -0.02em;
-  white-space: nowrap; /* Forces single line */
+  line-height: 1.1;
+  text-shadow: none;
+  min-height: auto;
+  display: block;
+  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; /* Adds dots if name is too long */
+  text-overflow: ellipsis;
+  width: 100%;
+  letter-spacing: -0.025em; /* Tighter spacing to fit more characters */
 }
 
 .page-about .team-member-copy h2 {
-  min-height: 1.2em; /* Reduced from 2.2em as names are now single-line */
-  display: block; /* No longer need flex for vertical alignment within the box */
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: clamp(22px, 1.6vw, 26px);
+  margin-bottom: 4px;
+  min-height: auto;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
 }
 
 .team-member-copy p {
-  font-size: clamp(13px, 1.02vw, 15px);
-  line-height: 1.52;
-  color: #2d2c2a;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: var(--body-font), sans-serif;
 }
 
 .page-about .team-member-copy p:first-of-type {
-  min-height: 3.2em; /* Standardizes role height */
-  font-weight: 500;
-  color: #4a4a4a;
+  min-height: auto; /* Removed min-height to tighten space */
+  font-weight: 600;
+  color: #c5d98d;
+  margin-bottom: 8px; /* Reduced space from 15px */
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .page-about .team-member-copy p {
-  font-size: clamp(12px, .95vw, 14px);
-  line-height: 1.45;
+  font-size: 13.5px;
+  line-height: 1.6;
 }
 
 .team-desc {
   margin-top: 15px;
-  font-size: clamp(11.5px, 0.9vw, 13px);
-  line-height: 1.6;
-  color: #555;
-  font-weight: 400;
-  opacity: 0.85;
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, .9);
+  opacity: 1;
 }
 
-.tone-light {
-  background: linear-gradient(180deg, #e7e2d6, #ddd7c9);
-}
-
-.tone-olive {
-  background: linear-gradient(180deg, #757b49, #686f3f);
-}
-
-.tone-olive h2 {
-  color: #ffffff !important; /* Forced pure white for visibility */
-  text-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Much stronger shadow for depth */
-}
-
-.tone-olive p {
-  color: #ffffff;
-  opacity: 0.95;
+.tone-light, .tone-olive {
+  background: transparent !important;
 }
 
 @media(max-width:1024px) {
