@@ -1607,6 +1607,14 @@ section[style*="background: var(--green)"] em {
   overflow: hidden
 }
 
+#network .eye {
+  color: var(--green) !important;
+}
+
+#network .h2-ch {
+  color: var(--brown) !important;
+}
+
 #network::before {
   content: '';
   position: absolute;
