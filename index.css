@@ -2,7 +2,7 @@
   --green: #606c38;
   --green2: #606c38;
   --green3: #606c38;
-  --brown: #4c2318;
+  --brown: #6b3828;
   --brown2: #4c2318;
   --cream: #ffe9c4;
   --white: #ffffff;
@@ -1612,7 +1612,7 @@ section[style*="background: var(--green)"] em {
 }
 
 #network .h2-ch {
-  color: var(--brown) !important;
+  color: #6b3828 !important;
 }
 
 #network::before {
