@@ -80,3 +80,13 @@ footer a,
 .fbot-tag {
   font-family: var(--body-font);
 }
+
+/* Force Numbers to Normal (Sans-Serif) Font */
+h1, h2, h3, h4, h5, h6, .hero-title, .event-year, .hs-num, .hs-val, .cap-num h2, strong, .count {
+  font-variant-numeric: lining-nums tabular-nums !important;
+}
+
+/* Specific overrides for numeric-heavy elements to ensure they use the "Normal" body font */
+.hs-num, .hs-val, .count, .event-year, .cap-num h2, [data-target], #liveDailyCount, #liveTotalCount {
+  font-family: var(--body-font) !important;
+}
