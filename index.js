@@ -416,7 +416,6 @@ function startCanvasLoop() {
   rafId = requestAnimationFrame(draw);
 }
 
-<<<<<<< HEAD
 function stopCanvasLoop() {
   if (rafId === null) return;
   cancelAnimationFrame(rafId);
@@ -454,29 +453,6 @@ if (enquiryForm) {
           successBox.style.display = 'block';
           enquiryForm.reset();
 
-=======
-// -- FORM (FormSubmit.co via AJAX) --
-const enquiryForm = document.getElementById('enquiryForm');
-if (enquiryForm) {
-  enquiryForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const formBox = document.getElementById('formContent');
-    const successBox = document.getElementById('fSuccess');
-    const formData = new FormData(enquiryForm);
-
-    fetch(enquiryForm.action, {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    })
-      .then(response => {
-        if (response.ok) {
-          formBox.style.display = 'none';
-          successBox.style.display = 'block';
-          enquiryForm.reset();
-
->>>>>>> 3a6e6b87aee762cd22a9fc51b1be1204dcbaad4e
           setTimeout(() => {
             successBox.style.display = 'none';
             formBox.style.display = 'block';
@@ -489,8 +465,6 @@ if (enquiryForm) {
         alert('Network error. Please check your connection and try again.');
       });
   });
-<<<<<<< HEAD
-=======
 }
 
 // -- NEWSLETTER (FormSubmit.co via AJAX) --
@@ -516,7 +490,6 @@ if (nlForm) {
       })
       .catch(() => { });
   });
->>>>>>> 3a6e6b87aee762cd22a9fc51b1be1204dcbaad4e
 }
 // -- ABOUT VIDEO PERSISTENCE --
 const aboutVid = document.querySelector('.a-main-video');
