@@ -1335,7 +1335,7 @@ section[style*="background: var(--green)"] em {
   grid-template-columns: 1.4fr 1fr;
   gap: 60px;
   align-items: center;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 #products .eye {

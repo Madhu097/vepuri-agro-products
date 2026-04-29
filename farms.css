@@ -13,14 +13,8 @@
   overflow-x: hidden;
 }
 
-/* Force Numbers to Normal Font in Farms Page */
-.cap-num h2, .sapling-card h3, .bb-body h2 {
-  font-variant-numeric: lining-nums tabular-nums !important;
-}
 
-.cap-num h2 {
-  font-family: var(--body-font) !important;
-}
+
 
 /* Hero Section */
 .farm-hero {
