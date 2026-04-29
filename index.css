@@ -51,7 +51,7 @@ h2 em,
 h3 em,
 .c-title em {
   font-family: 'Spectral', serif !important;
-  color: var(--kicker-color) !important;
+  color: var(--kicker-color);
   display: inline;
   font-style: italic;
   text-transform: none;
@@ -73,7 +73,7 @@ h3 em,
   font-style: normal;
   display: block;
   margin-bottom: 12px;
-  color: #6b3828;
+  color: var(--cream) !important;
 }
 
 html {
@@ -868,13 +868,13 @@ body.hero-ready .hero-metrics {
 /* -- CANVAS SECTION -- */
 .canvas-sec {
   position: relative;
-  height: 320px;
+  height: clamp(380px, 45vh, 500px);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: #1B2612;
-  /* Deep Organic Green */
+  background: radial-gradient(circle at center, #243516 0%, #151d0e 100%);
+  /* Rich Organic Gradient */
 }
 
 #sphCanvas {
@@ -895,31 +895,47 @@ body.hero-ready .hero-metrics {
 
 .c-eye {
   font-family: 'Spectral', serif;
-  font-size: 18px;
-  letter-spacing: .45em;
-  margin-bottom: 12px;
+  font-size: clamp(14px, 1.5vw, 18px);
+  letter-spacing: .5em;
+  margin-bottom: 16px;
   opacity: 1;
   text-transform: uppercase;
   color: var(--cream);
-  font-weight: 500;
+  font-weight: 700;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .c-title {
   font-family: var(--site-font), serif;
-  font-size: clamp(20px, 3.5vw, 36px);
-  font-weight: 300;
-  line-height: 1.05;
+  font-size: clamp(28px, 5vw, 64px);
+  font-weight: 700;
+  line-height: 1;
   color: #fff;
-  letter-spacing: 0.08em;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .c-title em {
   display: block;
-  font-family: 'Spectral', serif;
-  margin-top: 10px;
-  letter-spacing: 0;
+  font-family: 'Spectral', serif !important;
+  margin-top: 12px;
+  letter-spacing: 0.02em;
   font-weight: 700;
+  color: var(--cream) !important; /* Visible on green backdrop */
+  font-size: 0.65em;
+  text-transform: none;
+}
+
+/* Global fix for em tags on green backgrounds */
+.canvas-sec em,
+.cm-section em,
+.cm-hero em,
+.cm-partners em,
+.awards-sec em,
+.achieve-gallery-sec em,
+section[style*="background: var(--green)"] em {
+  color: var(--cream) !important;
 }
 
 /* -- SHARED -- */
@@ -1333,7 +1349,7 @@ body.hero-ready .hero-metrics {
 .prod-head p {
   font-size: 15px;
   line-height: 1.9;
-  color: #ffe9c4
+  color: #ffffff;
 }
 
 .prod-grid {
@@ -1751,7 +1767,7 @@ body.hero-ready .hero-metrics {
 
 .brands-home-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 22px
 }
 
@@ -1763,6 +1779,9 @@ body.hero-ready .hero-metrics {
   box-shadow: 0 15px 35px rgba(0, 0, 0, .15);
   transition: all .4s cubic-bezier(0.2, 0.8, 0.2, 1);
   text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .bh-card:hover {
@@ -1796,6 +1815,7 @@ body.hero-ready .hero-metrics {
 .bh-content {
   padding: 30px 25px;
   background: rgba(40, 50, 20, 0.4);
+  flex: 1;
 }
 
 .bh-tag {
@@ -2277,8 +2297,9 @@ body.hero-ready .hero-metrics {
   border: 1px solid rgba(0, 0, 0, .08);
   border-radius: 4px;
   overflow: hidden;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 16 / 9;
   max-width: 100%;
+  max-height: 200px;
 }
 
 .omap-t {

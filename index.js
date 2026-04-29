@@ -116,7 +116,7 @@ animateHeroCounters();
   const totalEl = document.getElementById('liveTotalCount');
   if (!dailyEl || !totalEl) return;
 
-  const DAILY_TARGET = 50000;
+  const DAILY_TARGET = 17000;
   const BASE_TOTAL = 25000000; // 2.5 Crore — existing historical total
   const START_DATE = new Date(2026, 3, 25); // April 25, 2026 (month is 0-indexed)
   const SECONDS_IN_DAY = 86400;
@@ -148,9 +148,7 @@ animateHeroCounters();
     const currentTotal = BASE_TOTAL + (completedDays * DAILY_TARGET) + dailyCount;
 
     dailyEl.textContent = formatIndian(dailyCount);
-
-    const croreVal = (currentTotal / 10000000).toFixed(2);
-    totalEl.textContent = croreVal + '+ Cr';
+    totalEl.textContent = formatIndian(currentTotal);
   }
 
   let counterTimer = null;
@@ -403,8 +401,8 @@ function draw(ts) {
 
   // 3. Natural Vignette (Earthy green bottom)
   const vig = ctx.createLinearGradient(0, H * 0.6, 0, H);
-  vig.addColorStop(0, 'rgba(27, 38, 18, 0)');
-  vig.addColorStop(1, 'rgba(27, 38, 18, 0.85)'); // Deep Forest Green fade
+  vig.addColorStop(0, 'rgba(21, 29, 14, 0)');
+  vig.addColorStop(1, 'rgba(21, 29, 14, 0.9)'); // Matches new deep background #151d0e
   ctx.fillStyle = vig;
   ctx.fillRect(0, H * 0.6, W, H * 0.4);
 

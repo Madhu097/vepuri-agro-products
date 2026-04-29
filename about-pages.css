@@ -783,7 +783,7 @@ body::before {
 
 .team-gov-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 
@@ -802,6 +802,7 @@ body::before {
   border: 1px solid rgba(61, 82, 40, .14);
   box-shadow: 0 8px 24px rgba(20, 16, 12, .08);
   transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+  height: 100%;
 }
 
 .page-about .team-member {
@@ -846,26 +847,31 @@ body::before {
   padding: 18px 16px;
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 .page-about .team-member-copy {
   min-height: 120px;
-  padding: 20px 16px;
+  padding: 12px 16px 20px; /* Reduced top padding from 20px to 12px */
 }
 
 .team-member-copy h2 {
-  font-family: var(--site-font), serif;
-  font-size: clamp(20px, 1.8vw, 28px);
-  font-style: italic;
-  font-weight: 700;
-  color: #6b3828;
-  line-height: 1.18;
-  margin-bottom: 10px;
+  font-family: var(--body-font), sans-serif !important;
+  font-size: clamp(16px, 1.25vw, 21px); /* Adjusted size to ensure names fit on one line */
+  font-style: normal;
+  font-weight: 900;
+  color: #000000 !important;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+  white-space: nowrap; /* Forces single line */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adds dots if name is too long */
 }
 
 .page-about .team-member-copy h2 {
-  font-size: clamp(18px, 1.55vw, 24px);
-  margin-bottom: 7px;
+  min-height: 1.2em; /* Reduced from 2.2em as names are now single-line */
+  display: block; /* No longer need flex for vertical alignment within the box */
 }
 
 .team-member-copy p {
@@ -874,9 +880,24 @@ body::before {
   color: #2d2c2a;
 }
 
+.page-about .team-member-copy p:first-of-type {
+  min-height: 3.2em; /* Standardizes role height */
+  font-weight: 500;
+  color: #4a4a4a;
+}
+
 .page-about .team-member-copy p {
   font-size: clamp(12px, .95vw, 14px);
   line-height: 1.45;
+}
+
+.team-desc {
+  margin-top: 15px;
+  font-size: clamp(11.5px, 0.9vw, 13px);
+  line-height: 1.6;
+  color: #555;
+  font-weight: 400;
+  opacity: 0.85;
 }
 
 .tone-light {
@@ -887,9 +908,14 @@ body::before {
   background: linear-gradient(180deg, #757b49, #686f3f);
 }
 
-.tone-olive h2,
+.tone-olive h2 {
+  color: #ffffff !important; /* Forced pure white for visibility */
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Much stronger shadow for depth */
+}
+
 .tone-olive p {
-  color: #f2f1ea;
+  color: #ffffff;
+  opacity: 0.95;
 }
 
 @media(max-width:1024px) {
@@ -1720,7 +1746,7 @@ body::before {
   display: block;
   font-size: 14px;
   letter-spacing: 0.4em;
-  color: var(--kicker-color);
+  color: var(--cream); /* Visible on green backdrop */
   margin-bottom: 12px;
   text-transform: uppercase;
   font-weight: 700;
@@ -2132,7 +2158,7 @@ body::before {
 
 .gallery-header h2 em {
   font-style: italic;
-  color: #4c2318;
+  color: var(--cream); /* Visible on green backdrop */
 }
 
 .gallery-header p {
