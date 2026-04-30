@@ -2161,8 +2161,8 @@ body::before {
   display: inline-flex;
   align-items: center;
   padding: 16px 32px;
-  background: #4c2318;
-  color: #bad95f;
+  background: var(--cream);
+  color: var(--kicker-color);
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
@@ -2174,8 +2174,8 @@ body::before {
 }
 
 .gallery-btn:hover {
-  background: #bad95f;
-  color: #4c2318;
+  background: var(--white);
+  color: var(--kicker-color);
   transform: translateY(-4px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
 }
