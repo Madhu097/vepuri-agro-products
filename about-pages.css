@@ -59,7 +59,7 @@ h2 em,
 h3 em,
 .section-header h1 em,
 .section-header h2 em {
-  font-family: var(--accent-font) !important;
+  font-family: var(--site-font) !important;
   color: var(--kicker-color) !important;
   font-style: italic;
   display: inline;
