@@ -1733,6 +1733,10 @@ section[style*="background: var(--green)"] em {
 }
 
 
+#achievements .eye {
+  color: var(--kicker-color) !important;
+}
+
 #brands .eye {
   color: #6b3828;
 }
