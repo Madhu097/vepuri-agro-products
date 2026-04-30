@@ -63,7 +63,6 @@ h3 em,
   color: var(--kicker-color) !important;
   font-style: italic;
   display: inline;
-  text-transform: none;
   font-weight: 700;
   font-size: 0.72em;
 }
@@ -71,7 +70,7 @@ h3 em,
 .a-eye,
 .av-eye {
   font-family: var(--accent-font) !important;
-  text-transform: uppercase;
+  text-transform: none;
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.15em;
@@ -163,7 +162,7 @@ body::before {
   font-family: var(--site-font), serif;
   font-size: clamp(28px, 5.6vw, 70px);
   line-height: .92;
-  text-transform: uppercase;
+  text-transform: none;
   color: var(--cream);
 }
 
@@ -375,7 +374,7 @@ body::before {
   font-size: clamp(32px, 4.8vw, 56px);
   line-height: .98;
   color: #21170f;
-  text-transform: uppercase;
+  text-transform: none;
   font-weight: 800;
   margin-bottom: 5px;
 }
