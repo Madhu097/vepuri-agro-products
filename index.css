@@ -1079,7 +1079,7 @@ section[style*="background: var(--green)"] em {
   line-height: 1.5;
   box-shadow: none;
   border: 1px solid #3d3d3d;
-  border-radius: 4px;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -1378,7 +1378,7 @@ section[style*="background: var(--green)"] em {
   display: block;
   text-decoration: none;
   height: 380px;
-  border-radius: 4px;
+  border-radius: 16px;
   overflow: hidden;
   transition: transform .5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow .5s ease;
   user-select: none;

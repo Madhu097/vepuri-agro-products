@@ -59,7 +59,7 @@ h2 em,
 h3 em,
 .section-header h1 em,
 .section-header h2 em {
-  font-family: var(--site-font) !important;
+  font-family: var(--accent-font) !important;
   color: var(--kicker-color) !important;
   font-style: italic;
   display: inline;
@@ -69,7 +69,7 @@ h3 em,
 
 .a-eye,
 .av-eye {
-  font-family: var(--accent-font) !important;
+  font-family:var(--accent-font) !important;
   text-transform: none;
   font-weight: 700;
   font-size: 14px;
@@ -150,7 +150,7 @@ body::before {
 .a-hero-copy {
   background: var(--green);
   color: var(--cream);
-  border-radius: 16px;
+  border-radius: 24px;
   padding: 32px;
   border: 1px solid rgba(255, 255, 255, .38);
   box-shadow: 0 24px 52px rgba(20, 16, 12, .14);
@@ -628,7 +628,7 @@ body::before {
   bottom: 18px;
   background: linear-gradient(160deg, rgba(8, 6, 4, .86), rgba(29, 22, 14, .86));
   border: 1px solid rgba(96, 108, 56, .46);
-  border-radius: 12px;
+  border-radius: 20px;
   padding: 14px 16px;
   min-width: 180px;
 }
@@ -687,7 +687,7 @@ body::before {
 
 .page-about .core-philosophy-wrap .av-value-card {
   padding: 16px;
-  border-radius: 12px;
+  border-radius: 20px;
 }
 
 .page-about .core-philosophy-wrap .av-value-card h2 {
@@ -793,7 +793,7 @@ body::before {
   flex: 0 1 580px;
   background: rgba(40, 50, 20, 0.4);
   border: 1px solid rgba(255, 255, 255, .1);
-  border-radius: 16px;
+  border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth animation */

@@ -76,7 +76,7 @@
   background-color: var(--farm-brown);
   color: var(--farm-white);
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 12px;
   font-weight: 700;
   font-size: 16px;
   gap: 12px;
@@ -186,7 +186,7 @@
 
 .sapling-card {
   background: var(--farm-white);
-  border-radius: 16px;
+  border-radius: 24px;
   overflow: hidden;
   display: flex;
   box-shadow: 0 15px 50px rgba(0,0,0,0.04);
@@ -327,7 +327,7 @@
   padding: 40px;
   background: #fafafa;
   border: 1px solid #eeeeee;
-  border-radius: 16px;
+  border-radius: 24px;
   transition: all 0.3s ease;
 }
 
