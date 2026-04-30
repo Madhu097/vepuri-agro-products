@@ -1079,7 +1079,7 @@ section[style*="background: var(--green)"] em {
   line-height: 1.5;
   box-shadow: none;
   border: 1px solid #3d3d3d;
-  border-radius: 12px;
+  border-radius: 18px;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -1122,7 +1122,7 @@ section[style*="background: var(--green)"] em {
   left: 0;
   width: 84%;
   height: 450px;
-  border-radius: 3px;
+  border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 32px 80px rgba(0, 0, 0, .6)
 }
@@ -1143,7 +1143,8 @@ section[style*="background: var(--green)"] em {
   height: 100%;
   object-fit: cover;
   transition: transform 8s ease;
-  display: block
+  display: block;
+  border-radius: 20px;
 }
 
 .a-main:hover img {
@@ -1165,7 +1166,7 @@ section[style*="background: var(--green)"] em {
   right: 0;
   width: 52%;
   height: 260px;
-  border-radius: 3px;
+  border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 24px 60px var(--green);
   border: 3px solid var(--green)

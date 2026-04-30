@@ -11,6 +11,7 @@
   background-color: var(--farm-white);
   color: var(--farm-text);
   overflow-x: hidden;
+  padding-top: 75px;
 }
 
 
