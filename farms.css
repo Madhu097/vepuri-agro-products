@@ -4,6 +4,7 @@
   --farm-cream: #f9f6f0;
   --farm-white: #ffffff;
   --farm-text: #2c2c2c;
+  --farm-accent: #bad95f;
 }
 
 /* Global Adjustments */
@@ -12,15 +13,13 @@
   color: var(--farm-text);
   overflow-x: hidden;
   padding-top: 75px;
+  font-family: var(--body-font), sans-serif;
 }
 
-
-
-
-/* Hero Section */
+/* Hero Section - Reduced Height & Tightened */
 .farm-hero {
   position: relative;
-  height: 85vh;
+  height: 70vh; /* Reduced from 85vh */
   width: 100%;
   display: flex;
   align-items: center;
@@ -46,26 +45,34 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2));
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.1));
   z-index: -1;
 }
 
 .farm-hero-content {
-  max-width: 900px;
+  max-width: 800px;
 }
 
 .farm-hero h1 {
-  font-size: clamp(48px, 8vw, 96px);
-  line-height: 1;
+  font-family: var(--site-font), serif;
+  font-size: clamp(42px, 7vw, 84px);
+  line-height: 1.1;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.hero-line {
+  width: 60px;
+  height: 3px;
+  background-color: var(--farm-accent);
   margin-bottom: 25px;
-  font-weight: 800;
 }
 
 .farm-hero p {
-  font-size: clamp(18px, 2.2vw, 24px);
+  font-size: clamp(16px, 1.8vw, 20px);
   line-height: 1.4;
-  margin-bottom: 40px;
-  max-width: 650px;
+  margin-bottom: 35px;
+  max-width: 580px;
   opacity: 0.95;
   font-weight: 400;
 }
@@ -73,27 +80,27 @@
 .farm-hero-btn {
   display: inline-flex;
   align-items: center;
-  padding: 18px 36px;
+  padding: 14px 30px;
   background-color: var(--farm-brown);
   color: var(--farm-white);
   text-decoration: none;
-  border-radius: 12px;
+  border-radius: 8px;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 14px;
   gap: 12px;
   transition: all 0.3s ease;
   letter-spacing: 0.05em;
 }
 
 .farm-hero-btn:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
   background-color: #5d2b1d;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-/* Intro Section */
+/* Intro Section - Tighter */
 .farm-intro {
-  padding: 120px 8%;
+  padding: 80px 8%;
   text-align: center;
   background-color: var(--farm-white);
 }
@@ -101,39 +108,38 @@
 .farm-intro-container {
   max-width: 1000px;
   margin: 0 auto;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px;
+  gap: 30px;
 }
 
 .farm-intro p {
-  font-size: clamp(22px, 3.5vw, 32px);
+  font-size: clamp(18px, 2.5vw, 24px);
   line-height: 1.5;
-  color: #333;
+  color: #4a4a4a;
   font-family: var(--site-font);
-  max-width: 800px;
+  max-width: 750px;
+  margin: 0;
 }
 
 .intro-leaf {
-  width: 80px;
+  width: 60px;
   height: auto;
-  opacity: 0.3;
+  opacity: 0.25;
 }
 
 .intro-leaf-r {
   transform: scaleX(-1);
 }
 
-/* Section Tag with Dividers */
+/* Section Tag - Divider Line Style */
 .section-tag {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 25px;
-  margin-bottom: 60px;
-  width: 100%;
+  gap: 20px;
+  margin-bottom: 50px;
 }
 
 .section-tag::before, .section-tag::after {
@@ -141,7 +147,6 @@
   height: 1px;
   background-color: rgba(0,0,0,0.1);
   flex: 1;
-  max-width: 300px;
 }
 
 .tag-content {
@@ -152,378 +157,349 @@
 }
 
 .tag-icon-circle {
-  width: 50px;
-  height: 50px;
+  width: 44px;
+  height: 44px;
   background-color: var(--farm-green);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  margin-bottom: 5px;
 }
 
 .tag-text {
   font-family: var(--body-font);
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   font-weight: 800;
   color: var(--farm-green);
-  font-size: 14px;
-  white-space: nowrap;
+  font-size: 13px;
 }
 
-/* Sapling Varieties */
+/* Sapling Varieties - Horizontal Layout */
 .sapling-section {
-  padding: 80px 8% 120px;
-  background-color: #fafaf8;
+  padding: 60px 8% 100px;
+  background-color: #fdfdfc;
 }
 
 .sapling-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .sapling-card {
-  background: var(--farm-white);
-  border-radius: 24px;
+  background: white;
+  border-radius: 20px;
   overflow: hidden;
   display: flex;
-  box-shadow: 0 15px 50px rgba(0,0,0,0.04);
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  border: 1px solid rgba(0,0,0,0.02);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.04);
 }
 
-.sapling-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 30px 70px rgba(0,0,0,0.08);
+.s-card-media {
+  width: 40%;
+  min-height: 240px;
 }
 
-.sapling-card-img {
-  width: 48%;
-  object-fit: cover;
-}
-
-.sapling-card-body {
-  width: 52%;
-  padding: 50px 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.variety-icon {
-  width: 40px;
-  height: 40px;
-  background-color: var(--farm-green);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 25px;
-  color: white;
-}
-
-.sapling-card h3 {
-  font-size: 36px;
-  margin-bottom: 18px;
-  color: var(--farm-brown);
-  font-weight: 700;
-}
-
-.sapling-card p {
-  font-size: 17px;
-  line-height: 1.7;
-  color: #666;
-}
-
-/* Capacity Section */
-.capacity-section {
-  padding: 100px 8%;
-  background-color: var(--farm-white);
-}
-
-.capacity-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1.5fr 2fr;
-  gap: 0;
-  align-items: stretch;
-  background-color: #f6f8ef;
-  border-radius: 24px;
-  overflow: hidden;
-}
-
-.cap-num {
-  padding: 80px 50px;
-  border-right: 1px solid rgba(0,0,0,0.06);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.cap-num .ico {
-  width: 60px;
-  margin-bottom: 25px;
-  color: var(--farm-green);
-}
-
-.cap-num h2 {
-  font-size: 72px;
-  color: var(--farm-brown);
-  line-height: 1;
-  font-weight: 800;
-}
-
-.cap-num span {
-  font-family: var(--body-font);
-  text-transform: uppercase;
-  font-weight: 800;
-  letter-spacing: 2px;
-  font-size: 15px;
-  margin-top: 10px;
-}
-
-.cap-txt {
-  padding: 60px 50px;
-  display: flex;
-  align-items: center;
-}
-
-.cap-txt p {
-  font-size: 19px;
-  line-height: 1.8;
-  color: #4a4a4a;
-}
-
-.cap-txt p strong {
-  color: var(--farm-text);
-  font-weight: 700;
-}
-
-.cap-img {
+.s-card-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* Certifications */
-.cert-section {
-  padding: 100px 8%;
-  background-color: var(--farm-white);
+.s-card-info {
+  width: 60%;
+  padding: 35px 30px;
+  display: flex;
+  flex-direction: column;
 }
 
-.cert-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-}
-
-.cert-card {
+.s-icon-wrap {
+  width: 36px;
+  height: 36px;
+  background-color: var(--farm-green);
+  border-radius: 50%;
   display: flex;
   align-items: center;
-  gap: 30px;
-  padding: 40px;
-  background: #fafafa;
-  border: 1px solid #eeeeee;
-  border-radius: 24px;
-  transition: all 0.3s ease;
+  justify-content: center;
+  color: white;
+  margin-bottom: 15px;
 }
 
-.cert-card:hover {
-  background: #fff;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  border-color: var(--farm-green);
+.s-card-info h3 {
+  font-family: var(--site-font);
+  font-size: 28px;
+  color: var(--farm-brown);
+  margin-bottom: 10px;
 }
 
-.cert-logo {
-  width: 90px;
-  height: 90px;
+.s-card-info p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #666;
+}
+
+/* Capacity Section - Exact Box Layout */
+.capacity-wrap {
+  padding: 80px 8%;
+  background: white;
+}
+
+.capacity-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  background-color: #f6f8ef;
+  border-radius: 20px;
+  overflow: hidden;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cap-metric {
+  padding: 50px 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-right: 1px solid rgba(0,0,0,0.06);
+}
+
+.cap-icon {
+  width: 50px;
+  color: var(--farm-green);
+}
+
+.cap-val h2 {
+  font-family: var(--site-font);
+  font-size: 52px;
+  color: var(--farm-brown);
+  line-height: 1;
+}
+
+.cap-val span {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--farm-green);
+  letter-spacing: 1px;
+}
+
+.cap-desc {
+  padding: 50px 40px;
+  display: flex;
+  align-items: center;
+}
+
+.cap-desc p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #4a4a4a;
+}
+
+.cap-media {
+  width: 100%;
+}
+
+.cap-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Certifications Bar */
+.cert-bar {
+  padding: 80px 8%;
+}
+
+.cert-line-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.cert-line-tag::before, .cert-line-tag::after {
+  content: '';
+  height: 1px;
+  background-color: rgba(0,0,0,0.1);
+  flex: 1;
+}
+
+.cert-line-tag span {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--farm-text);
+}
+
+.cert-flex {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.cert-item {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  max-width: 450px;
+  padding: 20px;
+  border-left: 1px solid rgba(0,0,0,0.1);
+}
+
+.cert-item img {
+  width: 70px;
+  height: 70px;
   object-fit: contain;
 }
 
-.cert-info h4 {
-  font-size: 22px;
-  margin-bottom: 10px;
+.ci-text h5 {
   font-family: var(--body-font);
-  font-weight: 700;
-  color: var(--farm-text);
-}
-
-.cert-info p {
   font-size: 16px;
-  color: #666;
-  line-height: 1.5;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 5px;
 }
 
-/* Buy-Back Section */
-.buyback-section {
+.ci-text p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* Buy-Back Section - Exact Grid */
+.bb-section {
   padding: 80px 8% 120px;
 }
 
-.buyback-card {
+.bb-wrapper {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   background-color: var(--farm-cream);
-  border-radius: 24px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 40px 80px rgba(0,0,0,0.06);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.bb-img {
+.bb-visual img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.bb-body {
-  padding: 100px 80px;
+.bb-content {
+  padding: 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.bb-kicker {
+.bb-tag {
   color: var(--farm-green);
-  text-transform: uppercase;
   font-weight: 800;
-  letter-spacing: 3px;
-  font-size: 15px;
-  margin-bottom: 15px;
-  display: block;
+  letter-spacing: 2px;
+  font-size: 13px;
+  margin-bottom: 12px;
 }
 
-.bb-body h2 {
-  font-size: clamp(36px, 5vw, 64px);
-  margin-bottom: 30px;
+.bb-content h2 {
+  font-family: var(--site-font);
+  font-size: 48px;
   color: var(--farm-brown);
-  line-height: 1.1;
-  font-weight: 700;
+  margin-bottom: 25px;
 }
 
-.bb-body p {
-  font-size: 19px;
-  line-height: 1.8;
+.bb-content p {
+  font-size: 16px;
+  line-height: 1.7;
   color: #4a4a4a;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
-.bb-icons {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.bb-feature-row {
+  display: flex;
   gap: 30px;
 }
 
-.bb-ico-item {
+.bb-f-item {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 15px;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  flex: 1;
 }
 
-.bb-ico-circle {
-  width: 56px;
-  height: 56px;
+.bf-circle {
+  width: 50px;
+  height: 50px;
   background-color: var(--farm-green);
-  border-radius: 14px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  transition: transform 0.3s ease;
 }
 
-.bb-ico-item:hover .bb-ico-circle {
-  transform: scale(1.1) rotate(5deg);
-}
-
-.bb-ico-item span {
-  font-size: 15px;
+.bb-f-item span {
+  font-size: 13px;
   font-weight: 700;
-  line-height: 1.3;
-  color: var(--farm-text);
+  line-height: 1.2;
 }
 
-/* Bottom CTA */
-.farm-cta {
-  padding: 100px 8%;
+/* Dark CTA Bar - Bottom */
+.dark-cta-bar {
   background-color: var(--farm-brown);
-  color: white;
+  padding: 40px 8%;
+}
+
+.cta-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.cta-left {
+.cta-msg {
   display: flex;
   align-items: center;
-  gap: 35px;
+  gap: 25px;
 }
 
-.cta-left .ico-circle {
-  width: 80px;
-  height: 80px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.cta-msg h3 {
+  color: white;
+  font-family: var(--site-font);
+  font-size: 28px;
+  font-weight: 400;
 }
 
-.cta-left h2 {
-  font-size: clamp(28px, 4vw, 48px);
-  max-width: 600px;
-  line-height: 1.2;
-  font-weight: 700;
-}
-
-.cta-btn-white {
-  padding: 22px 48px;
-  background-color: white;
+.cta-pill-btn {
+  background: white;
   color: var(--farm-brown);
+  padding: 16px 36px;
+  border-radius: 4px;
   text-decoration: none;
-  border-radius: 6px;
   font-weight: 800;
+  font-size: 14px;
   display: flex;
   align-items: center;
   gap: 15px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  font-size: 16px;
-  letter-spacing: 0.05em;
-  white-space: nowrap;
+  transition: transform 0.3s ease;
 }
 
-.cta-btn-white:hover {
-  background-color: var(--farm-cream);
-  transform: translateX(8px);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+.cta-pill-btn:hover {
+  transform: scale(1.05);
 }
 
 /* Responsive */
-@media (max-width: 1200px) {
-  .sapling-grid { grid-template-columns: 1fr; }
-  .capacity-grid { grid-template-columns: 1fr; }
-  .cap-num { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.06); }
-  .bb-body { padding: 60px 40px; }
-}
-
 @media (max-width: 1024px) {
-  .cert-grid { grid-template-columns: 1fr; }
-  .buyback-card { grid-template-columns: 1fr; }
-  .farm-cta { flex-direction: column; text-align: center; }
-  .cta-left { flex-direction: column; gap: 20px; }
-  .bb-icons { grid-template-columns: 1fr; gap: 20px; }
-  .bb-ico-item { align-items: center; text-align: center; }
-}
-
-@media (max-width: 768px) {
-  .sapling-card { flex-direction: column; }
-  .sapling-card-img, .sapling-card-body { width: 100%; }
-  .farm-intro-container { flex-direction: column; }
-  .intro-leaf { width: 60px; }
-  .farm-hero { height: auto; padding: 150px 8% 80px; }
+  .sapling-grid, .capacity-box, .bb-wrapper { grid-template-columns: 1fr; }
+  .cert-flex { gap: 30px; }
+  .cta-inner { flex-direction: column; gap: 30px; text-align: center; }
+  .cta-msg { flex-direction: column; text-align: center; }
+  .cap-metric { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.06); }
 }
