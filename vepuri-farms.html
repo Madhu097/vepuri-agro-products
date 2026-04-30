@@ -20,25 +20,27 @@
 
 <body class="farm-page">
 
-  <!-- NAVIGATION (Exact Match to Reference) -->
+  <!-- NAVIGATION -->
   <nav id="nav">
     <div class="nav-logo">
-      <a href="index.html"><img src="assets/farms/logo.png" alt="Vepuri Rooted in Nature" loading="eager" decoding="async"></a>
+      <a href="index.html"><img src="assets/newlogo.png" alt="Vepuri Agro Products" loading="eager" decoding="async"></a>
     </div>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about-vepuri.html">About Us</a></li>
+      <li><a href="index.html#hero">Home</a></li>
       <li class="has-submenu">
-        <a href="brands.html">Our Brands<span class="dd-caret" aria-hidden="true"></span></a>
+        <a href="about-vepuri.html">About<span class="dd-caret" aria-hidden="true"></span></a>
         <ul class="submenu">
-          <li><a href="brands.html">Vepuri Brands</a></li>
-          <li><a href="product.html">Industrial Products</a></li>
+          <li><a href="about-vepuri.html">About Vepuri</a></li>
+          <li><a href="journey.html">Our Journey</a></li>
+          <li><a href="vepuri-farms.html" class="active">Farms & Nurseries</a></li>
+          <li><a href="brands.html">Our Brands</a></li>
         </ul>
       </li>
-      <li><a href="#">Sustainability</a></li>
-      <li><a href="#">Careers</a></li>
-      <li><a href="index.html#contact">Contact Us</a></li>
-      <li><a href="index.html#contact" class="nav-btn" style="background: var(--farm-brown) !important; color: white !important;">Enquire Now</a></li>
+      <li><a href="product.html">Products</a></li>
+      <li><a href="index.html#network">Network</a></li>
+      <li><a href="b2b-expertise.html">B2B Expertise</a></li>
+      <li><a href="index.html#dept-contacts">Department Contacts</a></li>
+      <li><a href="index.html#enquiryForm" class="nav-btn">ENQUIRE NOW &rarr;</a></li>
     </ul>
     <div class="hamburger" id="hbg" onclick="toggleNav()">
       <span></span><span></span><span></span>
@@ -206,36 +208,53 @@
         <p class="fb-txt">A coconut-based food processing company building value through innovation, integrity, and industry-grade quality since 2018.</p>
       </div>
       <div class="fc">
-        <h4>Navigation</h4>
+        <h4>Quick Links</h4>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="about-vepuri.html">About</a></li>
+          <li><a href="about-vepuri.html">About Us</a></li>
           <li><a href="journey.html">Journey</a></li>
           <li><a href="product.html">Products</a></li>
+          <li><a href="index.html#network">Network</a></li>
           <li><a href="brands.html">Brands</a></li>
           <li><a href="b2b-expertise.html">B2B Expertise</a></li>
+          <li><a href="index.html#dept-contacts">Department Contacts</a></li>
         </ul>
       </div>
       <div class="fc">
-        <h4>Contact</h4>
+        <h4>Products</h4>
         <ul>
-          <li><a href="mailto:info@vepuriagro.com">info@vepuriagro.com</a></li>
-          <li><a href="tel:+919999999999">+91 99999 99999</a></li>
-          <li><a href="index.html#contact">Enquiry Form</a></li>
+          <li><a href="product.html">Coconut Powder</a></li>
+          <li><a href="product.html">Coconut Oil</a></li>
+          <li><a href="product.html">Coconut Derivatives</a></li>
+          <li><a href="index.html#contact">Request Sample</a></li>
+          <li><a href="index.html#contact">Bulk Enquiry</a></li>
         </ul>
       </div>
       <div class="fnl">
-        <h4>Newsletter</h4>
-        <p>Stay updated with our latest agricultural insights and product launches.</p>
-        <div class="nl-row">
-          <input type="email" placeholder="Email Address">
-          <button type="button">JOIN</button>
-        </div>
+        <h4>Stay Updated</h4>
+        <p>Get updates on products, partnerships & industry news from Vepuri.</p>
+        <form id="newsletterForm" action="https://formsubmit.co/vepurigroup@gmail.com" method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="New Newsletter Subscriber - Vepuri">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_autoresponse"
+            value="Welcome to Vepuri Agro Products! Thank you for subscribing. You'll now receive updates on our products, partnerships, and industry news. Stay connected with us at vepuriagro.com">
+          <input type="text" name="_honey" style="display:none">
+          <div class="nl-row" id="nlRow">
+            <input type="email" name="email" placeholder="your@email.com" required>
+            <button type="submit">&rarr;</button>
+          </div>
+        </form>
+        <div id="nlSuccess" style="display:none; color:#96AC38; font-weight:600; margin-top:10px;">Welcome! You're
+          subscribed.</div>
       </div>
     </div>
     <div class="fbot">
       <p class="fbot-copy">&copy; 2026 Vepuri Agro Products. All rights reserved.</p>
-      <div class="fbot-tag">Designed with Excellence</div>
+      <p class="fbot-tag">Designed and Developed by <a href="https://firstlook.digital/" target="_blank"
+          style="text-decoration: none; font-weight: 700;"><span style="color: #ff6d1f;">F</span><span
+            style="color: #222222;">1</span><span style="color: #ff6d1f;">RST</span><span
+            style="color: #222222;">LOOK</span></a></p>
     </div>
   </footer>
 
